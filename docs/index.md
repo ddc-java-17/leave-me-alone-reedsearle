@@ -9,47 +9,56 @@ order: 0
 
 ## Summary
 
-Replace this paragraph with one or more paragraphs summarizing the purpose and operation of the Android app you propose to develop in this project.
+The Leave Me alone app is designed to provide additional security to those people who frequently 
+have their phones in public places. The app, once activated, will sound an alarm if the phone is 
+moved before the unlock code is entered.  Additionally, the app will determine which camera is 
+facing up and take a photo.  THis photo will be sent to the user's email address to assist in 
+identifying the phone theft culprit.
 
 ## Intended users & user stories
 {: menu="Users" }
 
-Write a bullet list here, including at least 2 different types of intended users. Make it reasonably specific; simply saying "Anyone who likes games" (for example) is not sufficiently specific.
+The primary user is one who has their phone in public places frequently.  Users of this type include 
+students, professionals, sales people, etc.  Also in this category are users who are prone to 
+forgetting their phones.
 
-For each type of intended user, include at least 1 _user story_. A user story is usually just 1 simple sentence (no more than 2 sentences), in the voice of the intended user, stating a specific task that the user performs using the app, and the benefit that will be obtained. The simplest user stories take the form 
+As someone who lives in a place where phone might be taken, I want a feature that makes a loud noise 
+to alert me that someone has grabbed my phone.  I would like a picture to be taken of that person
+so I have a chance of getting my phone back.
 
-> As a <type of intended user (_who_)> I want to <use of specific feature or functionality (_what_)> so that <benefit (_why_).
+The other type of user is a practical joker.  This person might install this app on their phone and 
+ask a friend to hand the phone to them.  Alternatively, the practical joker might install the app
+on a friend's phone so the friend cannot touch the phone without setting off the alarm.
 
-Please avoid writing too much for the user story. In particular, if the way the user story is written makes it difficult to see the _who_, _what_, and _why_, then you probably need to re-write it more directly. (On the other hand, a user story should not simply be a re-statement of the intended user description.)
-
-Here is one (silly) example of an intended user, along with a user story. Please note not only the conceptual structure, but the Markdown syntax used.
-
-* People who like to use randomness in their decision-making.
-
-    > As someone who enjoys randomness in my life, I use this app to flip a virtual coin or roll one or more virtual dice, so that I can base my decisions on randomness without having to carry coins or dice in my pockets.
+As a practical joker, I would love an app that would scare my friends if they touched my phone.
 
 ## Functionality
 
-List (using a bullet list---or ordered list, if order is relevant) the key functional aspects that will be provided by the app---i.e., tell us what the user will be able to do using the app. This should not simply be a re-statement of the [summary](#summary), but should instead provide a more specific articulation of the functionality and user experience. 
+The user will be able to do the following:
+  * Set an alarm type, similar to ringtone only much louder
+    * Set method of engagement, either manually or automatically when the screen times out
+    * set an address (email, text, Whatsapp) to which photos to be sent iin the event of theft
 
 ## Persistent data
 {: menu="Persistence" }
 
-Using a bullet list, list what content will be stored on the Android device. This should include any information that users of your app would expect to be maintained (i.e., without connection to a server) across multiple sessions of use.
-
-For example, this starter app already includes the necessary data model elements and data-access code to store & retrieve the following 
-
 * User
-    * Display name
-    * OAuth2.0 identifier
-    * Timestamp of first login to the app
+    * Authentication code
+    * Alarm preferences
     
 ## Device/external services
 {: menu="Services" }
 
-If the client component will need to access special services of the device (e.g., sensors, contacts, messaging), list them here using a bullet list. Also, if the client component will need to access already-existing external services (e.g., real-time weather data, Open Movie Database, Open Trivia Database), those should also be listed here; any such references to external services should include links to the main page or API description page for the service.
+Device Services
+  * Accelerometer
+  * Cameras
+  * Phone data related to screen time out
+
+External Services
+  * Email tools
+  * text tools
+  * Whatsapp, Instagram type apps
 
 ## Stretch goals and possible enhancements 
 {: menu="Stretch goals" }
 
-If you can identify functional elements of the software that you think might not be achievable in the scope of the project, but which would nonetheless add significant value if you were able to include them, list them here. For now, we recommend listing them in order of complexity/amount of work, from the least to the most.
