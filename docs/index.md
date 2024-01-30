@@ -36,8 +36,10 @@ As a practical joker, I would love an app that would scare my friends if they to
 
 The user will be able to do the following:
   * Set an alarm type, similar to ringtone only much louder
-    * Set method of engagement, either manually or automatically when the screen times out
-    * set an address (email, text, Whatsapp) to which photos to be sent iin the event of theft
+  * Set method of engagement, either manually or automatically when the screen times out
+  * set an address (email, text, Whatsapp) to which photos to be sent in the event of theft
+  * set an authentication code to disable the alarm
+  * set a delay for entering the authentication code
 
 ## Persistent data
 {: menu="Persistence" }
@@ -45,6 +47,8 @@ The user will be able to do the following:
 * User
     * Authentication code
     * Alarm preferences
+    * Delay times
+    * Manual/Automatic mode (on startup)
     
 ## Device/external services
 {: menu="Services" }
@@ -61,4 +65,7 @@ External Services
 
 ## Stretch goals and possible enhancements 
 {: menu="Stretch goals" }
+
+I would like to add GPS tracking so the phone can be followed
+
 
