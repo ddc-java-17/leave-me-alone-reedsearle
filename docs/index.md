@@ -12,7 +12,7 @@ order: 0
 The Leave Me alone app is designed to provide additional security to those people who frequently 
 have their phones in public places. The app, once activated, will sound an alarm if the phone is 
 moved before the unlock code is entered.  Additionally, the app will determine which camera is 
-facing up and take a photo.  THis photo will be sent to the user's email address to assist in 
+facing up and take a photo.  This photo will be sent to the user's email address to assist in 
 identifying the phone theft culprit.
 
 ## Intended users & user stories
