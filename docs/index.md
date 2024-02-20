@@ -36,6 +36,7 @@ As a practical joker, I would love an app that would scare my friends if they to
 
 The user will be able to do the following:
   * Set an alarm type, similar to ringtone only much louder
+  * Trigger alarm immediately
   * Set method of engagement, either manually or automatically when the screen times out
   * set an address (email, text, Whatsapp) to which photos to be sent in the event of theft
   * set an authentication code to disable the alarm
@@ -46,26 +47,31 @@ The user will be able to do the following:
 
 * User
     * Authentication code
-    * Alarm preferences
+    * Alarm and chirp preferences
     * Delay times
     * Manual/Automatic mode (on startup)
+    * List of secure and unsecure locations based on previous triggered alerts
     
 ## Device/external services
 {: menu="Services" }
 
 Device Services
-  * Accelerometer
-  * Cameras
-  * Phone data related to screen time out
+
+  * CameraX - https://developer.android.com/media/camera/camerax This will be used to take a picture on both the front-facing and rear-facing cameras in the event of theft. This code will live on the device
+  * Motion Sensors - https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion Sensors will include accelerometers, gyroscopes and linear motion sensors used to detect motion after the alarm has been armed
+  * Sounds - https://developer.android.com/reference/android/media/SoundPool The SoundPool manager will play the alarm and chirp sounds as necessary
 
 External Services
-  * Email tools
-  * text tools
-  * Whatsapp, Instagram type apps
+
+  * Email tools - https://developer.android.com/guide/components/intents-common This is a list of comm Intents including sending email with multiple attachments
+  * https://developer.android.com/reference/android/content/Intent#ACTION_SEND This is the specific Intent for emailing with an attachment
 
 ## Stretch goals and possible enhancements 
 {: menu="Stretch goals" }
 
-I would like to add GPS tracking so the phone can be followed
+  *Add GPS tracking so the phone can be followed
+  *Use phone sleep time out to arm alarm
+  *Add notification to Whatsapp, Instagram and others
+  *Tools to add sounds to library
 
 
