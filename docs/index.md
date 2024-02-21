@@ -23,7 +23,7 @@ students, professionals, sales people, etc.  Also in this category are users who
 forgetting their phones.
 
 As someone who lives in a place where phone might be taken, I want a feature that makes a loud noise 
-to alert me that someone has grabbed my phone.  I would like a picture to be taken of that person
+to alert me that someone has grabbed my phone.  I would like a picture to be taken of that person,
 so I have a chance of getting my phone back.
 
 The other type of user is a practical joker.  This person might install this app on their phone and 
@@ -58,6 +58,7 @@ The user will be able to do the following:
 Device Services
 
   * CameraX - https://developer.android.com/media/camera/camerax This will be used to take a picture on both the front-facing and rear-facing cameras in the event of theft. This code will live on the device
+  * GPS Services - https://developer.android.com/develop/sensors-and-location/location/request-updates The GPS is used to set the location of secure and unsecure locations.  Then, the GPS is used to automatically detect those locations and change the alert settings accordingly.  In addition, if the phone is stolen, The GPS is used to get current locations to send through email to the owner in an effort to track the phone.  
   * Motion Sensors - https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion Sensors will include accelerometers, gyroscopes and linear motion sensors used to detect motion after the alarm has been armed
   * Sounds - https://developer.android.com/reference/android/media/SoundPool The SoundPool manager will play the alarm and chirp sounds as necessary
 
@@ -66,12 +67,17 @@ External Services
   * Email tools - https://developer.android.com/guide/components/intents-common This is a list of comm Intents including sending email with multiple attachments
   * https://developer.android.com/reference/android/content/Intent#ACTION_SEND This is the specific Intent for emailing with an attachment
 
+Service Requirements
+
+All services will be highly recommended but the app will operate without any dangerous services, 
+although at a somewhat reduced capability.
+
 ## Stretch goals and possible enhancements 
 {: menu="Stretch goals" }
 
-  *Add GPS tracking so the phone can be followed
-  *Use phone sleep time out to arm alarm
-  *Add notification to Whatsapp, Instagram and others
-  *Tools to add sounds to library
+  * Add GPS tracking so the phone can be followed
+  * Use phone sleep time out to arm alarm
+  * Add notification to Whatsapp, Instagram and others
+  * Tools to add sounds to library
 
 
