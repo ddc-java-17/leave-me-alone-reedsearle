@@ -30,7 +30,6 @@ public class Location {
     private boolean tracked;
 
     @Embedded
-    @ColumnInfo(name = "coordinate", index = true)
     private GPSCoord gpsCoord;
 
     @ColumnInfo(name = "timestamp", index = true)
