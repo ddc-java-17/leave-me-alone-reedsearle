@@ -1,8 +1,8 @@
 package edu.cnm.deepdive.leavemealone.model;
 
+import edu.cnm.deepdive.leavemealone.model.entity.GPSCoord;
 import java.net.URI;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Alert {

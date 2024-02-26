@@ -2,7 +2,7 @@ package edu.cnm.deepdive.leavemealone.model;
 
 import java.util.List;
 
-public class User {
+public class UserGoingAway {
 
   private String name;  // Actual name of user, not username from login
   private String password; // is password necessary with the login page already created?
@@ -12,7 +12,7 @@ public class User {
 
   private List<Alert> alerts;
 
-  private User() {
+  private UserGoingAway() {
     // TODO: 2/12/2024 Add constructor
   }
 
