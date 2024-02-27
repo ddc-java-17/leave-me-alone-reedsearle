@@ -26,7 +26,7 @@ import edu.cnm.deepdive.leavemealone.model.dao.LocationDao;
 import edu.cnm.deepdive.leavemealone.model.dao.UserDao;
 import edu.cnm.deepdive.leavemealone.model.entity.Location;
 import edu.cnm.deepdive.leavemealone.model.entity.User;
-import edu.cnm.deepdive.leavemealone.service.LMADatabase.Converters;
+import edu.cnm.deepdive.leavemealone.service.LeaveMeAloneDatabase.Converters;
 import java.time.Instant;
 
 /**
@@ -38,12 +38,12 @@ import java.time.Instant;
     version = 1
 )
 @TypeConverters({Converters.class})
-public abstract class LMADatabase extends RoomDatabase {
+public abstract class LeaveMeAloneDatabase extends RoomDatabase {
 
   /**  Name of SQLite database file. */
   public static final String NAME = "locations";
 
-  LMADatabase() {
+  LeaveMeAloneDatabase() {
     // Package-private constructor to avoid automatic HTML generation for Javadocs.
   }
 

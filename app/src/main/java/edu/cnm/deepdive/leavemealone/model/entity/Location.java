@@ -7,16 +7,12 @@ import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+import edu.cnm.deepdive.leavemealone.model.pojo.GPSCoord;
 import java.time.Instant;
 
 @Entity(
     tableName = "location",
-    indices = {
-        @Index(value = "secure", unique = true),
-        @Index(value = "coordinate", unique = true)
-    }
-
-)
+    indices = {})
 public class Location {
 
     @PrimaryKey(autoGenerate = true)

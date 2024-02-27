@@ -1,6 +1,6 @@
 package edu.cnm.deepdive.leavemealone.model;
 
-import edu.cnm.deepdive.leavemealone.model.entity.GPSCoord;
+import edu.cnm.deepdive.leavemealone.model.pojo.GPSCoord;
 import java.net.URI;
 import java.time.Instant;
 import java.util.List;

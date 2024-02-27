@@ -1,7 +1,6 @@
 package edu.cnm.deepdive.leavemealone.hilt;
 
 import android.content.Context;
-import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import dagger.Module;
@@ -11,40 +10,38 @@ import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 import edu.cnm.deepdive.leavemealone.model.dao.LocationDao;
 import edu.cnm.deepdive.leavemealone.model.dao.UserDao;
-import edu.cnm.deepdive.leavemealone.model.entity.Location;
-import edu.cnm.deepdive.leavemealone.model.entity.User;
-import edu.cnm.deepdive.leavemealone.service.LMADatabase;
+import edu.cnm.deepdive.leavemealone.service.LeaveMeAloneDatabase;
 import javax.inject.Singleton;
 
 /**
  * Uses Dagger {@link Provides @Provides}-annotated methods to satisfy dependencies on concrete
- * implementations of {@link LMADatabase} and {@link UserDao}.
+ * implementations of {@link LeaveMeAloneDatabase} and {@link UserDao}.
  */
 
 @InstallIn(SingletonComponent.class)
 @Module
-public abstract class LMADatabaseModule extends RoomDatabase {
+public class LeaveMeAloneDatabaseModule {
 
-  LMADatabaseModule() {
+  LeaveMeAloneDatabaseModule() {
     // Package-private constructor to avoid automatic HTML documentation generation.
   }
 
   @Provides
   @Singleton
-  LMADatabase provideLocalDatabase(@ApplicationContext Context context) {
+  LeaveMeAloneDatabase provideLocalDatabase(@ApplicationContext Context context) {
     return Room
-        .databaseBuilder(context, LMADatabase.class, LMADatabase.NAME)
-        .addCallback(new LMADatabase.Callback())
+        .databaseBuilder(context, LeaveMeAloneDatabase.class, LeaveMeAloneDatabase.NAME)
+        .addCallback(new LeaveMeAloneDatabase.Callback())
         .build();
   }
 
   @Provides
-  UserDao provideUserDao(LMADatabase database) {
+  UserDao provideUserDao(LeaveMeAloneDatabase database) {
     return database.getUserDao();
   }
 
   @Provides
-  public LocationDao providesLocationDao(LMADatabase database) {
+  public LocationDao providesLocationDao(LeaveMeAloneDatabase database) {
     return database.getLocationDao();
   }
 
