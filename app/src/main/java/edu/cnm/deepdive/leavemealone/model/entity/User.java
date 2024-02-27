@@ -41,9 +41,6 @@ public class User {
   @ColumnInfo(name = "user_id")
   private long id;
 
-  @NonNull
-  private Instant created = Instant.MIN;
-
   @ColumnInfo(name = "oauth_key")
   @NonNull
   private String oauthKey = "";
@@ -69,24 +66,6 @@ public class User {
   @SuppressWarnings("JavadocDeclaration")
   public void setId(long id) {
     this.id = id;
-  }
-
-  /**
-   * Returns the timestamp of the INSERT of this user in the database.
-   */
-  @NonNull
-  public Instant getCreated() {
-    return created;
-  }
-
-  /**
-   * Sets the INSERT timestamp of this user. This method should be invoked just prior to INSERT.
-   *
-   * @param created
-   */
-  @SuppressWarnings("JavadocDeclaration")
-  public void setCreated(@NonNull Instant created) {
-    this.created = created;
   }
 
   /**
