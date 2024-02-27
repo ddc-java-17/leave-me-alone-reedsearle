@@ -1,0 +1,167 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "6199cbac0dd14a8b85e8148fc233ace5",
+    "entities": [
+      {
+        "tableName": "user",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `created` INTEGER NOT NULL, `oauth_key` TEXT NOT NULL, `display_name` TEXT NOT NULL COLLATE NOCASE)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "created",
+            "columnName": "created",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oauthKey",
+            "columnName": "oauth_key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "displayName",
+            "columnName": "display_name",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "user_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_user_oauth_key",
+            "unique": true,
+            "columnNames": [
+              "oauth_key"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_user_oauth_key` ON `${TABLE_NAME}` (`oauth_key`)"
+          },
+          {
+            "name": "index_user_display_name",
+            "unique": true,
+            "columnNames": [
+              "display_name"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_user_display_name` ON `${TABLE_NAME}` (`display_name`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "location",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `secure` INTEGER NOT NULL, `tracked` INTEGER NOT NULL, `timestamp` INTEGER NOT NULL, `latitude` REAL, `longitude` REAL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "location_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "secure",
+            "columnName": "secure",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tracked",
+            "columnName": "tracked",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gpsCoord.latitude",
+            "columnName": "latitude",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gpsCoord.longitude",
+            "columnName": "longitude",
+            "affinity": "REAL",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "location_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_location_secure",
+            "unique": true,
+            "columnNames": [
+              "secure"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_location_secure` ON `${TABLE_NAME}` (`secure`)"
+          },
+          {
+            "name": "index_location_tracked",
+            "unique": true,
+            "columnNames": [
+              "tracked"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_location_tracked` ON `${TABLE_NAME}` (`tracked`)"
+          },
+          {
+            "name": "index_location_secure",
+            "unique": false,
+            "columnNames": [
+              "secure"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_location_secure` ON `${TABLE_NAME}` (`secure`)"
+          },
+          {
+            "name": "index_location_tracked",
+            "unique": false,
+            "columnNames": [
+              "tracked"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_location_tracked` ON `${TABLE_NAME}` (`tracked`)"
+          },
+          {
+            "name": "index_location_timestamp",
+            "unique": false,
+            "columnNames": [
+              "timestamp"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_location_timestamp` ON `${TABLE_NAME}` (`timestamp`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6199cbac0dd14a8b85e8148fc233ace5')"
+    ]
+  }
+}
