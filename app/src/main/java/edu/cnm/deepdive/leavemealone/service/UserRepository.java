@@ -153,7 +153,6 @@ public class UserRepository {
   }
 
   private Single<User> insert(User user) {
-    user.setCreated(Instant.now());
     return userDao
         .insert(user)
         .map((id) -> {

@@ -166,32 +166,31 @@
 <span class="source-line-no">153</span><span id="line-153">  }</span>
 <span class="source-line-no">154</span><span id="line-154"></span>
 <span class="source-line-no">155</span><span id="line-155">  private Single&lt;User&gt; insert(User user) {</span>
-<span class="source-line-no">156</span><span id="line-156">    user.setCreated(Instant.now());</span>
-<span class="source-line-no">157</span><span id="line-157">    return userDao</span>
-<span class="source-line-no">158</span><span id="line-158">        .insert(user)</span>
-<span class="source-line-no">159</span><span id="line-159">        .map((id) -&gt; {</span>
-<span class="source-line-no">160</span><span id="line-160">          user.setId(id);</span>
-<span class="source-line-no">161</span><span id="line-161">          return user;</span>
-<span class="source-line-no">162</span><span id="line-162">        });</span>
-<span class="source-line-no">163</span><span id="line-163">  }</span>
-<span class="source-line-no">164</span><span id="line-164"></span>
-<span class="source-line-no">165</span><span id="line-165">  private Single&lt;User&gt; update(User user) {</span>
-<span class="source-line-no">166</span><span id="line-166">    return userDao</span>
-<span class="source-line-no">167</span><span id="line-167">        .update(user)</span>
-<span class="source-line-no">168</span><span id="line-168">        .map((count) -&gt; user);</span>
-<span class="source-line-no">169</span><span id="line-169">  }</span>
-<span class="source-line-no">170</span><span id="line-170"></span>
-<span class="source-line-no">171</span><span id="line-171">  private Single&lt;User&gt; checkSafeDelete(User user) {</span>
-<span class="source-line-no">172</span><span id="line-172">    return getOrCreate()</span>
-<span class="source-line-no">173</span><span id="line-173">        .map((u) -&gt; {</span>
-<span class="source-line-no">174</span><span id="line-174">          if (u.equals(user)) {</span>
-<span class="source-line-no">175</span><span id="line-175">            throw new IllegalStateException("");</span>
-<span class="source-line-no">176</span><span id="line-176">          }</span>
-<span class="source-line-no">177</span><span id="line-177">          return u;</span>
-<span class="source-line-no">178</span><span id="line-178">        });</span>
-<span class="source-line-no">179</span><span id="line-179">  }</span>
-<span class="source-line-no">180</span><span id="line-180"></span>
-<span class="source-line-no">181</span><span id="line-181">}</span>
+<span class="source-line-no">156</span><span id="line-156">    return userDao</span>
+<span class="source-line-no">157</span><span id="line-157">        .insert(user)</span>
+<span class="source-line-no">158</span><span id="line-158">        .map((id) -&gt; {</span>
+<span class="source-line-no">159</span><span id="line-159">          user.setId(id);</span>
+<span class="source-line-no">160</span><span id="line-160">          return user;</span>
+<span class="source-line-no">161</span><span id="line-161">        });</span>
+<span class="source-line-no">162</span><span id="line-162">  }</span>
+<span class="source-line-no">163</span><span id="line-163"></span>
+<span class="source-line-no">164</span><span id="line-164">  private Single&lt;User&gt; update(User user) {</span>
+<span class="source-line-no">165</span><span id="line-165">    return userDao</span>
+<span class="source-line-no">166</span><span id="line-166">        .update(user)</span>
+<span class="source-line-no">167</span><span id="line-167">        .map((count) -&gt; user);</span>
+<span class="source-line-no">168</span><span id="line-168">  }</span>
+<span class="source-line-no">169</span><span id="line-169"></span>
+<span class="source-line-no">170</span><span id="line-170">  private Single&lt;User&gt; checkSafeDelete(User user) {</span>
+<span class="source-line-no">171</span><span id="line-171">    return getOrCreate()</span>
+<span class="source-line-no">172</span><span id="line-172">        .map((u) -&gt; {</span>
+<span class="source-line-no">173</span><span id="line-173">          if (u.equals(user)) {</span>
+<span class="source-line-no">174</span><span id="line-174">            throw new IllegalStateException("");</span>
+<span class="source-line-no">175</span><span id="line-175">          }</span>
+<span class="source-line-no">176</span><span id="line-176">          return u;</span>
+<span class="source-line-no">177</span><span id="line-177">        });</span>
+<span class="source-line-no">178</span><span id="line-178">  }</span>
+<span class="source-line-no">179</span><span id="line-179"></span>
+<span class="source-line-no">180</span><span id="line-180">}</span>
 
 
 
