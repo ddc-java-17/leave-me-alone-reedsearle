@@ -21,3 +21,5 @@ erd:
 {% include ddl.md %}
 
 ## Entity Classes
+- [`edu.cnm.deepdive.leavemealone.entity.Location`](api/src-html/edu/cnm/deepdive/leavemealone/model/entity/Location.html)
+- [`edu.cnm.deepdive.leavemealone.entity.User`](api/src-html/edu/cnm/deepdive/leavemealone/model/entity/User.html)
