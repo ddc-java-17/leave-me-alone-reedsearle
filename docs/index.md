@@ -22,13 +22,13 @@ The primary user is one who has their phone in public places frequently.  Users 
 students, professionals, sales people, etc.  Also in this category are users who are prone to 
 forgetting their phones.
 
-As someone who lives in a place where phone might be taken, I want a feature that makes a loud noise 
-to alert me that someone has grabbed my phone.  I would like a picture to be taken of that person,
-so I have a chance of getting my phone back.
-
-The other type of user is a practical joker.  This person might install this app on their phone and 
+The other type of user is a practical joker.  This person might install this app on their phone and
 ask a friend to hand the phone to them.  Alternatively, the practical joker might install the app
 on a friend's phone so the friend cannot touch the phone without setting off the alarm.
+
+As a professional who frequents places where phones may be taken, I want an alarm that makes a so uncomfortable, they drop my phone and run.  I would like a picture to be taken of that person,
+
+As a person who has their life saved in their phone, I want an alarm app that will track the location of my phone when stolen so the police can recover my phone
 
 As a practical joker, I would love an app that would scare my friends if they touched my phone.
 
