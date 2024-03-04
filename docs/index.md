@@ -26,7 +26,7 @@ The other type of user is a practical joker.  This person might install this app
 ask a friend to hand the phone to them.  Alternatively, the practical joker might install the app
 on a friend's phone so the friend cannot touch the phone without setting off the alarm.
 
-As a professional who frequents places where phones may be taken, I want an alarm that makes a so uncomfortable, they drop my phone and run.  I would like a picture to be taken of that person,
+As a professional who frequents places where phones may be taken, I want an alarm that makes a thief so uncomfortable, they drop my phone and run.  I would like a picture to be taken of that person,
 
 As a person who has their life saved in their phone, I want an alarm app that will track the location of my phone when stolen so the police can recover my phone
 
