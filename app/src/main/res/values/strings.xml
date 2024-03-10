@@ -29,6 +29,8 @@
 
   <string name="permissions_dialog_title">Permissions Needed</string>
   <string name="settings_label">Settings</string>
+  <string name="settings">Settings</string>
+
 
   <string name="access_fine_location_explanation" tools:keep="@string/access_fine_location_explanation">This app uses location information for tracking your phone if it has been stolen</string>
 <!--  <string name="access_coarse_location_explanation" tools:keep="@string/access_coarse_location_explanation">This app uses location information for …</string>-->

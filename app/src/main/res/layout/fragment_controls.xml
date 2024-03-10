@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:paddingVertical="@dimen/half_dynamic_spacing"
+  tools:context=".controller.ControlsFragment">
+
+
+  <Button
+    android:id="@+id/sound_alarm"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="soundAlarm"
+    android:text="ALARM"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/arm_alarm"
+    />
+
+  <Button
+    android:id="@+id/arm_alarm"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="armAlarm"
+    android:text="Arm"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/sound_alarm"
+    app:layout_constraintBottom_toTopOf="@id/disarm_alarm"
+    />
+
+  <Button
+    android:id="@+id/disarm_alarm"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="disarmAlarm"
+    android:text="Disarm"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/arm_alarm"
+    app:layout_constraintBottom_toTopOf=""
+    />
+
+  <Button
+    android:id="@+id/set_secure"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="setSecure"
+    android:text="Secure Location"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/set_unsecure"
+    app:layout_constraintTop_toBottomOf="@id/disarm_alarm"
+    app:layout_constraintBottom_toBottomOf="parent"
+    />
+
+  <Button
+    android:id="@+id/set_unsecure"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="setUnsecure"
+    android:text="Unsecure Location"
+    app:layout_constraintStart_toEndOf="@id/set_secure"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="@id/set_secure"
+    />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
