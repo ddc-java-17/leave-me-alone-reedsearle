@@ -19,7 +19,7 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/navigation_graph"
-  app:startDestination="@id/navigation_sign_in_demo">
+  app:startDestination="@id/navigation_controls">
 
   <action
     android:id="@+id/explain_permissions"
@@ -35,9 +35,56 @@
   </action>
 
   <fragment
-    android:id="@+id/navigation_sign_in_demo"
-    android:name="edu.cnm.deepdive.leavemealone.controller.DemoFragment"
-    tools:layout="@layout/fragment_demo"/>
+    android:id="@+id/navigation_controls"
+    android:name="edu.cnm.deepdive.leavemealone.controller.ControlsFragment"
+    tools:layout="@layout/fragment_controls">
+    <action
+      android:id="@+id/action_navigation_controls_to_navigation_alarm_arm"
+      app:destination="@id/navigation_alarm_arm"/>
+    <action
+      android:id="@+id/action_navigation_controls_to_navigation_permissions_explanation"
+      app:destination="@id/navigation_permissions_explanation"/>
+  </fragment>
+
+  <fragment
+    android:id="@+id/navigation_alarm_arm"
+    android:name="edu.cnm.deepdive.leavemealone.controller.AlarmArmFragment"
+    tools:layout="@layout/fragment_alarm_arm">
+
+    <action
+      android:id="@+id/action_navigation_alarm_arm_to_navigation_alarm_warning"
+      app:destination="@+id/navigation_alarm_warning"
+      />
+    <action
+      android:id="@+id/action_navigation_alarm_arm_to_navigation_controls"
+      app:destination="@+id/navigation_controls"
+      />
+  </fragment>
+
+  <fragment
+    android:id="@+id/navigation_alarm_warning"
+    android:name="edu.cnm.deepdive.leavemealone.controller.AlarmWarningFragment"
+    tools:layout="@layout/fragment_alarm_warning">
+
+    <action
+      android:id="@+id/action_navigation_alarm_warning_to_navigation_alarm_sounding"
+      app:destination="@id/navigation_alarm_sounding"/>
+    <action
+      android:id="@+id/action_navigation_alarm_warning_to_navigation_controls"
+      app:destination="@+id/navigation_controls"
+      />
+  </fragment>
+
+  <fragment
+    android:id="@+id/navigation_alarm_sounding"
+    android:name="edu.cnm.deepdive.leavemealone.controller.AlarmSoundingFragment"
+    tools:layout="@layout/fragment_alarm_sounding">
+    <action
+      android:id="@+id/action_navigation_alarm_sounding_to_navigation_controls"
+      app:destination="@+id/navigation_controls"
+      />
+
+  </fragment>
 
   <dialog
     android:id="@+id/navigation_permissions_explanation"
