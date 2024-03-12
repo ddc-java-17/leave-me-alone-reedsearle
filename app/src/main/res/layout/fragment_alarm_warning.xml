@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   tools:context=".controller.AlarmWarningFragment">
 
   <!-- TODO: Update blank fragment layout -->
   <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="@string/alarm_warning_fragment"/>
+    android:id="@+id/alarm_warning_label"
+    android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/half_dynamic_spacing"
+    android:layout_marginStart="@dimen/full_dynamic_spacing"
+    android:layout_marginEnd="@dimen/half_dynamic_spacing"
+    android:text="@string/alarm_warning_fragment"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@+id/countdown"
+    />
 
-</FrameLayout>
+  <TextView
+    android:id="@+id/countdown"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_marginVertical="@dimen/half_static_spacing"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/alarm_warning_label"
+    app:layout_constraintBottom_toTopOf="@+id/disarm_alarm"
+    tools:text="10"
+    />
+
+  <Button
+    android:id="@+id/disarm_alarm"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="disarmAlarm"
+    android:text="Disarm"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/countdown"
+    app:layout_constraintBottom_toBottomOf="parent"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

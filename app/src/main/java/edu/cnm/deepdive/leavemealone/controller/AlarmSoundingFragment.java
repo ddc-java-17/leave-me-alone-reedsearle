@@ -59,4 +59,7 @@ public class AlarmSoundingFragment extends Fragment {
     // Inflate the layout for this fragment
     return inflater.inflate(R.layout.fragment_alarm_sounding, container, false);
   }
+
+  public void disarmAlarm(View view) {
+  }
 }

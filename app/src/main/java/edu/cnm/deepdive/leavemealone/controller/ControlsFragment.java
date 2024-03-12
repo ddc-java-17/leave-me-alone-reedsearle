@@ -1,32 +1,77 @@
 package edu.cnm.deepdive.leavemealone.controller;
 
-import android.view.View;
+import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import edu.cnm.deepdive.leavemealone.R;
 
+/**
+ * A simple {@link Fragment} subclass. Use the {@link ControlsFragment#newInstance} factory method
+ * to create an instance of this fragment.
+ */
 public class ControlsFragment extends Fragment {
 
+  // TODO: Rename parameter arguments, choose names that match
+  // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+  private static final String ARG_PARAM1 = "param1";
+  private static final String ARG_PARAM2 = "param2";
 
-  public void soundAlarm(View v){
-// TODO: 3/10/2024 Find alarm type and send to speaker 
-    // TODO: 3/10/2024 get current gps location and send to unsecure  
-    // TODO: 3/10/2024 take picture from both cameras 
-    // TODO: 3/10/2024 get email and send location and picture 
+  // TODO: Rename and change types of parameters
+  private String mParam1;
+  private String mParam2;
+
+  public ControlsFragment() {
+    // Required empty public constructor
   }
 
-  public void armAlarm(View v){
-// TODO: 3/10/2024 set countdown timer so phone can be set down
-    // TODO: 3/10/2024 activate motin sensing 
+  /**
+   * Use this factory method to create a new instance of this fragment using the provided
+   * parameters.
+   *
+   * @param param1 Parameter 1.
+   * @param param2 Parameter 2.
+   * @return A new instance of fragment ControlsFragment.
+   */
+  // TODO: Rename and change types and number of parameters
+  public static ControlsFragment newInstance(String param1, String param2) {
+    ControlsFragment fragment = new ControlsFragment();
+    Bundle args = new Bundle();
+    args.putString(ARG_PARAM1, param1);
+    args.putString(ARG_PARAM2, param2);
+    fragment.setArguments(args);
+    return fragment;
   }
 
-  public void disarmAlarm(View v) {
-// TODO: 3/10/2024 de activate motion sensing 
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    if (getArguments() != null) {
+      mParam1 = getArguments().getString(ARG_PARAM1);
+      mParam2 = getArguments().getString(ARG_PARAM2);
+    }
   }
 
-  public void setSecure(View v) {
-// TODO: 3/10/2024 get current location and send to secure database 
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+      Bundle savedInstanceState) {
+    // Inflate the layout for this fragment
+    return inflater.inflate(R.layout.fragment_controls, container, false);
   }
 
-  public void setUnsecure(View v) {
-// TODO: 3/10/2024 get current location and send to unsecure database 
+  public void soundAlarm(View view) {
+  }
+
+  public void armAlarm(View view) {
+  }
+
+  public void disarmAlarm(View view) {
+  }
+
+  public void setSecure(View view) {
+  }
+
+  public void setUnsecure(View view) {
   }
 }

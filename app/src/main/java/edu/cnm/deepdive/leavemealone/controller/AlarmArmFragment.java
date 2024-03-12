@@ -59,4 +59,6 @@ public class AlarmArmFragment extends Fragment {
     // Inflate the layout for this fragment
     return inflater.inflate(R.layout.fragment_alarm_arm, container, false);
   }
+  public void disarmAlarm(View view) {
+  }
 }
