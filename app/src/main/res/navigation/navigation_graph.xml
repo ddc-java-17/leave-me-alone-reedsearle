@@ -42,6 +42,9 @@
       android:id="@+id/action_navigation_controls_to_navigation_alarm_arm"
       app:destination="@id/navigation_alarm_arm"/>
     <action
+      android:id="@+id/action_navigation_controls_to_navigation_alarm_sounding"
+      app:destination="@id/navigation_alarm_sounding"/>
+    <action
       android:id="@+id/action_navigation_controls_to_navigation_permissions_explanation"
       app:destination="@id/navigation_permissions_explanation"/>
   </fragment>

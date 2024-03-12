@@ -31,8 +31,19 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/alarm_warning_label"
-    app:layout_constraintBottom_toTopOf="@+id/disarm_alarm"
+    app:layout_constraintBottom_toTopOf="@+id/alarm_warn_code"
     tools:text="10"
+    />
+
+  <androidx.appcompat.widget.AppCompatEditText
+    android:id="@+id/alarm_warn_code"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/alarm_warning_label"
+    app:layout_constraintBottom_toTopOf="@id/disarm_alarm"
+    tools:text="Enter Code"
     />
 
   <Button
@@ -43,7 +54,7 @@
     android:text="Disarm"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/countdown"
+    app:layout_constraintTop_toBottomOf="@+id/alarm_warn_code"
     app:layout_constraintBottom_toBottomOf="parent"
     />
 
