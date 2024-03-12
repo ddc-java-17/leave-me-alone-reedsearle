@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements
 
   private static final int PERMISSIONS_REQUEST_CODE = 128158634;
 
+  private ActivityMainBinding binding;
   private LoginViewModel loginViewModel;
   private PermissionsViewModel permissionsViewModel;
 

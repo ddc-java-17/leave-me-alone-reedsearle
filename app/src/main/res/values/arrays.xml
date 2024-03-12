@@ -1,0 +1,28 @@
+<resources>
+  <!-- Reply Preference -->
+  <string-array name="chirp_entries">
+    <item>Beep</item>
+    <item>Count</item>
+    <item>Tick</item>
+    <item>Tick-Tock</item>
+  </string-array>
+
+  <string-array name="chirp_values">
+    <item>beep</item>
+    <item>count</item>
+    <item>tick</item>
+    <item>tick-tock</item>
+  </string-array>
+
+  <string-array name="alarm_entries">
+    <item>Horn</item>
+    <item>Baby</item>
+    <item>Woman</item>
+  </string-array>
+
+  <string-array name="alarm_values">
+    <item>horn</item>
+    <item>baby</item>
+    <item>woman</item>
+  </string-array>
+</resources>

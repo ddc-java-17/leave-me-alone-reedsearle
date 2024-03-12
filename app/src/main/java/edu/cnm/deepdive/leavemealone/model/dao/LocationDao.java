@@ -37,7 +37,7 @@ public interface LocationDao {
   LiveData<List<Location>> getLocationTracking();
 
   @Query(LOCATION_QUERY_FOR_TIME_AND_SECURE)
-  LiveData<List<Location>> getLocation(Instant hourStart, Instant hourStop);
+  LiveData<List<Location>> getLocation(Instant hourStart, Instant hourStop, boolean secure);
 
   @Query(TRUNCATION_QUERY_ALL)
   Completable truncateLocation();
