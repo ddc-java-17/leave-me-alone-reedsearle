@@ -27,6 +27,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.leavemealone.NavigationGraphDirections;
 import edu.cnm.deepdive.leavemealone.R;
+import edu.cnm.deepdive.leavemealone.databinding.ActivityMainBinding;
 import edu.cnm.deepdive.leavemealone.viewmodel.LoginViewModel;
 import edu.cnm.deepdive.leavemealone.viewmodel.PermissionsViewModel;
 import java.util.HashSet;

@@ -13,7 +13,6 @@
     android:id="@+id/sound_alarm"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:onClick="soundAlarm"
     android:text="ALARM"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
@@ -25,23 +24,10 @@
     android:id="@+id/arm_alarm"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:onClick="armAlarm"
     android:text="Arm"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/sound_alarm"
-    app:layout_constraintBottom_toTopOf="@id/disarm_alarm"
-    />
-
-  <Button
-    android:id="@+id/disarm_alarm"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:onClick="disarmAlarm"
-    android:text="Disarm"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/arm_alarm"
     app:layout_constraintBottom_toTopOf="@id/set_secure"
     />
 
@@ -49,11 +35,10 @@
     android:id="@+id/set_secure"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:onClick="setSecure"
     android:text="Secure Location"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toStartOf="@id/set_unsecure"
-    app:layout_constraintTop_toBottomOf="@id/disarm_alarm"
+    app:layout_constraintTop_toBottomOf="@id/sound_alarm"
     app:layout_constraintBottom_toBottomOf="parent"
     />
 
