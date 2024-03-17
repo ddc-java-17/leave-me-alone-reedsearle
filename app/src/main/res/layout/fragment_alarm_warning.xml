@@ -7,7 +7,22 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   tools:context=".controller.AlarmWarningFragment">
 
-  <!-- TODO: Update blank fragment layout -->
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/button_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent=".55"
+    />
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/countdown_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent=".30"
+    />
+
   <TextView
     android:id="@+id/alarm_warning_label"
     android:layout_width="wrap_content"
@@ -18,44 +33,61 @@
     android:text="@string/alarm_warning_fragment"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toTopOf="@+id/countdown"
+    app:layout_constraintBottom_toTopOf="@+id/countdown_guideline"
     />
 
-  <TextView
-    android:id="@+id/countdown"
-    android:layout_width="wrap_content"
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/countdown_layout"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:layout_marginVertical="@dimen/half_static_spacing"
+    android:layout_margin="@dimen/half_dynamic_spacing"
+    app:hintEnabled="true"
+    app:hintAnimationEnabled="true"
+    app:layout_constraintWidth_percent=".15"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/alarm_warning_label"
-    app:layout_constraintBottom_toTopOf="@+id/alarm_warn_code"
-    tools:text="10"
-    />
+    app:layout_constraintTop_toTopOf="@id/countdown_guideline">
 
-  <androidx.appcompat.widget.AppCompatEditText
-    android:id="@+id/alarm_warn_code"
-    android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/countdown"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_dynamic_spacing"
+      android:inputType="number"
+      tools:text="10"
+      />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/text_layout_code"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/half_dynamic_spacing"
+    app:hintEnabled="true"
+    app:hintAnimationEnabled="true"
+    app:layout_constraintWidth_percent=".50"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/alarm_warning_label"
-    app:layout_constraintBottom_toTopOf="@id/disarm_alarm"
-    tools:text="Enter Code"
-    />
+    app:layout_constraintBottom_toBottomOf="@id/button_guideline">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/text_code"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_dynamic_spacing"
+      android:inputType="number"
+      android:hint="@string/disarm_code_label"
+      />
+  </com.google.android.material.textfield.TextInputLayout>
 
   <Button
     android:id="@+id/disarm_alarm"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:onClick="disarmAlarm"
-    android:text="Disarm"
+    android:text="@string/disarm_button_label"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/alarm_warn_code"
-    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/button_guideline"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

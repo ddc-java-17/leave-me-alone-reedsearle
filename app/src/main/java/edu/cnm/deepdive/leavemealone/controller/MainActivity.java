@@ -22,7 +22,10 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.leavemealone.NavigationGraphDirections;
@@ -61,7 +64,14 @@ public class MainActivity extends AppCompatActivity implements
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    setupViewModels();
+    //noinspection DataFlowIssue
+    NavController navController = ((NavHostFragment)getSupportFragmentManager()
+        .findFragmentById(R.id.nav_host_fragment))
+        .getNavController();
+    AppBarConfiguration appBarConfig = new AppBarConfiguration.Builder(R.id.navigate_controls)
+        .build();
+    NavigationUI
+        .setupActionBarWithNavController(this, navController, appBarConfig);
   }
 
   @Override
@@ -129,6 +139,12 @@ public class MainActivity extends AppCompatActivity implements
           .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
       startActivity(intent);
     }
+  }
+
+  @Override
+  public boolean onSupportNavigateUp() {
+    getOnBackPressedDispatcher().onBackPressed();
+    return true;
   }
 
 }

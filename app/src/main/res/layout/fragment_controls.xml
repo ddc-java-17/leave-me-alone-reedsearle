@@ -8,6 +8,30 @@
   android:paddingVertical="@dimen/half_dynamic_spacing"
   tools:context=".controller.ControlsFragment">
 
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/alarm_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent=".25"
+    />
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/arm_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent=".50"
+    />
+
+  <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/set_coords_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent=".75"
+    />
+
 
   <Button
     android:id="@+id/sound_alarm"
@@ -16,8 +40,7 @@
     android:text="ALARM"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toTopOf="@+id/arm_alarm"
+    app:layout_constraintBottom_toTopOf="@+id/alarm_guideline"
     />
 
   <Button
@@ -27,8 +50,7 @@
     android:text="Arm"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/sound_alarm"
-    app:layout_constraintBottom_toTopOf="@id/set_secure"
+    app:layout_constraintBottom_toTopOf="@id/arm_guideline"
     />
 
   <Button
@@ -38,15 +60,13 @@
     android:text="Secure Location"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toStartOf="@id/set_unsecure"
-    app:layout_constraintTop_toBottomOf="@id/sound_alarm"
-    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintBottom_toBottomOf="@id/set_coords_guideline"
     />
 
   <Button
     android:id="@+id/set_unsecure"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:onClick="setUnsecure"
     android:text="Unsecure Location"
     app:layout_constraintStart_toEndOf="@id/set_secure"
     app:layout_constraintEnd_toEndOf="parent"

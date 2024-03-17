@@ -30,15 +30,18 @@
     android:id="@+id/navigation_controls"
     android:name="edu.cnm.deepdive.leavemealone.controller.ControlsFragment"
     tools:layout="@layout/fragment_controls">
+
+    <action
+      android:id="@+id/navigate_settings"
+      app:destination="@id/settings"/>
+
     <action
       android:id="@+id/navigate_arm"
       app:destination="@id/navigation_alarm_arm"/>
+
     <action
       android:id="@+id/navigate_sounding"
       app:destination="@id/navigation_alarm_sounding"/>
-    <action
-      android:id="@+id/action_navigation_controls_to_navigation_permissions_explanation"
-      app:destination="@id/navigation_permissions_explanation"/>
   </fragment>
 
   <fragment
@@ -66,6 +69,12 @@
     android:id="@+id/navigation_alarm_sounding"
     android:name="edu.cnm.deepdive.leavemealone.controller.AlarmSoundingFragment"
     tools:layout="@layout/fragment_alarm_sounding">
+  </fragment>
+
+  <fragment
+    android:id="@+id/settings"
+    android:name="edu.cnm.deepdive.leavemealone.controller.SettingsFragment"
+    tools:layout="@xml/root_preferences">
   </fragment>
 
 

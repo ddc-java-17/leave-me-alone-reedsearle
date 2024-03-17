@@ -58,5 +58,7 @@
   <string name="attachment_summary_on">Automatically download attachments for incoming emails
   </string>
   <string name="attachment_summary_off">Only download attachments when manually requested</string>
+  <string name="disarm_code_label">Enter Disarm Code</string>
+  <string name="disarm_button_label">Disarm</string>
 
 </resources>
