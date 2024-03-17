@@ -41,9 +41,10 @@
   <string name="selectable_text_pref_summary_off">Uneditable text is not selectable.</string>
   <!-- TODO: Remove or change this placeholder text -->
   <string name="hello_blank_fragment">Hello blank fragment</string>
-  <string name="alarm_sounding_fragment">Alarm Sounding Fragment</string>
-  <string name="alarm_warning_fragment">Alarm Warning Fragment</string>
-  <string name="alarm_arm_fragment">Alarm Arm Fragment</string>
+  <string name="alarm_sounding_fragment"> HELP! I AM A STOLEN PHONE!</string>
+  <string name="alarm_warning_fragment_top">You Have</string>
+  <string name="alarm_warning_fragment_bottom">Seconds to PUT ME DOWN!</string>
+  <string name="alarm_arm_fragment">Alarm is Armed Leave Me Alone</string>
   <!-- Preference Titles -->
   <string name="messages_header">Messages</string>
   <string name="sync_header">Sync</string>

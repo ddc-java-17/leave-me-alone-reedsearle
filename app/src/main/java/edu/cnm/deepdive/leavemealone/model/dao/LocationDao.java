@@ -15,33 +15,36 @@ import java.util.List;
 public interface LocationDao {
 
   String LOCATION_QUERY = "SELECT * FROM location";
-  String LOCATION_QUERY_FOR_SECURE = "SELECT * FROM location WHERE secure = :secure";
-  String LOCATION_QUERY_FOR_TRACKING = "SELECT * FROM location WHERE tracked = true ORDER BY timestamp asc";
-  String LOCATION_QUERY_FOR_TIME_AND_SECURE = "SELECT * FROM location WHERE timestamp > :hourStart AND timestamp < :hourStop AND secure = :secure";
-  String TRUNCATION_QUERY_ONE = "DELETE FROM location WHERE location_id = :location_id OR secure = :secure OR tracked = :tracked";
+  String LOCATIONS_QUERY_FOR_SECURE = "SELECT * FROM location WHERE secure = :secure";
+  String LOCATIONS_QUERY_FOR_TRACKING = "SELECT * FROM location WHERE tracked = :tracked ORDER BY timestamp asc";
+  String LOCATIONS_QUERY_FOR_TIME_AND_SECURE = "SELECT * FROM location WHERE timestamp > :hourStart AND timestamp < :hourStop AND secure = :secure";
+  String TRUNCATION_QUERY_ONE_SECURE = "DELETE FROM location WHERE location_id = :location_id AND secure = true";
+  String TRUNCATION_QUERY_ONE_UNSECURE = "DELETE FROM location WHERE location_id = :location_id AND secure = false";
   String TRUNCATION_QUERY_ALL = "DELETE FROM location";
+  String TRUNCATION_QUERY_ALL_SECURE = "DELETE FROM location WHERE secure = true";
+  String TRUNCATION_QUERY_ALL_UNSECURE = "DELETE FROM location WHERE secure = false";
+  String TRUNCATION_QUERY_ALL_TRACKED = "DELETE FROM location WHERE tracked = true";
 
   @Insert
   Single<Long> insert(Location location);
-
-  @Update
-  Completable update(Location location);
-
   @Query(LOCATION_QUERY)
-  LiveData<List<Location>> getLocation();
-
-  @Query(LOCATION_QUERY_FOR_SECURE)
-  LiveData<List<Location>> getLocation(boolean secure);
-
-  @Query(LOCATION_QUERY_FOR_TRACKING)
-  LiveData<List<Location>> getLocationTracking();
-
-  @Query(LOCATION_QUERY_FOR_TIME_AND_SECURE)
-  LiveData<List<Location>> getLocation(Instant hourStart, Instant hourStop, boolean secure);
-
+  LiveData<List<Location>> getLocations();
+  @Query(LOCATIONS_QUERY_FOR_SECURE)
+  LiveData<List<Location>> getLocationsSecureOrUnsecure(boolean secure);
+  @Query(LOCATIONS_QUERY_FOR_TRACKING)
+  LiveData<List<Location>> getLocationsTracked(boolean tracked);
+  @Query(LOCATIONS_QUERY_FOR_TIME_AND_SECURE)
+  LiveData<List<Location>> getLocationsTimeframe(Instant hourStart, Instant hourStop, boolean secure);
   @Query(TRUNCATION_QUERY_ALL)
-  Completable truncateLocation();
-
-  @Query(TRUNCATION_QUERY_ONE)
-  Completable truncateLocation(long location_id, boolean secure, boolean tracked);
+  Completable truncateLocations();
+  @Query(TRUNCATION_QUERY_ALL_SECURE)
+  Completable truncateLocationsSecure();
+  @Query(TRUNCATION_QUERY_ALL_UNSECURE)
+  Completable truncateLocationsUnsecure();
+  @Query(TRUNCATION_QUERY_ALL_TRACKED)
+  Completable truncateLocationsTracked();
+  @Query(TRUNCATION_QUERY_ONE_SECURE)
+  Completable truncateLocationSecure(long location_id);
+  @Query(TRUNCATION_QUERY_ONE_UNSECURE)
+  Completable truncateLocationUnsecure(long location_id);
 }

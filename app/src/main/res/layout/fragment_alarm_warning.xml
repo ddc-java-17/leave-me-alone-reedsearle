@@ -8,6 +8,14 @@
   tools:context=".controller.AlarmWarningFragment">
 
   <androidx.constraintlayout.widget.Guideline
+    android:id="@+id/countdown_guideline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent=".20"
+    />
+
+  <androidx.constraintlayout.widget.Guideline
     android:id="@+id/button_guideline"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -15,25 +23,34 @@
     app:layout_constraintGuide_percent=".55"
     />
 
-  <androidx.constraintlayout.widget.Guideline
-    android:id="@+id/countdown_guideline"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    app:layout_constraintGuide_percent=".30"
-    />
 
   <TextView
-    android:id="@+id/alarm_warning_label"
+    android:id="@+id/alarm_warning_label_top"
     android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_marginVertical="@dimen/half_dynamic_spacing"
     android:layout_marginStart="@dimen/full_dynamic_spacing"
     android:layout_marginEnd="@dimen/half_dynamic_spacing"
-    android:text="@string/alarm_warning_fragment"
+    android:text="@string/alarm_warning_fragment_top"
+    android:textSize="12pt"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintBottom_toTopOf="@+id/countdown_guideline"
+    />
+
+  <TextView
+    android:id="@+id/alarm_warning_label_bottom"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/half_dynamic_spacing"
+    android:layout_marginStart="@dimen/full_dynamic_spacing"
+    android:layout_marginEnd="@dimen/half_dynamic_spacing"
+    android:text="@string/alarm_warning_fragment_bottom"
+    android:textSize="12pt"
+    android:minLines="2"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/countdown_layout"
     />
 
   <com.google.android.material.textfield.TextInputLayout
@@ -54,6 +71,7 @@
       android:layout_height="wrap_content"
       android:layout_margin="@dimen/half_dynamic_spacing"
       android:inputType="number"
+      android:textSize="12pt"
       tools:text="10"
       />
   </com.google.android.material.textfield.TextInputLayout>

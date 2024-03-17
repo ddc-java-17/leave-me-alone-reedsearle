@@ -23,3 +23,6 @@ erd:
 ## Entity Classes
 - [`edu.cnm.deepdive.leavemealone.entity.Location`](api/src-html/edu/cnm/deepdive/leavemealone/model/entity/Location.html){:target="_blank"}
 - [`edu.cnm.deepdive.leavemealone.entity.User`](api/src-html/edu/cnm/deepdive/leavemealone/model/entity/User.html){:target="_blank"}
+- [`edu.cnm.deepdive.leavemealone.dao.UserDao`](api/src-html/edu/cnm/deepdive/leavemealone/model/dao/UserDao.html){:target="_blank"}
+- [`edu.cnm.deepdive.leavemealone.dao.LocationDao`](api/src-html/edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html){:target="_blank"}
+- [`edu.cnm.deepdive.leavemealone.service.LeaveMeAloneDatabase`](api/src-html/edu/cnm/deepdive/leavemealone/service/LeaveMeAloneDatabase.html){:target="_blank"}
