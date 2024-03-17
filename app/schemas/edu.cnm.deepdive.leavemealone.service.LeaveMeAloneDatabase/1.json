@@ -2,55 +2,61 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a6bd82a32e674281bd711ce266dc738e",
+    "identityHash": "63fa2ffac9355043e86564295e8e1521",
     "entities": [
       {
-        "tableName": "user",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `oauth_key` TEXT NOT NULL, `display_name` TEXT NOT NULL COLLATE NOCASE)",
+        "tableName": "alert",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`alert_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `triggered` INTEGER NOT NULL, `timestamp` INTEGER NOT NULL, `photoname` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "user_id",
+            "columnName": "alert_id",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "oauthKey",
-            "columnName": "oauth_key",
-            "affinity": "TEXT",
+            "fieldPath": "triggered",
+            "columnName": "triggered",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "displayName",
-            "columnName": "display_name",
-            "affinity": "TEXT",
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "photoname",
+            "columnName": "photoname",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
           "autoGenerate": true,
           "columnNames": [
-            "user_id"
+            "alert_id"
           ]
         },
         "indices": [
           {
-            "name": "index_user_oauth_key",
-            "unique": true,
+            "name": "index_alert_triggered",
+            "unique": false,
             "columnNames": [
-              "oauth_key"
+              "triggered"
             ],
             "orders": [],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_user_oauth_key` ON `${TABLE_NAME}` (`oauth_key`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_alert_triggered` ON `${TABLE_NAME}` (`triggered`)"
           },
           {
-            "name": "index_user_display_name",
-            "unique": true,
+            "name": "index_alert_timestamp",
+            "unique": false,
             "columnNames": [
-              "display_name"
+              "timestamp"
             ],
             "orders": [],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_user_display_name` ON `${TABLE_NAME}` (`display_name`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_alert_timestamp` ON `${TABLE_NAME}` (`timestamp`)"
           }
         ],
         "foreignKeys": []
@@ -137,7 +143,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a6bd82a32e674281bd711ce266dc738e')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '63fa2ffac9355043e86564295e8e1521')"
     ]
   }
 }

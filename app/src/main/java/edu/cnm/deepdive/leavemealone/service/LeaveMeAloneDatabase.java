@@ -22,10 +22,10 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+import edu.cnm.deepdive.leavemealone.model.dao.AlertDao;
 import edu.cnm.deepdive.leavemealone.model.dao.LocationDao;
-import edu.cnm.deepdive.leavemealone.model.dao.UserDao;
+import edu.cnm.deepdive.leavemealone.model.entity.Alert;
 import edu.cnm.deepdive.leavemealone.model.entity.Location;
-import edu.cnm.deepdive.leavemealone.model.entity.User;
 import edu.cnm.deepdive.leavemealone.service.LeaveMeAloneDatabase.Converters;
 import java.time.Instant;
 
@@ -34,7 +34,7 @@ import java.time.Instant;
  * using data-access object (DAO) instances obtained from the singleton instance of this class.
  */
 @Database(
-    entities = {User.class, Location.class},
+    entities = {Alert.class, Location.class},
     version = 1
 )
 @TypeConverters({Converters.class})
@@ -47,11 +47,7 @@ public abstract class LeaveMeAloneDatabase extends RoomDatabase {
     // Package-private constructor to avoid automatic HTML generation for Javadocs.
   }
 
-  /**
-   * Returns an instance of a {@link UserDao} implementation, providing persistence operations on
-   * instances of the {@link User} entity class.
-   */
-  public abstract UserDao getUserDao();
+  public abstract AlertDao getAlertDao();
   public abstract LocationDao getLocationDao();
 
   // TODO Declare abstract accessors (aka getters) for other DAOs used in this project.

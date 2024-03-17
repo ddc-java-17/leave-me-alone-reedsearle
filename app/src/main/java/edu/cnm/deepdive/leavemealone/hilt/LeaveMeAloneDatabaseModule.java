@@ -2,14 +2,13 @@ package edu.cnm.deepdive.leavemealone.hilt;
 
 import android.content.Context;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
 import dagger.Module;
 import dagger.Provides;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
+import edu.cnm.deepdive.leavemealone.model.dao.AlertDao;
 import edu.cnm.deepdive.leavemealone.model.dao.LocationDao;
-import edu.cnm.deepdive.leavemealone.model.dao.UserDao;
 import edu.cnm.deepdive.leavemealone.service.LeaveMeAloneDatabase;
 import javax.inject.Singleton;
 
@@ -36,8 +35,8 @@ public class LeaveMeAloneDatabaseModule {
   }
 
   @Provides
-  UserDao provideUserDao(LeaveMeAloneDatabase database) {
-    return database.getUserDao();
+  AlertDao provideAlertDao(LeaveMeAloneDatabase database) {
+    return database.getAlertDao();
   }
 
   @Provides
