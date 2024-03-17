@@ -53,6 +53,7 @@
       android:id="@+id/navigate_warning"
       app:destination="@+id/navigation_alarm_warning"
       />
+
   </fragment>
 
   <fragment
