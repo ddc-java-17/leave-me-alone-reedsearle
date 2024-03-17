@@ -14,7 +14,7 @@ import javax.inject.Singleton;
 
 /**
  * Uses Dagger {@link Provides @Provides}-annotated methods to satisfy dependencies on concrete
- * implementations of {@link LeaveMeAloneDatabase} and {@link UserDao}.
+ * implementations of {@link LeaveMeAloneDatabase}.
  */
 
 @InstallIn(SingletonComponent.class)
@@ -35,11 +35,13 @@ public class LeaveMeAloneDatabaseModule {
   }
 
   @Provides
+  @Singleton
   AlertDao provideAlertDao(LeaveMeAloneDatabase database) {
     return database.getAlertDao();
   }
 
   @Provides
+  @Singleton
   public LocationDao providesLocationDao(LeaveMeAloneDatabase database) {
     return database.getLocationDao();
   }
