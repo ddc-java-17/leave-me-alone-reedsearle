@@ -42,7 +42,31 @@
     <action
       android:id="@+id/navigate_sounding"
       app:destination="@id/navigation_alarm_sounding"/>
+
+    <action
+      android:id="@+id/navigate_secure"
+      app:destination="@id/coordinates_dialog_fragment">
+<!--      <argument-->
+<!--        android:name="secure_string"-->
+<!--        app:argType="string"-->
+<!--        />-->
+    </action>
+
+    <action
+      android:id="@+id/navigate_unsecure"
+      app:destination="@id/coordinates_dialog_fragment">
+<!--      <argument-->
+<!--        android:name="unsecure_string"-->
+<!--        app:argType="string"-->
+<!--        />-->
+    </action>
+
   </fragment>
+
+  <dialog
+    android:id="@+id/coordinates_dialog_fragment"
+    android:name="edu.cnm.deepdive.leavemealone.controller.CoordinatesDialogFragment"
+    />
 
   <fragment
     android:id="@+id/navigation_alarm_arm"

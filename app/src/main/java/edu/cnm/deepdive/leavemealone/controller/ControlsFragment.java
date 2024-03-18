@@ -40,8 +40,10 @@ public class ControlsFragment extends Fragment {
         (v)-> navController.navigate(ControlsFragmentDirections.navigateSounding()));
     binding.armAlarm.setOnClickListener(
         (v)-> navController.navigate(ControlsFragmentDirections.navigateArm()));
-//    binding.setSecure.setOnClickListener();
-//    binding.setUnsecure.setOnClickListener();
+    binding.setSecure.setOnClickListener(
+        (v)-> navController.navigate(ControlsFragmentDirections.navigateSecure()));
+    binding.setUnsecure.setOnClickListener(
+        (v)-> navController.navigate(ControlsFragmentDirections.navigateSecure()));
 
   }
 }
