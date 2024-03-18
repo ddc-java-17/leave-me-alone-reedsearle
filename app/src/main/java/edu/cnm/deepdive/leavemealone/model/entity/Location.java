@@ -2,6 +2,7 @@ package edu.cnm.deepdive.leavemealone.model.entity;
 
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Embedded;
 import androidx.room.Entity;
@@ -19,18 +20,15 @@ public class Location {
     @ColumnInfo(name = "location_id")
     private long id;
 
+    @ColumnInfo(name = "alert_id")
+    @Nullable
+    private long alertId;
+
     @ColumnInfo(name = "secure", index = true)
     private boolean secure;
 
-    @ColumnInfo(name = "tracked", index = true)
-    private boolean tracked;
-
     @Embedded
     private GPSCoord gpsCoord;
-
-    @ColumnInfo(name = "timestamp", index = true)
-    @NonNull
-    private Instant timestamp = Instant.now();
 
     public long getId() {
         return id;
@@ -38,6 +36,14 @@ public class Location {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getAlertId() {
+        return alertId;
+    }
+
+    public void setAlertId(long alertId) {
+        this.alertId = alertId;
     }
 
     public boolean isSecure() {
@@ -48,28 +54,11 @@ public class Location {
         this.secure = secure;
     }
 
-    public boolean isTracked() {
-        return tracked;
-    }
-
-    public void setTracked(boolean tracked) {
-        this.tracked = tracked;
-    }
-
     public GPSCoord getGpsCoord() {
         return gpsCoord;
     }
 
     public void setGpsCoord(GPSCoord gpsCoord) {
         this.gpsCoord = gpsCoord;
-    }
-
-    @NonNull
-    public Instant getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(@NonNull Instant timestamp) {
-        this.timestamp = timestamp;
     }
 }

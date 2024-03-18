@@ -32,11 +32,8 @@ public class LocationRepository {
   public LiveData<List<Location>> getAllSecureOrUnsecure(boolean secure){
     return locationDao.getLocationsSecureOrUnsecure(secure);
   }
-  public LiveData<List<Location>> getAllTracked(boolean tracked){
-    return locationDao.getLocationsTracked(tracked);
-  }
-  public LiveData<List<Location>> getAllTimeframe(Instant hourStart, Instant hourStop, boolean secure){
-    return locationDao.getLocationsTimeframe(hourStart, hourStop, secure);
+  public LiveData<List<Location>> getAllTracked(){
+    return locationDao.getLocationsTracked();
   }
   public Completable clearAll() {
     return locationDao.truncateLocations();

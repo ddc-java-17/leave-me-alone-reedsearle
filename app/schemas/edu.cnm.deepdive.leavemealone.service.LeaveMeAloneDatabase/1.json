@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "63fa2ffac9355043e86564295e8e1521",
+    "identityHash": "76f59e20483982b62612350585019e6c",
     "entities": [
       {
         "tableName": "alert",
@@ -63,7 +63,7 @@
       },
       {
         "tableName": "location",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `secure` INTEGER NOT NULL, `tracked` INTEGER NOT NULL, `timestamp` INTEGER NOT NULL, `latitude` REAL, `longitude` REAL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `alert_id` INTEGER NOT NULL, `secure` INTEGER NOT NULL, `latitude` REAL, `longitude` REAL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -72,20 +72,14 @@
             "notNull": true
           },
           {
+            "fieldPath": "alertId",
+            "columnName": "alert_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
             "fieldPath": "secure",
             "columnName": "secure",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "tracked",
-            "columnName": "tracked",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "timestamp",
-            "columnName": "timestamp",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -117,24 +111,6 @@
             ],
             "orders": [],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_location_secure` ON `${TABLE_NAME}` (`secure`)"
-          },
-          {
-            "name": "index_location_tracked",
-            "unique": false,
-            "columnNames": [
-              "tracked"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_location_tracked` ON `${TABLE_NAME}` (`tracked`)"
-          },
-          {
-            "name": "index_location_timestamp",
-            "unique": false,
-            "columnNames": [
-              "timestamp"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_location_timestamp` ON `${TABLE_NAME}` (`timestamp`)"
           }
         ],
         "foreignKeys": []
@@ -143,7 +119,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '63fa2ffac9355043e86564295e8e1521')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '76f59e20483982b62612350585019e6c')"
     ]
   }
 }

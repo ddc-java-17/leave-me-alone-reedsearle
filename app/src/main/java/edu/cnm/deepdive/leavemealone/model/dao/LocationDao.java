@@ -16,12 +16,11 @@ public interface LocationDao {
 
   String LOCATION_QUERY = "SELECT * FROM location";
   String LOCATIONS_QUERY_FOR_SECURE = "SELECT * FROM location WHERE secure = :secure";
-  String LOCATIONS_QUERY_FOR_TRACKING = "SELECT * FROM location WHERE tracked = :tracked ORDER BY timestamp asc";
-  String LOCATIONS_QUERY_FOR_TIME_AND_SECURE = "SELECT * FROM location WHERE timestamp > :hourStart AND timestamp < :hourStop AND secure = :secure";
+  String LOCATIONS_QUERY_FOR_TRACKING = "SELECT * FROM location WHERE alert_id != null";
   String TRUNCATION_QUERY_ALL = "DELETE FROM location";
   String TRUNCATION_QUERY_ALL_SECURE = "DELETE FROM location WHERE secure = true";
   String TRUNCATION_QUERY_ALL_UNSECURE = "DELETE FROM location WHERE secure = false";
-  String TRUNCATION_QUERY_ALL_TRACKED = "DELETE FROM location WHERE tracked = true";
+  String TRUNCATION_QUERY_ALL_TRACKED = "DELETE FROM location WHERE alert_id != null";
   String TRUNCATION_QUERY_ONE_SECURE = "DELETE FROM location WHERE location_id = :location_id AND secure = true";
   String TRUNCATION_QUERY_ONE_UNSECURE = "DELETE FROM location WHERE location_id = :location_id AND secure = false";
 
@@ -32,9 +31,7 @@ public interface LocationDao {
   @Query(LOCATIONS_QUERY_FOR_SECURE)
   LiveData<List<Location>> getLocationsSecureOrUnsecure(boolean secure);
   @Query(LOCATIONS_QUERY_FOR_TRACKING)
-  LiveData<List<Location>> getLocationsTracked(boolean tracked);
-  @Query(LOCATIONS_QUERY_FOR_TIME_AND_SECURE)
-  LiveData<List<Location>> getLocationsTimeframe(Instant hourStart, Instant hourStop, boolean secure);
+  LiveData<List<Location>> getLocationsTracked();
   @Query(TRUNCATION_QUERY_ALL)
   Completable truncateLocations();
   @Query(TRUNCATION_QUERY_ALL_SECURE)
