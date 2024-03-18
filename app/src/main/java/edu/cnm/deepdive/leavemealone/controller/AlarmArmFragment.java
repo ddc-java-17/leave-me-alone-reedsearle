@@ -40,4 +40,5 @@ public class AlarmArmFragment extends Fragment {
     binding.disarmAlarm.setOnClickListener(
         (v)-> navController.navigate(ControlsFragmentDirections.navigateControls()) );
   }
+
 }

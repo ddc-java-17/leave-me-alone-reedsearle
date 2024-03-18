@@ -57,15 +57,15 @@ The user will be able to do the following:
 
 Device Services
 
-  * CameraX - https://developer.android.com/media/camera/camerax This will be used to take a picture on both the front-facing and rear-facing cameras in the event of theft. This code will live on the device
-  * GPS Services - https://developer.android.com/develop/sensors-and-location/location/request-updates The GPS is used to set the location of secure and unsecure locations.  Then, the GPS is used to automatically detect those locations and change the alert settings accordingly.  In addition, if the phone is stolen, The GPS is used to get current locations to send through email to the owner in an effort to track the phone.  
-  * Motion Sensors - https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion Sensors will include accelerometers, gyroscopes and linear motion sensors used to detect motion after the alarm has been armed
-  * Sounds - https://developer.android.com/reference/android/media/SoundPool The SoundPool manager will play the alarm and chirp sounds as necessary
+  * CameraX - [https://developer.android.com/media/camera/camerax](https://developer.android.com/media/camera/camerax) This will be used to take a picture on both the front-facing and rear-facing cameras in the event of theft. This code will live on the device
+  * GPS Services - [https://developer.android.com/develop/sensors-and-location/location/request-updates](https://developer.android.com/develop/sensors-and-location/location/request-updates) The GPS is used to set the location of secure and unsecure locations.  Then, the GPS is used to automatically detect those locations and change the alert settings accordingly.  In addition, if the phone is stolen, The GPS is used to get current locations to send through email to the owner in an effort to track the phone.  
+  * Motion Sensors - [https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion](https://developer.android.com/develop/sensors-and-location/sensors/sensors_motion) Sensors will include accelerometers, gyroscopes and linear motion sensors used to detect motion after the alarm has been armed
+  * Sounds - [https://developer.android.com/reference/android/media/SoundPool](https://developer.android.com/reference/android/media/SoundPool) The SoundPool manager will play the alarm and chirp sounds as necessary
 
 External Services
 
-  * Email tools - https://developer.android.com/guide/components/intents-common This is a list of comm Intents including sending email with multiple attachments
-  * https://developer.android.com/reference/android/content/Intent#ACTION_SEND This is the specific Intent for emailing with an attachment
+  * Email tools - [https://developer.android.com/guide/components/intents-common](https://developer.android.com/guide/components/intents-common) This is a list of comm Intents including sending email with multiple attachments
+  * [https://developer.android.com/reference/android/content/Intent#ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND) This is the specific Intent for emailing with an attachment
 
 Service Requirements
 
