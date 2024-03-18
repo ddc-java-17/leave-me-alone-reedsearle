@@ -1,15 +1,11 @@
--- Generated 2024-03-17 15:56:34-0600 for database version 1
+-- Generated 2024-03-18 15:10:58-0600 for database version 1
 
-CREATE TABLE IF NOT EXISTS `user` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `oauth_key` TEXT NOT NULL, `display_name` TEXT NOT NULL COLLATE NOCASE);
+CREATE TABLE IF NOT EXISTS `alert` (`alert_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `triggered` INTEGER NOT NULL, `timestamp` INTEGER NOT NULL, `photoname` TEXT);
 
-CREATE UNIQUE INDEX IF NOT EXISTS `index_user_oauth_key` ON `user` (`oauth_key`);
+CREATE INDEX IF NOT EXISTS `index_alert_triggered` ON `alert` (`triggered`);
 
-CREATE UNIQUE INDEX IF NOT EXISTS `index_user_display_name` ON `user` (`display_name`);
+CREATE INDEX IF NOT EXISTS `index_alert_timestamp` ON `alert` (`timestamp`);
 
-CREATE TABLE IF NOT EXISTS `location` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `secure` INTEGER NOT NULL, `tracked` INTEGER NOT NULL, `timestamp` INTEGER NOT NULL, `latitude` REAL, `longitude` REAL);
+CREATE TABLE IF NOT EXISTS `location` (`location_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `alert_id` INTEGER NOT NULL, `secure` INTEGER NOT NULL, `latitude` REAL, `longitude` REAL);
 
 CREATE INDEX IF NOT EXISTS `index_location_secure` ON `location` (`secure`);
-
-CREATE INDEX IF NOT EXISTS `index_location_tracked` ON `location` (`tracked`);
-
-CREATE INDEX IF NOT EXISTS `index_location_timestamp` ON `location` (`timestamp`);
