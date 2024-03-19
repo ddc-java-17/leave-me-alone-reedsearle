@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements
         .build();
     NavigationUI
         .setupActionBarWithNavController(this, navController, appBarConfig);
+    setupViewModels();
   }
 
   @Override
