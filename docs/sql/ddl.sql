@@ -1,4 +1,4 @@
--- Generated 2024-03-18 15:10:58-0600 for database version 1
+-- Generated 2024-03-19 20:35:27-0600 for database version 1
 
 CREATE TABLE IF NOT EXISTS `alert`
 (

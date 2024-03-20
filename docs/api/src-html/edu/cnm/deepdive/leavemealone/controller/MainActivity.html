@@ -85,82 +85,83 @@
 <span class="source-line-no">072</span><span id="line-72">        .build();</span>
 <span class="source-line-no">073</span><span id="line-73">    NavigationUI</span>
 <span class="source-line-no">074</span><span id="line-74">        .setupActionBarWithNavController(this, navController, appBarConfig);</span>
-<span class="source-line-no">075</span><span id="line-75">  }</span>
-<span class="source-line-no">076</span><span id="line-76"></span>
-<span class="source-line-no">077</span><span id="line-77">  @Override</span>
-<span class="source-line-no">078</span><span id="line-78">  public boolean onCreateOptionsMenu(Menu menu) {</span>
-<span class="source-line-no">079</span><span id="line-79">    super.onCreateOptionsMenu(menu);</span>
-<span class="source-line-no">080</span><span id="line-80">    getMenuInflater().inflate(R.menu.main_options, menu);</span>
-<span class="source-line-no">081</span><span id="line-81">    return true;</span>
-<span class="source-line-no">082</span><span id="line-82">  }</span>
-<span class="source-line-no">083</span><span id="line-83"></span>
-<span class="source-line-no">084</span><span id="line-84">  @Override</span>
-<span class="source-line-no">085</span><span id="line-85">  public boolean onOptionsItemSelected(@NonNull MenuItem item) {</span>
-<span class="source-line-no">086</span><span id="line-86">    boolean handled = true;</span>
-<span class="source-line-no">087</span><span id="line-87">    int itemId = item.getItemId();</span>
-<span class="source-line-no">088</span><span id="line-88">    if (itemId == R.id.settings) {</span>
-<span class="source-line-no">089</span><span id="line-89">      Intent intent = new Intent(this, SettingsActivity.class);</span>
-<span class="source-line-no">090</span><span id="line-90">      startActivity(intent);</span>
-<span class="source-line-no">091</span><span id="line-91">    } else if (itemId == R.id.sign_out) {</span>
-<span class="source-line-no">092</span><span id="line-92">      loginViewModel.signOut();</span>
-<span class="source-line-no">093</span><span id="line-93">    } else {</span>
-<span class="source-line-no">094</span><span id="line-94">      handled = super.onOptionsItemSelected(item);</span>
-<span class="source-line-no">095</span><span id="line-95">    }</span>
-<span class="source-line-no">096</span><span id="line-96">    return handled;</span>
-<span class="source-line-no">097</span><span id="line-97">  }</span>
-<span class="source-line-no">098</span><span id="line-98"></span>
-<span class="source-line-no">099</span><span id="line-99">  @Override</span>
-<span class="source-line-no">100</span><span id="line-100">  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,</span>
-<span class="source-line-no">101</span><span id="line-101">      @NonNull int[] grantResults) {</span>
-<span class="source-line-no">102</span><span id="line-102">    if (requestCode == PERMISSIONS_REQUEST_CODE) {</span>
-<span class="source-line-no">103</span><span id="line-103">      permissionsViewModel.handlePermissionsRequestResult(permissions, grantResults);</span>
-<span class="source-line-no">104</span><span id="line-104">    } else {</span>
-<span class="source-line-no">105</span><span id="line-105">      super.onRequestPermissionsResult(requestCode, permissions, grantResults);</span>
-<span class="source-line-no">106</span><span id="line-106">    }</span>
-<span class="source-line-no">107</span><span id="line-107">  }</span>
-<span class="source-line-no">108</span><span id="line-108"></span>
-<span class="source-line-no">109</span><span id="line-109">  @Override</span>
-<span class="source-line-no">110</span><span id="line-110">  public void onAcknowledge(String[] permissions) {</span>
-<span class="source-line-no">111</span><span id="line-111">    requestPermissions(permissions, PERMISSIONS_REQUEST_CODE);</span>
-<span class="source-line-no">112</span><span id="line-112">  }</span>
-<span class="source-line-no">113</span><span id="line-113"></span>
-<span class="source-line-no">114</span><span id="line-114">  private void setupViewModels() {</span>
-<span class="source-line-no">115</span><span id="line-115">    loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);</span>
-<span class="source-line-no">116</span><span id="line-116">    loginViewModel</span>
-<span class="source-line-no">117</span><span id="line-117">        .getAccount()</span>
-<span class="source-line-no">118</span><span id="line-118">        .observe(this, this::handleAccount);</span>
-<span class="source-line-no">119</span><span id="line-119">    permissionsViewModel = new ViewModelProvider(this).get(PermissionsViewModel.class);</span>
-<span class="source-line-no">120</span><span id="line-120">    Set&lt;String&gt; permissionsToRequest = new HashSet&lt;&gt;();</span>
-<span class="source-line-no">121</span><span id="line-121">    Set&lt;String&gt; permissionsToExplain = new HashSet&lt;&gt;();</span>
-<span class="source-line-no">122</span><span id="line-122">    permissionsViewModel.checkPermissions(this, permissionsToRequest, permissionsToExplain);</span>
-<span class="source-line-no">123</span><span id="line-123">    if (!permissionsToExplain.isEmpty()) {</span>
-<span class="source-line-no">124</span><span id="line-124">      //noinspection DataFlowIssue</span>
-<span class="source-line-no">125</span><span id="line-125">      ((NavHostFragment) getSupportFragmentManager()</span>
-<span class="source-line-no">126</span><span id="line-126">          .findFragmentById(R.id.nav_host_fragment))</span>
-<span class="source-line-no">127</span><span id="line-127">          .getNavController()</span>
-<span class="source-line-no">128</span><span id="line-128">          .navigate(NavigationGraphDirections.explainPermissions(</span>
-<span class="source-line-no">129</span><span id="line-129">              permissionsToExplain.toArray(new String[0]),</span>
-<span class="source-line-no">130</span><span id="line-130">              permissionsToRequest.toArray(new String[0])));</span>
-<span class="source-line-no">131</span><span id="line-131">    } else if (!permissionsToRequest.isEmpty()) {</span>
-<span class="source-line-no">132</span><span id="line-132">      requestPermissions(permissionsToRequest.toArray(new String[0]), PERMISSIONS_REQUEST_CODE);</span>
-<span class="source-line-no">133</span><span id="line-133">    }</span>
-<span class="source-line-no">134</span><span id="line-134">  }</span>
-<span class="source-line-no">135</span><span id="line-135"></span>
-<span class="source-line-no">136</span><span id="line-136">  private void handleAccount(GoogleSignInAccount account) {</span>
-<span class="source-line-no">137</span><span id="line-137">    if (account == null) {</span>
-<span class="source-line-no">138</span><span id="line-138">      Intent intent = new Intent(this, LoginActivity.class)</span>
-<span class="source-line-no">139</span><span id="line-139">          .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);</span>
-<span class="source-line-no">140</span><span id="line-140">      startActivity(intent);</span>
-<span class="source-line-no">141</span><span id="line-141">    }</span>
-<span class="source-line-no">142</span><span id="line-142">  }</span>
-<span class="source-line-no">143</span><span id="line-143"></span>
-<span class="source-line-no">144</span><span id="line-144">  @Override</span>
-<span class="source-line-no">145</span><span id="line-145">  public boolean onSupportNavigateUp() {</span>
-<span class="source-line-no">146</span><span id="line-146">    getOnBackPressedDispatcher().onBackPressed();</span>
-<span class="source-line-no">147</span><span id="line-147">    return true;</span>
-<span class="source-line-no">148</span><span id="line-148">  }</span>
-<span class="source-line-no">149</span><span id="line-149"></span>
-<span class="source-line-no">150</span><span id="line-150">}</span>
+<span class="source-line-no">075</span><span id="line-75">    setupViewModels();</span>
+<span class="source-line-no">076</span><span id="line-76">  }</span>
+<span class="source-line-no">077</span><span id="line-77"></span>
+<span class="source-line-no">078</span><span id="line-78">  @Override</span>
+<span class="source-line-no">079</span><span id="line-79">  public boolean onCreateOptionsMenu(Menu menu) {</span>
+<span class="source-line-no">080</span><span id="line-80">    super.onCreateOptionsMenu(menu);</span>
+<span class="source-line-no">081</span><span id="line-81">    getMenuInflater().inflate(R.menu.main_options, menu);</span>
+<span class="source-line-no">082</span><span id="line-82">    return true;</span>
+<span class="source-line-no">083</span><span id="line-83">  }</span>
+<span class="source-line-no">084</span><span id="line-84"></span>
+<span class="source-line-no">085</span><span id="line-85">  @Override</span>
+<span class="source-line-no">086</span><span id="line-86">  public boolean onOptionsItemSelected(@NonNull MenuItem item) {</span>
+<span class="source-line-no">087</span><span id="line-87">    boolean handled = true;</span>
+<span class="source-line-no">088</span><span id="line-88">    int itemId = item.getItemId();</span>
+<span class="source-line-no">089</span><span id="line-89">    if (itemId == R.id.settings) {</span>
+<span class="source-line-no">090</span><span id="line-90">      Intent intent = new Intent(this, SettingsActivity.class);</span>
+<span class="source-line-no">091</span><span id="line-91">      startActivity(intent);</span>
+<span class="source-line-no">092</span><span id="line-92">    } else if (itemId == R.id.sign_out) {</span>
+<span class="source-line-no">093</span><span id="line-93">      loginViewModel.signOut();</span>
+<span class="source-line-no">094</span><span id="line-94">    } else {</span>
+<span class="source-line-no">095</span><span id="line-95">      handled = super.onOptionsItemSelected(item);</span>
+<span class="source-line-no">096</span><span id="line-96">    }</span>
+<span class="source-line-no">097</span><span id="line-97">    return handled;</span>
+<span class="source-line-no">098</span><span id="line-98">  }</span>
+<span class="source-line-no">099</span><span id="line-99"></span>
+<span class="source-line-no">100</span><span id="line-100">  @Override</span>
+<span class="source-line-no">101</span><span id="line-101">  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,</span>
+<span class="source-line-no">102</span><span id="line-102">      @NonNull int[] grantResults) {</span>
+<span class="source-line-no">103</span><span id="line-103">    if (requestCode == PERMISSIONS_REQUEST_CODE) {</span>
+<span class="source-line-no">104</span><span id="line-104">      permissionsViewModel.handlePermissionsRequestResult(permissions, grantResults);</span>
+<span class="source-line-no">105</span><span id="line-105">    } else {</span>
+<span class="source-line-no">106</span><span id="line-106">      super.onRequestPermissionsResult(requestCode, permissions, grantResults);</span>
+<span class="source-line-no">107</span><span id="line-107">    }</span>
+<span class="source-line-no">108</span><span id="line-108">  }</span>
+<span class="source-line-no">109</span><span id="line-109"></span>
+<span class="source-line-no">110</span><span id="line-110">  @Override</span>
+<span class="source-line-no">111</span><span id="line-111">  public void onAcknowledge(String[] permissions) {</span>
+<span class="source-line-no">112</span><span id="line-112">    requestPermissions(permissions, PERMISSIONS_REQUEST_CODE);</span>
+<span class="source-line-no">113</span><span id="line-113">  }</span>
+<span class="source-line-no">114</span><span id="line-114"></span>
+<span class="source-line-no">115</span><span id="line-115">  private void setupViewModels() {</span>
+<span class="source-line-no">116</span><span id="line-116">    loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);</span>
+<span class="source-line-no">117</span><span id="line-117">    loginViewModel</span>
+<span class="source-line-no">118</span><span id="line-118">        .getAccount()</span>
+<span class="source-line-no">119</span><span id="line-119">        .observe(this, this::handleAccount);</span>
+<span class="source-line-no">120</span><span id="line-120">    permissionsViewModel = new ViewModelProvider(this).get(PermissionsViewModel.class);</span>
+<span class="source-line-no">121</span><span id="line-121">    Set&lt;String&gt; permissionsToRequest = new HashSet&lt;&gt;();</span>
+<span class="source-line-no">122</span><span id="line-122">    Set&lt;String&gt; permissionsToExplain = new HashSet&lt;&gt;();</span>
+<span class="source-line-no">123</span><span id="line-123">    permissionsViewModel.checkPermissions(this, permissionsToRequest, permissionsToExplain);</span>
+<span class="source-line-no">124</span><span id="line-124">    if (!permissionsToExplain.isEmpty()) {</span>
+<span class="source-line-no">125</span><span id="line-125">      //noinspection DataFlowIssue</span>
+<span class="source-line-no">126</span><span id="line-126">      ((NavHostFragment) getSupportFragmentManager()</span>
+<span class="source-line-no">127</span><span id="line-127">          .findFragmentById(R.id.nav_host_fragment))</span>
+<span class="source-line-no">128</span><span id="line-128">          .getNavController()</span>
+<span class="source-line-no">129</span><span id="line-129">          .navigate(NavigationGraphDirections.explainPermissions(</span>
+<span class="source-line-no">130</span><span id="line-130">              permissionsToExplain.toArray(new String[0]),</span>
+<span class="source-line-no">131</span><span id="line-131">              permissionsToRequest.toArray(new String[0])));</span>
+<span class="source-line-no">132</span><span id="line-132">    } else if (!permissionsToRequest.isEmpty()) {</span>
+<span class="source-line-no">133</span><span id="line-133">      requestPermissions(permissionsToRequest.toArray(new String[0]), PERMISSIONS_REQUEST_CODE);</span>
+<span class="source-line-no">134</span><span id="line-134">    }</span>
+<span class="source-line-no">135</span><span id="line-135">  }</span>
+<span class="source-line-no">136</span><span id="line-136"></span>
+<span class="source-line-no">137</span><span id="line-137">  private void handleAccount(GoogleSignInAccount account) {</span>
+<span class="source-line-no">138</span><span id="line-138">    if (account == null) {</span>
+<span class="source-line-no">139</span><span id="line-139">      Intent intent = new Intent(this, LoginActivity.class)</span>
+<span class="source-line-no">140</span><span id="line-140">          .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);</span>
+<span class="source-line-no">141</span><span id="line-141">      startActivity(intent);</span>
+<span class="source-line-no">142</span><span id="line-142">    }</span>
+<span class="source-line-no">143</span><span id="line-143">  }</span>
+<span class="source-line-no">144</span><span id="line-144"></span>
+<span class="source-line-no">145</span><span id="line-145">  @Override</span>
+<span class="source-line-no">146</span><span id="line-146">  public boolean onSupportNavigateUp() {</span>
+<span class="source-line-no">147</span><span id="line-147">    getOnBackPressedDispatcher().onBackPressed();</span>
+<span class="source-line-no">148</span><span id="line-148">    return true;</span>
+<span class="source-line-no">149</span><span id="line-149">  }</span>
+<span class="source-line-no">150</span><span id="line-150"></span>
+<span class="source-line-no">151</span><span id="line-151">}</span>
 
 
 
