@@ -43,11 +43,17 @@ public class AlarmArmFragment extends Fragment {
     NavController navController = Navigation.findNavController(view);
     ViewModelProvider provider = new ViewModelProvider(this);
     viewModel = provider.get(MotionViewModel.class);
-    getLifecycle().addObserver(MotionViewModel.class);
     LifecycleOwner owner = getViewLifecycleOwner();
-    viewModel.getTriggerEvent().observe(owner, (b) -> navController.navigate(AlarmArmFragmentDirections.navigateWarning()));
+    viewModel.getTriggerEvent().observe(owner,
+        (b) -> navController.navigate(AlarmArmFragmentDirections.navigateWarning()));
     binding.disarmAlarm.setOnClickListener(
         (v) -> navController.navigate(ControlsFragmentDirections.navigateControls()));
+  }
+
+  @Override
+  public void onDestroyView() {
+    binding = null;
+    super.onDestroyView();
   }
 
 }

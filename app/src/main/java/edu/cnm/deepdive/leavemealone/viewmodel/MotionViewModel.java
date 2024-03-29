@@ -6,50 +6,34 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.hardware.TriggerEvent;
 import android.hardware.TriggerEventListener;
-import androidx.annotation.NonNull;
-import androidx.lifecycle.DefaultLifecycleObserver;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import dagger.hilt.android.lifecycle.HiltViewModel;
-import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import java.time.Instant;
 import javax.inject.Inject;
 
 @HiltViewModel
-public class MotionViewModel extends ViewModel implements DefaultLifecycleObserver{
+public class MotionViewModel extends ViewModel{
 
   private final MutableLiveData<TriggerEvent> triggerEvent;
-  private MotionTriggerListener listener;
-  private final CompositeDisposable pending;
-
+  private final MotionTriggerListener listener;
 
   @Inject
   public MotionViewModel(Context context) {
     listener = new MotionTriggerListener(context);
     triggerEvent = new MutableLiveData<>();
-    pending = new CompositeDisposable();
   }
 
   public MutableLiveData<TriggerEvent> getTriggerEvent() {
+    listener.onTrigger(triggerEvent);
     return triggerEvent;
   }
 
-  public MotionTriggerListener getListener() {
+   MotionTriggerListener getListener() {
     return listener;
   }
 
-  public CompositeDisposable getPending() {
-    return pending;
-  }
-
-  @Override
-  public void onStop(@NonNull LifecycleOwner owner) {
-    pending.clear();
-    DefaultLifecycleObserver.super.onStop(owner);
-  }
-
-
-  class MotionTriggerListener extends TriggerEventListener{
+  static class MotionTriggerListener extends TriggerEventListener{
 
     private final SensorManager sensorManager;
     private final Sensor sensor;
@@ -60,7 +44,7 @@ public class MotionViewModel extends ViewModel implements DefaultLifecycleObserv
 
     @Override
     public void onTrigger(TriggerEvent event) {
-      onTrigger(event);
+      event.timestamp = Long.parseLong(String.valueOf(Instant.now()));
     }
   }
 
