@@ -36,9 +36,9 @@ public class AlarmArmFragment extends Fragment {
     super.onViewCreated(view, savedInstanceState);
     NavController navController = Navigation.findNavController(view);
     binding.motion.setOnClickListener(
-        (b)-> navController.navigate(AlarmArmFragmentDirections.navigateWarning()));
+        (b) -> navController.navigate(AlarmArmFragmentDirections.navigateWarning()));
     binding.disarmAlarm.setOnClickListener(
-        (v)-> navController.navigate(ControlsFragmentDirections.navigateControls()) );
+        (v) -> navController.navigate(ControlsFragmentDirections.navigateControls()));
   }
 
 }
