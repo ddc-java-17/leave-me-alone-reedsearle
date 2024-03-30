@@ -94,6 +94,7 @@ dependencies {
     implementation(libs.fragment)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.play.services.location)
 
     // Lifecycle (LiveData and ViewModel) libraries
     runtimeOnly(libs.lifecycle.viewmodel)
