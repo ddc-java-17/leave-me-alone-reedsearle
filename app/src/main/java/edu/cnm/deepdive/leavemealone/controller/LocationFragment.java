@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import edu.cnm.deepdive.leavemealone.R;
 import edu.cnm.deepdive.leavemealone.databinding.FragmentLocationBinding;
+import edu.cnm.deepdive.leavemealone.viewmodel.LocationViewModel;
 
 public class LocationFragment extends Fragment {
 
@@ -34,7 +34,6 @@ public class LocationFragment extends Fragment {
     super.onActivityCreated(savedInstanceState);
     ViewModelProvider provider = new ViewModelProvider(this);
     viewModel = provider.get(LocationViewModel.class);
-    getLifecycle().addObserver(viewModel);
     LifecycleOwner owner = getViewLifecycleOwner();
 
     // TODO: Use the ViewModel

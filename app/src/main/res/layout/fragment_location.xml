@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:padding="@dimen/half_dynamic_spacing"
   tools:context=".controller.LocationFragment">
 
-  <TextView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="Hello"/>
+  <LinearLayout
+    android:id="@+id/column_headers"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/half_dynamic_spacing"
+    android:paddingHorizontal="@dimen/full_dynamic_spacing"
+    android:layout_marginTop="@dimen/half_dynamic_spacing"
+    android:theme="@style/LocationColumn.Header"
+    android:orientation="horizontal"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+    <TextView
+      android:id="@+id/lat_header"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="7"
+      android:layout_marginVertical="@dimen/half_static_spacing"
+      android:text="@string/lat_header_label"
+      />
+
+    <TextView
+      android:id="@+id/lon_header"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="7"
+      android:layout_marginVertical="@dimen/half_static_spacing"
+      android:text="@string/lon_header_label"
+      />
+
+    <TextView
+      android:id="@+id/secure_header"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="4"
+      android:layout_marginVertical="@dimen/half_static_spacing"
+      android:text="@string/secure_header_label"
+      />
+
+
+  </LinearLayout>
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/game_results"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/column_headers"
+    app:layout_constraintBottom_toBottomOf="parent"
+    tools:listitem="@layout/item_location_results"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

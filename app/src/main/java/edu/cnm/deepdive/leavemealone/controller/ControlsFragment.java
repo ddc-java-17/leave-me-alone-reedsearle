@@ -50,8 +50,9 @@ public class ControlsFragment extends Fragment{
     binding.armAlarm.setOnClickListener(
         (v)-> navController.navigate(ControlsFragmentDirections.navigateArm()));
     binding.setLocation.setOnClickListener(
-        (v)-> navController.navigate(ControlsFragmentDirections.navigateSecure()));
-//    binding.displayLocations.setOnClickListener(
+        (v)-> navController.navigate(ControlsFragmentDirections.navigateSetLocation()));
+    binding.displayLocations.setOnClickListener(
+        (v)-> navController.navigate(ControlsFragmentDirections.navigateDisplayLocations()));
 //        (v)-> fusedLocationProviderClient.getCurrentLocation().addOnSuccessListener(this,
 //            new OnSuccessListener<Location>() {
 //              @Override
