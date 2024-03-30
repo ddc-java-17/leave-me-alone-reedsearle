@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.hardware.TriggerEvent;
 import android.hardware.TriggerEventListener;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import dagger.hilt.android.lifecycle.HiltViewModel;
@@ -25,7 +26,7 @@ public class MotionViewModel extends ViewModel{
   }
 
   public MutableLiveData<TriggerEvent> getTriggerEvent() {
-    listener.onTrigger(triggerEvent);
+    listener.onTrigger();
     return triggerEvent;
   }
 
@@ -33,13 +34,14 @@ public class MotionViewModel extends ViewModel{
     return listener;
   }
 
-  static class MotionTriggerListener extends TriggerEventListener{
+  class MotionTriggerListener extends TriggerEventListener{
 
     private final SensorManager sensorManager;
     private final Sensor sensor;
     public MotionTriggerListener(Context context) {
       sensorManager= (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
       sensor= sensorManager.getDefaultSensor(Sensor.TYPE_SIGNIFICANT_MOTION);
+      sensorManager.requestTriggerSensor(listener, sensor);
     }
 
     @Override
