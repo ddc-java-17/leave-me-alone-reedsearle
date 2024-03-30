@@ -95,6 +95,9 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.play.services.location)
+    implementation(libs.legacy.support.v4)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
 
     // Lifecycle (LiveData and ViewModel) libraries
     runtimeOnly(libs.lifecycle.viewmodel)
