@@ -48,4 +48,10 @@ public class ControlsFragment extends Fragment {
         (v)-> navController.navigate(ControlsFragmentDirections.navigateSecure()));
 
   }
+  @Override
+  public void onDestroyView() {
+    binding = null;
+    super.onDestroyView();
+  }
+
 }

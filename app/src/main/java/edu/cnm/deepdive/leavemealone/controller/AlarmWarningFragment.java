@@ -43,4 +43,10 @@ public class AlarmWarningFragment extends Fragment {
     binding.disarmAlarm.setOnClickListener(
         (v) -> navController.navigate(ControlsFragmentDirections.navigateControls()));
   }
+  @Override
+  public void onDestroyView() {
+    binding = null;
+    super.onDestroyView();
+  }
+
 }
