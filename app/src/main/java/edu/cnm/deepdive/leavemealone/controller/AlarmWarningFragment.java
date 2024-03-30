@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.leavemealone.R;
 import edu.cnm.deepdive.leavemealone.databinding.FragmentAlarmArmBinding;
 import edu.cnm.deepdive.leavemealone.databinding.FragmentAlarmWarningBinding;
@@ -17,6 +18,7 @@ import edu.cnm.deepdive.leavemealone.databinding.FragmentAlarmWarningBinding;
  * A simple {@link Fragment} subclass. Use the {@link AlarmWarningFragment#newInstance} factory
  * method to create an instance of this fragment.
  */
+@AndroidEntryPoint
 public class AlarmWarningFragment extends Fragment {
 
   private FragmentAlarmWarningBinding binding;
@@ -41,4 +43,10 @@ public class AlarmWarningFragment extends Fragment {
     binding.disarmAlarm.setOnClickListener(
         (v) -> navController.navigate(ControlsFragmentDirections.navigateControls()));
   }
+  @Override
+  public void onDestroyView() {
+    binding = null;
+    super.onDestroyView();
+  }
+
 }

@@ -2,6 +2,9 @@ package edu.cnm.deepdive.leavemealone.controller;
 
 import android.location.Location;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import dagger.hilt.android.AndroidEntryPoint;
+import edu.cnm.deepdive.leavemealone.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.CancellationToken;
@@ -22,6 +27,8 @@ import edu.cnm.deepdive.leavemealone.model.pojo.GPSCoord;
  * A simple {@link Fragment} subclass. Use the {@link ControlsFragment#newInstance} factory method
  * to create an instance of this fragment.
  */
+@AndroidEntryPoint
+public class ControlsFragment extends Fragment {
 public class ControlsFragment extends Fragment implements FusedLocationProviderClient {
 
   private FragmentControlsBinding binding;
@@ -64,15 +71,11 @@ public class ControlsFragment extends Fragment implements FusedLocationProviderC
 
   }
 
-  @NonNull
+  }
   @Override
-  public Task<Location> getLastLocation() {
-    return null;
+  public void onDestroyView() {
+    binding = null;
+    super.onDestroyView();
   }
 
-  @NonNull
-  @Override
-  public Task<Location> getCurrentLocation(int i, @Nullable CancellationToken cancellationToken) {
-    return null;
-  }
 }

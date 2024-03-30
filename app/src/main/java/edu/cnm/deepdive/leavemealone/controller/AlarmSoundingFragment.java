@@ -38,4 +38,10 @@ public class AlarmSoundingFragment extends Fragment {
             .navigate(ControlsFragmentDirections
                 .navigateControls()) );
   }
+  @Override
+  public void onDestroyView() {
+    binding = null;
+    super.onDestroyView();
+  }
+
 }
