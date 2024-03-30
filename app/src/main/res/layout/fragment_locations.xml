@@ -6,7 +6,7 @@
   android:layout_height="match_parent"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:padding="@dimen/half_dynamic_spacing"
-  tools:context=".controller.LocationFragment">
+  tools:context=".controller.LocationsFragment">
 
   <LinearLayout
     android:id="@+id/column_headers"
@@ -25,7 +25,7 @@
       android:id="@+id/lat_header"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_weight="7"
+      android:layout_weight="9"
       android:layout_marginVertical="@dimen/half_static_spacing"
       android:text="@string/lat_header_label"
       />
@@ -34,7 +34,7 @@
       android:id="@+id/lon_header"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_weight="7"
+      android:layout_weight="9"
       android:layout_marginVertical="@dimen/half_static_spacing"
       android:text="@string/lon_header_label"
       />
@@ -43,7 +43,7 @@
       android:id="@+id/secure_header"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_weight="4"
+      android:layout_weight="6"
       android:layout_marginVertical="@dimen/half_static_spacing"
       android:text="@string/secure_header_label"
       />

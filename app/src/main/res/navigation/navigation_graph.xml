@@ -50,20 +50,16 @@
 
     <action
       android:id="@+id/navigate_display_locations"
-      app:destination="@id/location_fragment">
+      app:destination="@id/locations_fragment">
     </action>
 
   </fragment>
 
-  <dialog
-    android:id="@+id/coordinates_dialog_fragment"
-    android:name="edu.cnm.deepdive.leavemealone.controller.CoordinatesDialogFragment"
-    />
-
   <fragment
-    android:id="@+id/location_fragment"
-    android:name="edu.cnm.deepdive.leavemealone.controller.LocationFragment"
-    />
+    android:id="@+id/settings"
+    android:name="edu.cnm.deepdive.leavemealone.controller.SettingsFragment"
+    tools:layout="@xml/root_preferences">
+  </fragment>
 
   <fragment
     android:id="@+id/navigation_alarm_arm"
@@ -78,6 +74,24 @@
   </fragment>
 
   <fragment
+    android:id="@+id/navigation_alarm_sounding"
+    android:name="edu.cnm.deepdive.leavemealone.controller.AlarmSoundingFragment"
+    tools:layout="@layout/fragment_alarm_sounding">
+  </fragment>
+
+  <dialog
+    android:id="@+id/coordinates_dialog_fragment"
+    android:name="edu.cnm.deepdive.leavemealone.controller.CoordinatesDialogFragment"
+    />
+
+  <fragment
+    android:id="@+id/locations_fragment"
+    android:name="edu.cnm.deepdive.leavemealone.controller.LocationsFragment"
+    tools:layout="@layout/fragment_locations"
+    />
+
+
+  <fragment
     android:id="@+id/navigation_alarm_warning"
     android:name="edu.cnm.deepdive.leavemealone.controller.AlarmWarningFragment"
     tools:layout="@layout/fragment_alarm_warning">
@@ -87,17 +101,7 @@
       app:destination="@id/navigation_alarm_sounding"/>
   </fragment>
 
-  <fragment
-    android:id="@+id/navigation_alarm_sounding"
-    android:name="edu.cnm.deepdive.leavemealone.controller.AlarmSoundingFragment"
-    tools:layout="@layout/fragment_alarm_sounding">
-  </fragment>
 
-  <fragment
-    android:id="@+id/settings"
-    android:name="edu.cnm.deepdive.leavemealone.controller.SettingsFragment"
-    tools:layout="@xml/root_preferences">
-  </fragment>
 
 
   <action

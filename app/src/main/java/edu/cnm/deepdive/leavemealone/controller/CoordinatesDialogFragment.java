@@ -25,6 +25,19 @@ public class CoordinatesDialogFragment extends DialogFragment {
         .create();
   }
 
+//      binding.displayLocations.setOnClickListener(
+//        (v)-> fusedLocationProviderClient.getCurrentLocation().addOnSuccessListener(this,
+//            new OnSuccessListener<Location>() {
+//              @Override
+//              public void onSuccess(Location location) {
+//                if(location != null) {
+//                  GPSCoord.latitude = location.getLatitude();
+//                  GPSCoord.longitude = location.getLongitude();
+//                }
+//              }
+//            }));
+
+
   @Nullable
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

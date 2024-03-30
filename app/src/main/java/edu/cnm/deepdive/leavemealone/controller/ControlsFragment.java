@@ -53,17 +53,6 @@ public class ControlsFragment extends Fragment{
         (v)-> navController.navigate(ControlsFragmentDirections.navigateSetLocation()));
     binding.displayLocations.setOnClickListener(
         (v)-> navController.navigate(ControlsFragmentDirections.navigateDisplayLocations()));
-//        (v)-> fusedLocationProviderClient.getCurrentLocation().addOnSuccessListener(this,
-//            new OnSuccessListener<Location>() {
-//              @Override
-//              public void onSuccess(Location location) {
-//                if(location != null) {
-//                  GPSCoord.latitude = location.getLatitude();
-//                  GPSCoord.longitude = location.getLongitude();
-//                }
-//              }
-//            }));
-
   }
 
   @Override

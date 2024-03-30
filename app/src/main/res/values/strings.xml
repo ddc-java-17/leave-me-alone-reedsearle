@@ -66,7 +66,7 @@
   <string name="set_unsecure_label">Unsecure</string>
   <string name="lat_header_label">Latitude</string>
   <string name="lon_header_label">Longitude</string>
-  <string name="secure_header_label">Is Secure?</string>
+  <string name="secure_header_label">Secure?</string>
 
 
 </resources>
