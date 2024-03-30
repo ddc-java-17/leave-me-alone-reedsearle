@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+import edu.cnm.deepdive.leavemealone.R;
 
 public class CoordinatesDialogFragment extends DialogFragment {
 
@@ -18,7 +19,9 @@ public class CoordinatesDialogFragment extends DialogFragment {
     return new AlertDialog.Builder(requireContext())
         .setTitle("Test Dialog")
         .setMessage("This is some text that you really should read carefully")
-        .setNeutralButton(android.R.string.ok, (dlg, which)->{})
+        .setPositiveButton(R.string.set_secure_label,  (dlg, which)->{})
+        .setNegativeButton(R.string.set_unsecure_label,  (dlg, which)->{})
+        .setNeutralButton(android.R.string.cancel, (dlg, which)->{})
         .create();
   }
 

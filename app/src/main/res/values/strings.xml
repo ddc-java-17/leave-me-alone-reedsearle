@@ -62,4 +62,8 @@
   <string name="disarm_code_label">Enter Disarm Code</string>
   <string name="disarm_button_label">Disarm</string>
 
+  <string name="set_secure_label">Secure</string>
+  <string name="set_unsecure_label">Unsecure</string>
+
+
 </resources>

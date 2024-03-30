@@ -54,23 +54,23 @@
     />
 
   <Button
-    android:id="@+id/set_secure"
+    android:id="@+id/set_location"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Secure Location"
+    android:text="Set Location"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toStartOf="@id/set_unsecure"
+    app:layout_constraintEnd_toStartOf="@id/display_locations"
     app:layout_constraintBottom_toBottomOf="@id/set_coords_guideline"
     />
 
   <Button
-    android:id="@+id/set_unsecure"
+    android:id="@+id/display_locations"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Unsecure Location"
-    app:layout_constraintStart_toEndOf="@id/set_secure"
+    android:text="Display Locations"
+    app:layout_constraintStart_toEndOf="@id/set_location"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="@id/set_secure"
+    app:layout_constraintTop_toTopOf="@id/set_location"
     />
 
 
