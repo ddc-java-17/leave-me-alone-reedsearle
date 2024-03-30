@@ -67,6 +67,7 @@
   <string name="lat_header_label">Latitude</string>
   <string name="lon_header_label">Longitude</string>
   <string name="secure_header_label">Secure?</string>
+  <string name="coordinate_format">%1$9.4f</string>
 
 
 </resources>
