@@ -1,6 +1,8 @@
 package edu.cnm.deepdive.leavemealone.controller;
 
 import android.os.Bundle;
+import android.provider.CalendarContract.EventsEntity;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -45,9 +47,14 @@ public class AlarmArmFragment extends Fragment {
     viewModel = provider.get(MotionViewModel.class);
     LifecycleOwner owner = getViewLifecycleOwner();
     viewModel.getTriggerEvent().observe(owner,
-        (b) -> navController.navigate(AlarmArmFragmentDirections.navigateWarning()));
+        (b) -> {
+//          Log.d(getClass().getSimpleName(), b.toString());
+          navController.navigate(AlarmArmFragmentDirections.navigateWarning());
+        });
     binding.disarmAlarm.setOnClickListener(
-        (v) -> navController.navigate(ControlsFragmentDirections.navigateControls()));
+        (v) -> {
+          navController.navigate(ControlsFragmentDirections.navigateControls());
+        });
   }
 
   @Override

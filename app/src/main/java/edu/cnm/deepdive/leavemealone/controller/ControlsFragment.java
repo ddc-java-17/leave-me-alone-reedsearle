@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.leavemealone.R;
 import edu.cnm.deepdive.leavemealone.databinding.FragmentControlsBinding;
 
@@ -16,6 +17,7 @@ import edu.cnm.deepdive.leavemealone.databinding.FragmentControlsBinding;
  * A simple {@link Fragment} subclass. Use the {@link ControlsFragment#newInstance} factory method
  * to create an instance of this fragment.
  */
+@AndroidEntryPoint
 public class ControlsFragment extends Fragment {
 
   private FragmentControlsBinding binding;
