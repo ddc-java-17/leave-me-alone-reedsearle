@@ -52,9 +52,7 @@ public class LocationRepository implements FusedLocationProviderClient {
   private FusedLocationProviderClient fusedLocationProviderClient;
   private final PermissionsRepository repository;
   private final CancellationTokenSource cts;
-  private edu.cnm.deepdive.leavemealone.model.entity.Location saveLocation;
   private GPSCoord coord;
-  private boolean permissionChecked;
   private final LiveData<Boolean> locationPermissionGranted;
 
 
@@ -63,66 +61,37 @@ public class LocationRepository implements FusedLocationProviderClient {
       PermissionsRepository repository) {
     this.locationDao = locationDao;
     this.repository = repository;
-    fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient();
+    fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
     cts = new CancellationTokenSource();
     LiveData<Set<String>> distinctPermissions = Transformations.distinctUntilChanged(
         repository.getPermissions());
     locationPermissionGranted = Transformations.map(distinctPermissions, (permissions) -> {
       if (permissions.contains(permission.ACCESS_FINE_LOCATION)) {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
-        fusedLocationProviderClient
-            .getCurrentLocation(PRIORITY_HIGH_ACCURACY, cts.getToken())
-            .addOnSuccessListener(new OnSuccessListener<android.location.Location>() {
-              @Override
-              public void onSuccess(android.location.Location location) {
-
-              }
-            })
+        try {
+          fusedLocationProviderClient
+              .getCurrentLocation(PRIORITY_HIGH_ACCURACY, cts.getToken())
+              .addOnSuccessListener(location -> {
+                if (location != null) {
+                  coord = new GPSCoord(location.getLongitude(), location.getLatitude());
+                }
+              });
+        } catch (SecurityException e) {
+          throw new RuntimeException(e);
+        }
       }
+return true;
     });
   }
 
 
-  public Single<Long> add(Location location) {
+  public Single<Long> add(Boolean secure) {
+    Location location = new Location();
+    location.setSecure(secure);
+    location.setGpsCoord(coord);
     return locationDao
         .insert(location)
         .subscribeOn(Schedulers.io());
-//        .setPositiveButton(R.string.set_secure_label, (dlg, which) -> {
-//          if (permissionChecked) {
-//            try {
-//              fusedLocationProviderClient
-//                  .getCurrentLocation(PRIORITY_HIGH_ACCURACY, cts.getToken())
-//                  .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-//                    @Override
-//                    public void onSuccess(Location location) {
-//                      if (location != null) {
-//                        coord.latitude() = location.getLatitude();
-//                        coord.longitude() = location.getLongitude();
-//                        saveLocation.setGpsCoord(coord);
-//                        saveLocation.setSecure(true);
-//                      }
-//                    }
-//                  });
-//            } catch (SecurityException e) {
-//              throw new RuntimeException(e);
-//            }
-//          }
-//        })
-  }
-
-
-  public void setupViewModel() {
-//    super.onStart();
-//    ViewModelProvider provider = new ViewModelProvider(requireActivity());
-//    viewModel = provider.get(PermissionsViewModel.class);
-//    LifecycleOwner owner = getViewLifecycleOwner();
-//    viewModel
-//        .getPermissions()
-//        .observe(owner, (permissions) -> {
-//          if (permissions.contains(Manifest.permission.ACCESS_FINE_LOCATION)) {
-//            permissionChecked = true;
-//          }
-//        });
   }
 
 

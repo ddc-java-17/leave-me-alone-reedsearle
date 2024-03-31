@@ -47,7 +47,7 @@ public class LocationsFragment extends Fragment {
         .getLocation()
         .observe(owner, (locations) -> {
           LocationsAdapter adapter = new LocationsAdapter(requireContext(), locations);
-          binding.gameResults.setAdapter(adapter);
+          binding.locationsResult.setAdapter(adapter);
         });
   }
   @Override
