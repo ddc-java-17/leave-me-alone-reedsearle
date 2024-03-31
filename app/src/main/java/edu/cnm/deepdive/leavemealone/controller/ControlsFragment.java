@@ -23,10 +23,8 @@ import edu.cnm.deepdive.leavemealone.model.pojo.GPSCoord;
  */
 @AndroidEntryPoint
 public class ControlsFragment extends Fragment{
-//  public class ControlsFragment extends Fragment implements FusedLocationProviderClient {
 
   private FragmentControlsBinding binding;
-  private FusedLocationProviderClient fusedLocationProviderClient;
 
   public ControlsFragment() {
     // Required empty public constructor
@@ -36,7 +34,6 @@ public class ControlsFragment extends Fragment{
   public View onCreateView(
       LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     binding = FragmentControlsBinding.inflate(inflater, container, false);
-    fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext());
     return binding.getRoot();
   }
 
@@ -60,6 +57,5 @@ public class ControlsFragment extends Fragment{
     binding = null;
     super.onDestroyView();
   }
-
-
 }
+

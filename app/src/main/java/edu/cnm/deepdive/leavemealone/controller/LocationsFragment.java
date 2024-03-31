@@ -9,10 +9,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
+import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.leavemealone.adapter.LocationsAdapter;
 import edu.cnm.deepdive.leavemealone.databinding.FragmentLocationsBinding;
 import edu.cnm.deepdive.leavemealone.viewmodel.LocationViewModel;
 
+@AndroidEntryPoint
 public class LocationsFragment extends Fragment {
 
   private FragmentLocationsBinding binding;

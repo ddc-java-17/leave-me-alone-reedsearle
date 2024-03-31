@@ -2,16 +2,17 @@ package edu.cnm.deepdive.leavemealone.controller;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProvider;
 import edu.cnm.deepdive.leavemealone.R;
+import edu.cnm.deepdive.leavemealone.viewmodel.LocationViewModel;
 
-public class CoordinatesDialogFragment extends DialogFragment {
+public class CoordinatesDialogFragment extends DialogFragment{
+
+  private LocationViewModel lvm;
 
   @NonNull
   @Override
@@ -19,29 +20,22 @@ public class CoordinatesDialogFragment extends DialogFragment {
     return new AlertDialog.Builder(requireContext())
         .setTitle("Test Dialog")
         .setMessage("This is some text that you really should read carefully")
-        .setPositiveButton(R.string.set_secure_label,  (dlg, which)->{})
-        .setNegativeButton(R.string.set_unsecure_label,  (dlg, which)->{})
-        .setNeutralButton(android.R.string.cancel, (dlg, which)->{})
+        .setPositiveButton(R.string.set_secure_label, (dlg, which) -> {
+          lvm.markLocation(true);
+        })
+        .setNegativeButton(R.string.set_unsecure_label, (dlg, which) -> {
+          lvm.markLocation(false);
+        })
+        .setNeutralButton(android.R.string.cancel, (dlg, which) -> {
+        })
         .create();
   }
 
-//      binding.displayLocations.setOnClickListener(
-//        (v)-> fusedLocationProviderClient.getCurrentLocation().addOnSuccessListener(this,
-//            new OnSuccessListener<Location>() {
-//              @Override
-//              public void onSuccess(Location location) {
-//                if(location != null) {
-//                  GPSCoord.latitude = location.getLatitude();
-//                  GPSCoord.longitude = location.getLongitude();
-//                }
-//              }
-//            }));
-
-
-  @Nullable
   @Override
-  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    return super.onCreateView(inflater, container, savedInstanceState);
+  public void onStart() {
+    super.onStart();
+    ViewModelProvider provider = new ViewModelProvider(requireActivity());
+    lvm = provider.get(LocationViewModel.class);
+    // TODO: 3/30/2024 Set up any observers for lvm
   }
 }
