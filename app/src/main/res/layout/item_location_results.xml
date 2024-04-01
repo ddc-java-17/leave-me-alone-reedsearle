@@ -16,7 +16,7 @@
     android:layout_height="wrap_content"
     android:layout_weight="7"
     android:layout_marginVertical="@dimen/half_static_spacing"
-    tools:text="35.1589"
+    tools:text="temp_lat"
     />
 
   <TextView
@@ -25,7 +25,7 @@
     android:layout_height="wrap_content"
     android:layout_weight="7"
     android:layout_marginVertical="@dimen/half_static_spacing"
-    tools:text="-106.6496"
+    tools:text="temp_long"
     />
 
   <TextView

@@ -57,7 +57,7 @@ public class LocationRepository implements FusedLocationProviderClient {
     fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
     this.preferencesRepository = preferencesRepository;
     cts = new CancellationTokenSource();
-    if(coord == null) {
+    if (coord == null) {
       coord = preferencesRepository.getCoord();
     }
     LiveData<Set<String>> distinctPermissions = Transformations.distinctUntilChanged(
@@ -78,7 +78,7 @@ public class LocationRepository implements FusedLocationProviderClient {
           throw new RuntimeException(e);
         }
       }
-return true;
+      return false;
     });
   }
 
@@ -92,9 +92,9 @@ return true;
         .subscribeOn(Schedulers.io());
   }
 
-public LiveData<List<Location>> getAll(){
+  public LiveData<List<Location>> getAll() {
     return locationDao.getLocations();
-}
+  }
 
   @NonNull
   @Override
