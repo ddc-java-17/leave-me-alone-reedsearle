@@ -29,7 +29,6 @@ public class AlarmWarningFragment extends Fragment {
 
   public static final int PASSWORD_DIGIT_LENGTH = 4;
   public static final int RESET_CODE_LENGTH = 0;
-
   private FragmentAlarmWarningBinding binding;
   private AlertViewModel viewModel;
   private int codeLength;
