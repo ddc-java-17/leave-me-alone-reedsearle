@@ -41,39 +41,40 @@ import javax.inject.Singleton;
 @Singleton
 public class LocationRepository implements FusedLocationProviderClient {
 
+  public static final int GPS_UPDATE_INTERVAL_MS = 1000;
   private final LocationDao locationDao;
   private FusedLocationProviderClient fusedLocationProviderClient;
   private final Executor executor;
   private final PermissionsRepository permissionsRepository;
   private final PreferencesRepository preferencesRepository;
-  private final CancellationTokenSource cts;
   private GPSCoord coord;
   private final LiveData<Boolean> locationPermissionGranted;
 
 
   @Inject
-  public LocationRepository(@ApplicationContext Context context, LocationDao locationDao,
-      PermissionsRepository permissionsRepository, PreferencesRepository preferencesRepository) {
+  public LocationRepository(@ApplicationContext Context context,
+      LocationDao locationDao,
+      PermissionsRepository permissionsRepository,
+      PreferencesRepository preferencesRepository) {
     this.locationDao = locationDao;
-    this.executor = Executors.newSingleThreadExecutor();
     this.permissionsRepository = permissionsRepository;
-    fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
     this.preferencesRepository = preferencesRepository;
-    cts = new CancellationTokenSource();
+    this.executor = Executors.newSingleThreadExecutor();
+    this.fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
+
     if (coord == null) {
       coord = preferencesRepository.getCoord();
     }
+
     LiveData<Set<String>> distinctPermissions = Transformations.distinctUntilChanged(
         permissionsRepository.getPermissions());
     locationPermissionGranted = Transformations.map(distinctPermissions, (permissions) -> {
       if (permissions.contains(permission.ACCESS_FINE_LOCATION)) {
-
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
         LocationRequest request = new LocationRequest
-            .Builder(PRIORITY_HIGH_ACCURACY, 1000)
+            .Builder(PRIORITY_HIGH_ACCURACY, GPS_UPDATE_INTERVAL_MS)
             .build();
-
-        try {
+        try {  // get initial GPS locations
           fusedLocationProviderClient
               .getLastLocation()
               .addOnSuccessListener(location -> {
@@ -83,8 +84,7 @@ public class LocationRepository implements FusedLocationProviderClient {
         } catch (SecurityException e) {
           throw new RuntimeException(e);
         }
-
-        try {
+        try {  // get subsequent GPS locations
           fusedLocationProviderClient.requestLocationUpdates(request, executor,
               location -> {
                 coord = new GPSCoord(location.getLongitude(), location.getLatitude());
@@ -94,7 +94,6 @@ public class LocationRepository implements FusedLocationProviderClient {
           throw new RuntimeException(e);
         }
       }
-
       return false;
     });
   }
