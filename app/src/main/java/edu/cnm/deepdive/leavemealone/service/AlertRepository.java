@@ -7,10 +7,14 @@ import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class AlertRepository {
 
   private final AlertDao alertDao;
+  private Timer countdownTimer;
+//  private final TimerTask timerTask;
 
 
   public AlertRepository(AlertDao alertDao) {
@@ -22,6 +26,10 @@ public class AlertRepository {
         .insert(alert)
         .subscribeOn(Schedulers.io());
   }
+
+//  public LiveData<Timer> getCountdownTimer() {
+//    return countdownTimer.scheduleAtFixedRate(run(), 0, 1000);
+//  }
 
   public LiveData<List<Alert>> getAll() {
     return alertDao.getAlerts();

@@ -21,6 +21,8 @@
     <item name="colorPrimary">@color/primary_color</item>
     <item name="colorPrimaryDark">@color/primary_color_dark</item>
     <item name="colorAccent">@color/accent_color</item>
+    <item name="secureRowBackground">@color/secure_row_background</item>
+    <item name="unsecureRowBackground">@color/unsecure_row_background</item>
   </style>
 
   <style name="LocationColumn">

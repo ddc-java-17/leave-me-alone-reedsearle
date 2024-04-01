@@ -23,9 +23,6 @@
 
   </PreferenceCategory>
 
-<!--  <PreferenceCategory-->
-<!--    android:title="CountdownTime">-->
-
   <SeekBarPreference
     android:key="countdown_time"
     android:title="Countdown Time"
@@ -35,10 +32,4 @@
     android:defaultValue="7"
     app:showSeekBarValue="true"
     />
-<!--        <SwitchPreferenceCompat-->
-<!--        app:key="delay"-->
-<!--        app:title="10-second delay to arm"/>-->
-
-<!--    </PreferenceCategory>-->
-
 </PreferenceScreen>

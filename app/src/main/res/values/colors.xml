@@ -24,4 +24,7 @@
   <color name="cancel">#FFFF0000</color>
   <color name="disabled">#60000000</color>
 
+  <color name="secure_row_background">#20000000</color>
+  <color name="unsecure_row_background">#00000000</color>
+
 </resources>

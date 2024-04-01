@@ -2,19 +2,14 @@ package edu.cnm.deepdive.leavemealone.service;
 
 import static com.google.android.gms.location.Priority.PRIORITY_HIGH_ACCURACY;
 
-import android.Manifest;
 import android.Manifest.permission;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.room.Query;
 import com.google.android.gms.common.api.Api.ApiOptions.NoOptions;
 import com.google.android.gms.common.api.internal.ApiKey;
 import com.google.android.gms.location.CurrentLocationRequest;
@@ -29,28 +24,26 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.CancellationToken;
 import com.google.android.gms.tasks.CancellationTokenSource;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import edu.cnm.deepdive.leavemealone.model.dao.LocationDao;
 import edu.cnm.deepdive.leavemealone.model.entity.Location;
 import edu.cnm.deepdive.leavemealone.model.pojo.GPSCoord;
-import edu.cnm.deepdive.leavemealone.viewmodel.LocationViewModel;
-import edu.cnm.deepdive.leavemealone.viewmodel.PermissionsViewModel;
-import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import java.time.Instant;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Executor;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class LocationRepository implements FusedLocationProviderClient {
 
   private final LocationDao locationDao;
   private FusedLocationProviderClient fusedLocationProviderClient;
-  private final PermissionsRepository repository;
+  private final PermissionsRepository permissionsRepository;
+  private final PreferencesRepository preferencesRepository;
   private final CancellationTokenSource cts;
   private GPSCoord coord;
   private final LiveData<Boolean> locationPermissionGranted;
@@ -58,13 +51,17 @@ public class LocationRepository implements FusedLocationProviderClient {
 
   @Inject
   public LocationRepository(@ApplicationContext Context context, LocationDao locationDao,
-      PermissionsRepository repository) {
+      PermissionsRepository permissionsRepository, PreferencesRepository preferencesRepository) {
     this.locationDao = locationDao;
-    this.repository = repository;
+    this.permissionsRepository = permissionsRepository;
     fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
+    this.preferencesRepository = preferencesRepository;
     cts = new CancellationTokenSource();
+    if(coord == null) {
+      coord = preferencesRepository.getCoord();
+    }
     LiveData<Set<String>> distinctPermissions = Transformations.distinctUntilChanged(
-        repository.getPermissions());
+        permissionsRepository.getPermissions());
     locationPermissionGranted = Transformations.map(distinctPermissions, (permissions) -> {
       if (permissions.contains(permission.ACCESS_FINE_LOCATION)) {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
@@ -74,6 +71,7 @@ public class LocationRepository implements FusedLocationProviderClient {
               .addOnSuccessListener(location -> {
                 if (location != null) {
                   coord = new GPSCoord(location.getLongitude(), location.getLatitude());
+                  preferencesRepository.setCoord(coord);
                 }
               });
         } catch (SecurityException e) {
@@ -94,6 +92,9 @@ return true;
         .subscribeOn(Schedulers.io());
   }
 
+public LiveData<List<Location>> getAll(){
+    return locationDao.getLocations();
+}
 
   @NonNull
   @Override

@@ -32,7 +32,7 @@ public class LocationViewModel extends ViewModel {
   }
 
   public LiveData<List<Location>> getLocation() {
-    return location;
+    return repository.getAll();
   }
 
   public LiveData<Throwable> getThrowable() {
@@ -41,8 +41,7 @@ public class LocationViewModel extends ViewModel {
 
   public void markLocation(boolean secure) {
     throwable.setValue(null);
-//    repository.
-    // TODO: 3/30/2024 Invoke actuial method in repositiory
+    repository.add(secure).subscribe();
   }
 
   // TODO: Implement the ViewModel

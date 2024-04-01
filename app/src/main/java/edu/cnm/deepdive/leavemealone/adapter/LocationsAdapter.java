@@ -69,7 +69,7 @@ public class LocationsAdapter extends Adapter<ViewHolder> {
     }
 
     public void bind(int position, Location location) {
-      binding.getRoot().setBackgroundColor((position % 2 == 0) ? secureRowBackground : unsecureRowBackground);
+      binding.getRoot().setBackgroundColor((location.isSecure()) ? secureRowBackground : unsecureRowBackground);
       binding.latitude.setText(String.format(coordinateFormat, location.getGpsCoord().latitude()));
       binding.longitude.setText(String.format(coordinateFormat, location.getGpsCoord().longitude()));
       binding.isSecure.setText(String.valueOf(location.isSecure()));

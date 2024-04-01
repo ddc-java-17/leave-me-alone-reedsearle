@@ -21,6 +21,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.preference.PreferenceManager;
 import dagger.hilt.android.qualifiers.ApplicationContext;
+import edu.cnm.deepdive.leavemealone.model.pojo.GPSCoord;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import kotlin.jvm.functions.Function1;
@@ -36,10 +37,12 @@ public class PreferencesRepository {
 
   private final MutableLiveData<SharedPreferences> preferences;
   private final SharedPreferences prefs;
+  private GPSCoord coord;
 
   @Inject
   PreferencesRepository(@ApplicationContext Context context) {
     prefs = PreferenceManager.getDefaultSharedPreferences(context);
+    coord = new GPSCoord(0.,0.);
     preferences = new MutableLiveData<>(prefs);
     prefs.registerOnSharedPreferenceChangeListener((prefs, key) -> preferences.postValue(prefs));
   }
@@ -72,4 +75,11 @@ public class PreferencesRepository {
     return (result != null) ? result : defaultValue;
   }
 
+  public GPSCoord getCoord() {
+    return coord;
+  }
+
+  public void setCoord(GPSCoord coord) {
+    this.coord = coord;
+  }
 }
