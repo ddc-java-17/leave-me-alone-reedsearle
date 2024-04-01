@@ -34,6 +34,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -42,6 +43,7 @@ public class LocationRepository implements FusedLocationProviderClient {
 
   private final LocationDao locationDao;
   private FusedLocationProviderClient fusedLocationProviderClient;
+  private final Executor executor;
   private final PermissionsRepository permissionsRepository;
   private final PreferencesRepository preferencesRepository;
   private final CancellationTokenSource cts;
@@ -53,6 +55,7 @@ public class LocationRepository implements FusedLocationProviderClient {
   public LocationRepository(@ApplicationContext Context context, LocationDao locationDao,
       PermissionsRepository permissionsRepository, PreferencesRepository preferencesRepository) {
     this.locationDao = locationDao;
+    this.executor = Executors.newSingleThreadExecutor();
     this.permissionsRepository = permissionsRepository;
     fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
     this.preferencesRepository = preferencesRepository;
@@ -64,20 +67,34 @@ public class LocationRepository implements FusedLocationProviderClient {
         permissionsRepository.getPermissions());
     locationPermissionGranted = Transformations.map(distinctPermissions, (permissions) -> {
       if (permissions.contains(permission.ACCESS_FINE_LOCATION)) {
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context);
+        LocationRequest request = new LocationRequest
+            .Builder(PRIORITY_HIGH_ACCURACY, 1000)
+            .build();
+
         try {
           fusedLocationProviderClient
-              .getCurrentLocation(PRIORITY_HIGH_ACCURACY, cts.getToken())
+              .getLastLocation()
               .addOnSuccessListener(location -> {
-                if (location != null) {
-                  coord = new GPSCoord(location.getLongitude(), location.getLatitude());
-                  preferencesRepository.setCoord(coord);
-                }
+                coord = new GPSCoord(location.getLongitude(), location.getLatitude());
+                preferencesRepository.setCoord(coord);
+              });
+        } catch (SecurityException e) {
+          throw new RuntimeException(e);
+        }
+
+        try {
+          fusedLocationProviderClient.requestLocationUpdates(request, executor,
+              location -> {
+                coord = new GPSCoord(location.getLongitude(), location.getLatitude());
+                preferencesRepository.setCoord(coord);
               });
         } catch (SecurityException e) {
           throw new RuntimeException(e);
         }
       }
+
       return false;
     });
   }
