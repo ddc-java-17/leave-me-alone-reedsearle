@@ -24,12 +24,12 @@
   </PreferenceCategory>
 
   <SeekBarPreference
-    android:key="countdown_time"
+    android:key="@string/countdown_key"
     android:title="Countdown Time"
     android:summary="Maximum time to put down phone before alarm goes off"
     app:min="5"
     android:max="10"
-    android:defaultValue="7"
+    android:defaultValue="@integers/countdown_default"
     app:showSeekBarValue="true"
     />
 </PreferenceScreen>

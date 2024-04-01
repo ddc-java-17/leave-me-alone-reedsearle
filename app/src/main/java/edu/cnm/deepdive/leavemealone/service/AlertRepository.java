@@ -27,9 +27,9 @@ public class AlertRepository {
     this.repository = repository;
   }
 
-  public Observable<Long> getCountdownTimer() {
+  public Observable<Long> getCountdownTimer(int countdownDelay) {
     return Observable
-        .intervalRange(0, 11, 0, 1, TimeUnit.SECONDS, Schedulers.single())
+        .intervalRange(0, countdownDelay, 0, 1, TimeUnit.SECONDS, Schedulers.single())
         .map((value) -> 10 - value);
   }
 
