@@ -29,7 +29,7 @@
     android:summary="Maximum time to put down phone before alarm goes off"
     app:min="5"
     android:max="10"
-    android:defaultValue="@integers/countdown_default"
+    android:defaultValue="@integer/countdown_default"
     app:showSeekBarValue="true"
     />
 </PreferenceScreen>

@@ -29,8 +29,8 @@ public class AlertRepository {
 
   public Observable<Long> getCountdownTimer(int countdownDelay) {
     return Observable
-        .intervalRange(0, countdownDelay, 0, 1, TimeUnit.SECONDS, Schedulers.single())
-        .map((value) -> 10 - value);
+        .intervalRange(0, countdownDelay+1, 0, 1, TimeUnit.SECONDS, Schedulers.single())
+        .map((value) -> countdownDelay - value);
   }
 
   public boolean checkPassword(String enteredPassword) {
