@@ -21,8 +21,8 @@ public class CoordinatesDialogFragment extends DialogFragment{
   @Override
   public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
     return new AlertDialog.Builder(requireContext())
-        .setTitle("Test Dialog")
-        .setMessage("This is some text that you really should read carefully")
+        .setTitle("Set Locations")
+        .setMessage("Press SECURE if location is safe, press UNSECURE otherwise.  Press CANCEL to exit")
         .setPositiveButton(R.string.set_secure_label, (dlg, which) -> {
           viewModel.markLocation(true);
         })
