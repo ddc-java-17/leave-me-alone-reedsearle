@@ -1,4 +1,5 @@
 <PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
   <PreferenceCategory
@@ -11,7 +12,7 @@
       app:key="alarm_type"
       app:title="Alarm Type"
       app:useSimpleSummaryProvider="true"/>
-      />
+    />
     <ListPreference
       app:defaultValue="beep"
       app:entries="@array/chirp_entries"
@@ -23,12 +24,21 @@
   </PreferenceCategory>
 
   <PreferenceCategory
-    app:title="Delay">
+    android:title="CountdownTime">
 
-    <SwitchPreferenceCompat
-      app:key="delay"
-      app:title="10-second delay to arm"/>
+<!--  <SeekBarPreference-->
+<!--    android:key="countdown_time"-->
+<!--    android:title="Countdown Time"-->
+<!--    android:summary="Maximum time to put down phone before alarm goes off"-->
+<!--    app:min="5"-->
+<!--    android:max="10"-->
+<!--    android:defaultValue="7"-->
+<!--    app:showSeekBarValue="true"-->
+<!--    />-->
+        <SwitchPreferenceCompat
+        app:key="delay"
+        app:title="10-second delay to arm"/>
 
-  </PreferenceCategory>
+    </PreferenceCategory>
 
 </PreferenceScreen>
