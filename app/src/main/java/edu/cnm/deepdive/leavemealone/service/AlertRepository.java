@@ -4,18 +4,18 @@ import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.leavemealone.model.dao.AlertDao;
 import edu.cnm.deepdive.leavemealone.model.entity.Alert;
 import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class AlertRepository {
 
   private final AlertDao alertDao;
-  private Timer countdownTimer;
-//  private final TimerTask timerTask;
-
 
   public AlertRepository(AlertDao alertDao) {
     this.alertDao = alertDao;
@@ -27,9 +27,14 @@ public class AlertRepository {
         .subscribeOn(Schedulers.io());
   }
 
-//  public LiveData<Timer> getCountdownTimer() {
-//    return countdownTimer.scheduleAtFixedRate(run(), 0, 1000);
-//  }
+  public static void getCountdownTimer() {
+    Scheduler scheduler = Schedulers.newThread();
+    Observable
+        .intervalRange(0, 11, 0,1, TimeUnit.SECONDS, scheduler)
+        .doOnNext((step)-> timeRemaining -= step)
+        .doOnComplete()
+        .subscribe();
+  }
 
   public LiveData<List<Alert>> getAll() {
     return alertDao.getAlerts();
