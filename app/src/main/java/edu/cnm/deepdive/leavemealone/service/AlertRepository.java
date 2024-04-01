@@ -12,13 +12,21 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class AlertRepository {
 
   private final AlertDao alertDao;
+  private static long timeRemaining;
+  private static boolean isTimerFinished;
 
+@Inject
   public AlertRepository(AlertDao alertDao) {
     this.alertDao = alertDao;
+    timeRemaining = 10;
+    isTimerFinished = false;
   }
 
   public Single<Long> add(Alert alert){
@@ -27,13 +35,11 @@ public class AlertRepository {
         .subscribeOn(Schedulers.io());
   }
 
-  public static void getCountdownTimer() {
-    Scheduler scheduler = Schedulers.newThread();
-    Observable
-        .intervalRange(0, 11, 0,1, TimeUnit.SECONDS, scheduler)
+  public LiveData<Observable<Long>> getCountdownTimer() {
+    return Observable
+        .intervalRange(0, 11, 0,1, TimeUnit.SECONDS, Schedulers.io())
         .doOnNext((step)-> timeRemaining -= step)
-        .doOnComplete()
-        .subscribe();
+        .doOnComplete(()-> isTimerFinished = true);
   }
 
   public LiveData<List<Alert>> getAll() {
