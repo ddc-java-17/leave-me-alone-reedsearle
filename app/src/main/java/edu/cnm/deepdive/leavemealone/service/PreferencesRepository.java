@@ -38,6 +38,7 @@ public class PreferencesRepository {
   private final MutableLiveData<SharedPreferences> preferences;
   private final SharedPreferences prefs;
   private GPSCoord coord;
+  private final String password = "1234";
 
   @Inject
   PreferencesRepository(@ApplicationContext Context context) {
@@ -73,6 +74,10 @@ public class PreferencesRepository {
     //noinspection unchecked
     T result = (T) prefs.getAll().get(key);
     return (result != null) ? result : defaultValue;
+  }
+
+  public String getPassword() {
+    return password;
   }
 
   public GPSCoord getCoord() {

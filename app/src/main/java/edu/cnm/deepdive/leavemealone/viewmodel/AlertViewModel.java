@@ -22,6 +22,7 @@ public class AlertViewModel extends ViewModel implements DefaultLifecycleObserve
   private final MutableLiveData<Long> timerStep;
   private final MutableLiveData<Long> timeRemaining;
   private final MutableLiveData<Boolean> timeExpired;
+  private final MutableLiveData<Boolean> passwordCorrect;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
 
@@ -31,6 +32,7 @@ public class AlertViewModel extends ViewModel implements DefaultLifecycleObserve
     timerStep = new MutableLiveData<>();
     timeRemaining = new MutableLiveData<>();
     timeExpired = new MutableLiveData<>();
+    passwordCorrect = new MutableLiveData<>();
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
   }
@@ -47,6 +49,10 @@ public class AlertViewModel extends ViewModel implements DefaultLifecycleObserve
         );
   }
 
+  public boolean checkPassword(String inputPassword){
+    return repository.checkPassword(inputPassword);
+  }
+
   public LiveData<Long> getTimeRemaining() {
     return timeRemaining;
   }
@@ -57,6 +63,10 @@ public class AlertViewModel extends ViewModel implements DefaultLifecycleObserve
 
   public LiveData<Throwable> getThrowable() {
     return throwable;
+  }
+
+  public LiveData<Boolean> getPasswordCorrect() {
+    return passwordCorrect;
   }
 
   @Override

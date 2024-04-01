@@ -17,6 +17,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.leavemealone.databinding.FragmentAlarmWarningBinding;
+import edu.cnm.deepdive.leavemealone.util.PasswordWatcher;
 import edu.cnm.deepdive.leavemealone.viewmodel.AlertViewModel;
 
 /**
@@ -26,8 +27,12 @@ import edu.cnm.deepdive.leavemealone.viewmodel.AlertViewModel;
 @AndroidEntryPoint
 public class AlarmWarningFragment extends Fragment {
 
+  public static final int PASSWORD_DIGIT_LENGTH = 4;
+  public static final int RESET_CODE_LENGTH = 0;
+
   private FragmentAlarmWarningBinding binding;
   private AlertViewModel viewModel;
+  private int codeLength;
 
   public AlarmWarningFragment() {
     // Required empty public constructor
@@ -57,8 +62,17 @@ public class AlarmWarningFragment extends Fragment {
             navController.navigate(ControlsFragmentDirections.navigateSounding());
           }
         });
-    binding.disarmAlarm.setOnClickListener(
-        (v) -> navController.navigate(ControlsFragmentDirections.navigateControls()));
+    binding.textCode.addTextChangedListener((PasswordWatcher) s -> {
+      codeLength++;
+      if (codeLength == PASSWORD_DIGIT_LENGTH) {
+        String inputCode = s.toString();
+        if(viewModel.checkPassword(inputCode)){
+          navController.navigate(AlarmArmFragmentDirections.navigateControls());
+        }
+        binding.textCode.setText("");
+        codeLength = RESET_CODE_LENGTH;
+      }
+    });
   }
 
   @Override
@@ -66,5 +80,6 @@ public class AlarmWarningFragment extends Fragment {
     binding = null;
     super.onDestroyView();
   }
+
 
 }

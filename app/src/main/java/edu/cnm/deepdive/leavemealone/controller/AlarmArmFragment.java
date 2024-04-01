@@ -1,8 +1,7 @@
 package edu.cnm.deepdive.leavemealone.controller;
 
 import android.os.Bundle;
-import android.provider.CalendarContract.EventsEntity;
-import android.util.Log;
+import android.text.TextWatcher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -14,8 +13,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
-import edu.cnm.deepdive.leavemealone.R;
 import edu.cnm.deepdive.leavemealone.databinding.FragmentAlarmArmBinding;
+import edu.cnm.deepdive.leavemealone.util.PasswordWatcher;
+import edu.cnm.deepdive.leavemealone.viewmodel.AlertViewModel;
 import edu.cnm.deepdive.leavemealone.viewmodel.MotionViewModel;
 
 /**
@@ -25,8 +25,13 @@ import edu.cnm.deepdive.leavemealone.viewmodel.MotionViewModel;
 @AndroidEntryPoint
 public class AlarmArmFragment extends Fragment {
 
+  public static final int PASSWORD_DIGIT_LENGTH = 4;
+  public static final int RESET_CODE_LENGTH = 0;
+
   private FragmentAlarmArmBinding binding;
-  private MotionViewModel viewModel;
+  private MotionViewModel motionViewModel;
+  private AlertViewModel alertViewModel;
+  private int codeLength;
 
   public AlarmArmFragment() {
     // Required empty public constructor
@@ -35,6 +40,7 @@ public class AlarmArmFragment extends Fragment {
   @Override
   public View onCreateView(
       LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    codeLength = RESET_CODE_LENGTH;
     binding = FragmentAlarmArmBinding.inflate(inflater, container, false);
     return binding.getRoot();
   }
@@ -44,17 +50,24 @@ public class AlarmArmFragment extends Fragment {
     super.onViewCreated(view, savedInstanceState);
     NavController navController = Navigation.findNavController(view);
     ViewModelProvider provider = new ViewModelProvider(this);
-    viewModel = provider.get(MotionViewModel.class);
+    motionViewModel = provider.get(MotionViewModel.class);
+    alertViewModel = provider.get(AlertViewModel.class);
     LifecycleOwner owner = getViewLifecycleOwner();
-    viewModel.getTriggerEvent().observe(owner,
+    motionViewModel.getTriggerEvent().observe(owner,
         (b) -> {
-//          Log.d(getClass().getSimpleName(), b.toString());
           navController.navigate(AlarmArmFragmentDirections.navigateWarning());
         });
-    binding.disarmAlarm.setOnClickListener(
-        (v) -> {
-          navController.navigate(ControlsFragmentDirections.navigateControls());
-        });
+    binding.textCode.addTextChangedListener((PasswordWatcher) s -> {
+      codeLength++;
+      if (codeLength == PASSWORD_DIGIT_LENGTH) {
+        String inputCode = s.toString();
+        if(alertViewModel.checkPassword(inputCode)){
+          navController.navigate(AlarmArmFragmentDirections.navigateControls());
+        }
+        binding.textCode.setText("");
+        codeLength = RESET_CODE_LENGTH;
+      }
+    });
   }
 
   @Override
@@ -62,5 +75,7 @@ public class AlarmArmFragment extends Fragment {
     binding = null;
     super.onDestroyView();
   }
+
+
 
 }

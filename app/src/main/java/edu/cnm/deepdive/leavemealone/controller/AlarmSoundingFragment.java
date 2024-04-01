@@ -1,15 +1,17 @@
 package edu.cnm.deepdive.leavemealone.controller;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import edu.cnm.deepdive.leavemealone.R;
 import edu.cnm.deepdive.leavemealone.databinding.FragmentAlarmSoundingBinding;
+import edu.cnm.deepdive.leavemealone.util.PasswordWatcher;
+import edu.cnm.deepdive.leavemealone.viewmodel.AlertViewModel;
 
 /**
  * A simple {@link Fragment} subclass. Use the {@link AlarmSoundingFragment#newInstance} factory
@@ -17,6 +19,10 @@ import edu.cnm.deepdive.leavemealone.databinding.FragmentAlarmSoundingBinding;
  */
 public class AlarmSoundingFragment extends Fragment {
 
+  public static final int PASSWORD_DIGIT_LENGTH = 4;
+  public static final int RESET_CODE_LENGTH = 0;
+  private AlertViewModel viewModel;
+  private int codeLength;
   private FragmentAlarmSoundingBinding binding;
   public AlarmSoundingFragment() {
     // Required empty public constructor
@@ -32,11 +38,18 @@ public class AlarmSoundingFragment extends Fragment {
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    binding.disarmAlarm.setOnClickListener(
-        (button)->Navigation
-            .findNavController(button)
-            .navigate(ControlsFragmentDirections
-                .navigateControls()) );
+    NavController navController = Navigation.findNavController(view);
+    binding.textCode.addTextChangedListener((PasswordWatcher) s -> {
+      codeLength++;
+      if (codeLength == PASSWORD_DIGIT_LENGTH) {
+        String inputCode = s.toString();
+        if(viewModel.checkPassword(inputCode)){
+          navController.navigate(AlarmArmFragmentDirections.navigateControls());
+        }
+        binding.textCode.setText("");
+        codeLength = RESET_CODE_LENGTH;
+      }
+    });
   }
   @Override
   public void onDestroyView() {

@@ -82,7 +82,6 @@ return true;
     });
   }
 
-
   public Single<Long> add(Boolean secure) {
     Location location = new Location();
     location.setSecure(secure);
@@ -95,6 +94,7 @@ return true;
 public LiveData<List<Location>> getAll(){
     return locationDao.getLocations();
 }
+
 
   @NonNull
   @Override

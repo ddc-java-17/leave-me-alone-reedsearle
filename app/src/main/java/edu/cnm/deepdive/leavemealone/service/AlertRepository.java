@@ -19,26 +19,29 @@ import javax.inject.Singleton;
 public class AlertRepository {
 
   private final AlertDao alertDao;
-  private static long timeRemaining;
-  private static boolean isTimerFinished;
+  private final PreferencesRepository repository;
 
-@Inject
-  public AlertRepository(AlertDao alertDao) {
+  @Inject
+  public AlertRepository(AlertDao alertDao, PreferencesRepository repository) {
     this.alertDao = alertDao;
-    timeRemaining = 10;
-    isTimerFinished = false;
-  }
-
-  public Single<Long> add(Alert alert){
-    return alertDao
-        .insert(alert)
-        .subscribeOn(Schedulers.io());
+    this.repository = repository;
   }
 
   public Observable<Long> getCountdownTimer() {
     return Observable
-        .intervalRange(0, 11, 0,1, TimeUnit.SECONDS, Schedulers.single())
-        .map((value)-> 10 - value);
+        .intervalRange(0, 11, 0, 1, TimeUnit.SECONDS, Schedulers.single())
+        .map((value) -> 10 - value);
+  }
+
+  public boolean checkPassword(String enteredPassword) {
+    return repository.getPassword().equals(enteredPassword);
+  }
+
+
+  public Single<Long> add(Alert alert) {
+    return alertDao
+        .insert(alert)
+        .subscribeOn(Schedulers.io());
   }
 
   public LiveData<List<Alert>> getAll() {
