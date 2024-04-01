@@ -35,11 +35,10 @@ public class AlertRepository {
         .subscribeOn(Schedulers.io());
   }
 
-  public LiveData<Observable<Long>> getCountdownTimer() {
+  public Observable<Long> getCountdownTimer() {
     return Observable
-        .intervalRange(0, 11, 0,1, TimeUnit.SECONDS, Schedulers.io())
-        .doOnNext((step)-> timeRemaining -= step)
-        .doOnComplete(()-> isTimerFinished = true);
+        .intervalRange(0, 11, 0,1, TimeUnit.SECONDS, Schedulers.single())
+        .map((value)-> 10 - value);
   }
 
   public LiveData<List<Alert>> getAll() {

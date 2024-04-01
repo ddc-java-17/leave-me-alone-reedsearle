@@ -28,6 +28,7 @@ public class AlarmWarningFragment extends Fragment {
 
   private FragmentAlarmWarningBinding binding;
   private AlertViewModel viewModel;
+
   public AlarmWarningFragment() {
     // Required empty public constructor
   }
@@ -43,20 +44,21 @@ public class AlarmWarningFragment extends Fragment {
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     NavController navController = Navigation.findNavController(view);
-    binding.codeTimeOut.setOnClickListener(
-        (v) -> navController.navigate(AlarmWarningFragmentDirections.navigateSounding()));
+    ViewModelProvider provider = new ViewModelProvider(this);
+    viewModel = provider.get(AlertViewModel.class);
+    getLifecycle().addObserver(viewModel);
+    LifecycleOwner owner = getViewLifecycleOwner();
+    viewModel.startTimer();
+    viewModel.getTimeRemaining()
+        .observe(owner, (time) -> binding.countdown.setText(String.valueOf(time)));
+    viewModel.getTimeExpired()
+        .observe(owner, (expired) -> {
+          if (expired) {
+            navController.navigate(ControlsFragmentDirections.navigateSounding());
+          }
+        });
     binding.disarmAlarm.setOnClickListener(
         (v) -> navController.navigate(ControlsFragmentDirections.navigateControls()));
-  }
-
-  @Override
-  public void onStart() {
-    super.onStart();
-    ViewModelProvider provider = new ViewModelProvider(this);
-    viewModel =provider.get(AlertViewModel.class);
-    LifecycleOwner owner = getViewLifecycleOwner();
-    viewModel.countdownTimer()
-        .observe(owner, (step)-> binding.countdown.setText(String.valueOf(step)));
   }
 
   @Override
