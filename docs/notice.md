@@ -11,4 +11,4 @@ order: 70
 ## Notices
 {: menu="Notice" }
 
-{% include ../NOTICE %}
+{% include ..\NOTICE %}

@@ -11,4 +11,4 @@ order: 80
 ## License
 {: menu="License" }
 
-{% include ../LICENSE %}
+{% include ..\LICENSE %}
