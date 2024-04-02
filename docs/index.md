@@ -70,7 +70,7 @@ External Services
 Service Requirements
 
 All services will be highly recommended but the app will operate without any dangerous services, 
-although at a somewhat reduced capability.
+although at a greatly reduced capability.
 
 ## Stretch goals and possible enhancements 
 {: menu="Stretch goals" }

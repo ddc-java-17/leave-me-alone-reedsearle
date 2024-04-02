@@ -41,31 +41,31 @@ Set Location opens a dialog window that allows you to set locations as either se
 
 Display Locations will display all set locations and remind you if they are secure or not.
 
-# Set Location
+### Set Location
 
 On this screen, your current location may be saved with an annotation depicting this location as either secure or unsecure.  These annotations will later be used to vary the sensitvity of the device to motion in the armed state.  Cancel will exit the screen without a location being saved.
 
-# Display Locations
+### Display Locations
 
 This screen will display all of your saved locations as well as locations where the alarm has been triggered.  
 
-# Arm
+### Arm
 
 At this screen, the device is sensing any movement.  The only choices are to enter the disarm code to return to the main screen or to let movement activate the warning screen.  Please note, when you pick up your phone to enter the disarm code, you are highly likely to end up in the warning screen.
 
-# Warning
+### Warning
 
 On this screen, you will see a countdown timer (settable in the Settings screen), and hear the warning sound.  This is the time alloted to enter the disarm code.  If the code is not entered correctly by the time the timer expires, the alarm will sound and will transfer to the alarm sounding screen.
 
-# Alarm 
+### Alarm 
 
 By the time you reach this screen, the alarm is sounding.  You still have the option of entering the disarm code to silence the alarm and return to the main screen.
 
-# Settings
+### Settings
 
 Here, you may set the type of alarm sound, the type of warning sound, the length of countdown delay time, and your disarm code.  These are persistant.  Unless you uninstall the app, these preferences will remain in effect each time you open the app.
 
-# Sign Out
+### Sign Out
 
 This will exit you from the app.
 
