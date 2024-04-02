@@ -21,12 +21,22 @@ public class AlertRepository {
   private final AlertDao alertDao;
   private final PreferencesRepository repository;
 
+  /**
+   * This repository links the view models to the countdown timer and the password checker
+   * @param alertDao
+   * @param repository
+   */
   @Inject
   public AlertRepository(AlertDao alertDao, PreferencesRepository repository) {
     this.alertDao = alertDao;
     this.repository = repository;
   }
 
+  /**
+   * The getCountdownTimer method
+   * @param countdownDelay
+   * @return
+   */
   public Observable<Long> getCountdownTimer(int countdownDelay) {
     return Observable
         .intervalRange(0, countdownDelay+1, 0, 1, TimeUnit.SECONDS, Schedulers.single())
@@ -35,33 +45,6 @@ public class AlertRepository {
 
   public boolean checkPassword(String enteredPassword) {
     return repository.getPassword().equals(enteredPassword);
-  }
-
-
-  public Single<Long> add(Alert alert) {
-    return alertDao
-        .insert(alert)
-        .subscribeOn(Schedulers.io());
-  }
-
-  public LiveData<List<Alert>> getAll() {
-    return alertDao.getAlerts();
-  }
-
-  public LiveData<List<Alert>> getAllTriggeredOrNotTriggered(boolean triggered) {
-    return alertDao.getAlertsTriggeredOrNotTriggered(triggered);
-  }
-
-  public Completable clearAll() {
-    return alertDao.truncateAlerts();
-  }
-
-  public Completable clearOneTriggered(long alert_id) {
-    return alertDao.truncateAlertTriggered(alert_id);
-  }
-
-  public Completable clearAllTriggered() {
-    return alertDao.truncateAlertsTriggered();
   }
 
 }

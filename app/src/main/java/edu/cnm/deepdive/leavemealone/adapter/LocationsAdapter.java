@@ -14,6 +14,10 @@ import edu.cnm.deepdive.leavemealone.databinding.ItemLocationResultsBinding;
 import edu.cnm.deepdive.leavemealone.model.entity.Location;
 import java.util.List;
 
+/**
+ * This adapter formats the fields in the Location entity for a recycler view in
+ * the Location Fragment
+ */
 public class LocationsAdapter extends Adapter<ViewHolder> {
 
   private final LayoutInflater inflater;
@@ -24,6 +28,12 @@ public class LocationsAdapter extends Adapter<ViewHolder> {
   @ColorInt
   private final int unsecureRowBackground;
 
+  /**
+   * This constructor takes a context and a list of locations as parameters and defines
+   * three fields for formatting.
+   * @param context
+   * @param locations
+   */
   public LocationsAdapter(Context context, List<Location> locations) {
     this.locations = locations;
     inflater = LayoutInflater.from(context);
@@ -32,6 +42,12 @@ public class LocationsAdapter extends Adapter<ViewHolder> {
     unsecureRowBackground = MaterialColors.getColor(context, R.attr.unsecureRowBackground, 0);
   }
 
+  /**
+   * The onCreateViewHolder method creates all of the holders for the recycler view
+   * @param viewGroup
+   * @param type
+   * @return
+   */
   @NonNull
   @Override
   public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int type) {
@@ -40,11 +56,21 @@ public class LocationsAdapter extends Adapter<ViewHolder> {
         coordinateFormat, secureRowBackground, unsecureRowBackground);
   }
 
+  /**
+   * The onBindViewHolder method binds the individual holders and creates more as is
+   * needed to fill the view.
+   * @param holder
+   * @param position
+   */
   @Override
   public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
     ((Holder) holder).bind(position, locations.get(position));
   }
 
+  /**
+   * getItemCount generates a value of the total number of entries in the Location entity
+   * @return
+   */
   @Override
   public int getItemCount() {
     return locations.size();
@@ -68,6 +94,12 @@ public class LocationsAdapter extends Adapter<ViewHolder> {
       this.unsecureRowBackground = unsecureRowBackground;
     }
 
+    /**
+     * The onBindViewHolder method binds the individual fields from the Location entity
+     * into fields in the holder
+     * @param position
+     * @param location
+     */
     public void bind(int position, Location location) {
       binding.getRoot().setBackgroundColor((location.isSecure()) ? secureRowBackground : unsecureRowBackground);
       binding.latitude.setText(String.format(coordinateFormat, location.getGpsCoord().latitude()));
