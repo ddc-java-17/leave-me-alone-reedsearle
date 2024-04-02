@@ -37,6 +37,7 @@ public class AlarmArmFragment extends Fragment {
     // Required empty public constructor
   }
 
+  // TODO: 4/2/2024 Determine method to remove back button functionality 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -46,6 +47,7 @@ public class AlarmArmFragment extends Fragment {
 
       }
     };
+    callback.setEnabled(false);
   }
 
   @Override
