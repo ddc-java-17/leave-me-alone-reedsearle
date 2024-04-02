@@ -64,13 +64,13 @@ Device Services
 
 External Services
 
+  * Google Sign-in Service
   * Email tools - [https://developer.android.com/guide/components/intents-common](https://developer.android.com/guide/components/intents-common){:target="_blank"} This is a list of comm Intents including sending email with multiple attachments
   * [https://developer.android.com/reference/android/content/Intent#ACTION_SEND](https://developer.android.com/reference/android/content/Intent#ACTION_SEND){:target="_blank"} This is the specific Intent for emailing with an attachment
 
 Service Requirements
 
-All services will be highly recommended but the app will operate without any dangerous services, 
-although at a greatly reduced capability.
+This app requires permission to use the GPS location services and access to the camera.  the GPS services allow the user to set secure/unsecure locations as well as allowing the phone to be tracked when stolen.  The camera is used to take a photo or a quick video when it is stolen with the hope of capturing the thief's face.  All services will be highly recommended but the app will operate without any dangerous services, although at a greatly reduced capability.
 
 ## Stretch goals and possible enhancements 
 {: menu="Stretch goals" }
