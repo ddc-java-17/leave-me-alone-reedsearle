@@ -38,7 +38,7 @@ loadScripts(document, 'script');</script>
 <p>Summary:</p>
 <ul>
 <li>Nested</li>
-<li>Field</li>
+<li><a href="#field-summary">Field</a></li>
 <li><a href="#constructor-summary">Constr</a></li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -46,7 +46,7 @@ loadScripts(document, 'script');</script>
 <li>
 <p>Detail:</p>
 <ul>
-<li>Field</li>
+<li><a href="#field-detail">Field</a></li>
 <li><a href="#constructor-detail">Constr</a></li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -58,13 +58,13 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -88,12 +88,36 @@ loadScripts(document, 'script');</script>
 <div class="inheritance">edu.cnm.deepdive.leavemealone.service.LocationRepository</div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="https://developer.android.com/reference/com/google/android/gms/common/api/HasApiKey.html" title="class or interface in com.google.android.gms.common.api" class="external-link">HasApiKey</a>&lt;<a href="https://developer.android.com/reference/com/google/android/gms/common/api/Api.ApiOptions.NoOptions.html" title="class or interface in com.google.android.gms.common.api" class="external-link">Api.ApiOptions.NoOptions</a>&gt;</code>, <code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-14">LocationRepository</a></span>
-<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="type-signature"><span class="annotations">@Singleton
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-41">LocationRepository</a></span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements com.google.android.gms.location.FusedLocationProviderClient</span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#GPS_UPDATE_INTERVAL_MS" class="member-name-link">GPS_UPDATE_INTERVAL_MS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-com.google.android.gms.location.FusedLocationProviderClient">Fields inherited from interface&nbsp;com.google.android.gms.location.FusedLocationProviderClient</h3>
+<code>KEY_MOCK_LOCATION, KEY_VERTICAL_ACCURACY</code></div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -102,8 +126,13 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(edu.cnm.deepdive.leavemealone.model.dao.LocationDao)" class="member-name-link">LocationRepository</a><wbr>(<a href="../model/dao/LocationDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">LocationDao</a>&nbsp;locationDao)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(android.content.Context,edu.cnm.deepdive.leavemealone.model.dao.LocationDao,edu.cnm.deepdive.leavemealone.service.PermissionsRepository,edu.cnm.deepdive.leavemealone.service.PreferencesRepository)" class="member-name-link">LocationRepository</a><wbr>(<a href="https://developer.android.com/reference/android/content/Context.html" title="class or interface in android.content" class="external-link">Context</a>&nbsp;context,
+ <a href="../model/dao/LocationDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">LocationDao</a>&nbsp;locationDao,
+ <a href="PermissionsRepository.html" title="class in edu.cnm.deepdive.leavemealone.service">PermissionsRepository</a>&nbsp;permissionsRepository,
+ <a href="PreferencesRepository.html" title="class in edu.cnm.deepdive.leavemealone.service">PreferencesRepository</a>&nbsp;preferencesRepository)</code></div>
+<div class="col-last even-row-color">
+<div class="block">This constructor does the heavy lifting for the GPS location determination.</div>
+</div>
 </div>
 </section>
 </li>
@@ -119,34 +148,91 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#add(edu.cnm.deepdive.leavemealone.model.entity.Location)" class="member-name-link">add</a><wbr>(<a href="../model/entity/Location.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Location</a>&nbsp;location)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearAll()" class="member-name-link">clearAll</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearAllSecures()" class="member-name-link">clearAllSecures</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearAllTracked()" class="member-name-link">clearAllTracked</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearAllUnsecures()" class="member-name-link">clearAllUnsecures</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearSecure(long)" class="member-name-link">clearSecure</a><wbr>(long&nbsp;location_id)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearUnsecure(long)" class="member-name-link">clearUnsecure</a><wbr>(long&nbsp;location_id)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Location.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Location</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAll()" class="member-name-link">getAll</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#add(java.lang.Boolean)" class="member-name-link">add</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;secure)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">This method adds a location to the database with a boolean parameter of secure
+ where true indicates the location is secure and false indicates the location
+ is not secure.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#flushLocations()" class="member-name-link">flushLocations</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Location.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Location</a>&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllSecureOrUnsecure(boolean)" class="member-name-link">getAllSecureOrUnsecure</a><wbr>(boolean&nbsp;secure)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAll()" class="member-name-link">getAll</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">The getAll method is used to return a list of locations to the viewmodel</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.android.gms.common.api.internal.ApiKey<wbr>&lt;<a href="https://developer.android.com/reference/com/google/android/gms/common/api/Api.ApiOptions.NoOptions.html" title="class or interface in com.google.android.gms.common.api" class="external-link">Api.ApiOptions.NoOptions</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getApiKey()" class="member-name-link">getApiKey</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentLocation(int,com.google.android.gms.tasks.CancellationToken)" class="member-name-link">getCurrentLocation</a><wbr>(int&nbsp;i,
+ <a href="https://developer.android.com/reference/com/google/android/gms/tasks/CancellationToken.html" title="class or interface in com.google.android.gms.tasks" class="external-link">CancellationToken</a>&nbsp;cancellationToken)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Location.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Location</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllTracked()" class="member-name-link">getAllTracked</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentLocation(com.google.android.gms.location.CurrentLocationRequest,com.google.android.gms.tasks.CancellationToken)" class="member-name-link">getCurrentLocation</a><wbr>(com.google.android.gms.location.CurrentLocationRequest&nbsp;currentLocationRequest,
+ <a href="https://developer.android.com/reference/com/google/android/gms/tasks/CancellationToken.html" title="class or interface in com.google.android.gms.tasks" class="external-link">CancellationToken</a>&nbsp;cancellationToken)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastLocation()" class="member-name-link">getLastLocation</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastLocation(com.google.android.gms.location.LastLocationRequest)" class="member-name-link">getLastLocation</a><wbr>(com.google.android.gms.location.LastLocationRequest&nbsp;lastLocationRequest)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;com.google.android.gms.location.LocationAvailability&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLocationAvailability()" class="member-name-link">getLocationAvailability</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeDeviceOrientationUpdates(com.google.android.gms.location.DeviceOrientationListener)" class="member-name-link">removeDeviceOrientationUpdates</a><wbr>(com.google.android.gms.location.DeviceOrientationListener&nbsp;deviceOrientationListener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeLocationUpdates(android.app.PendingIntent)" class="member-name-link">removeLocationUpdates</a><wbr>(<a href="https://developer.android.com/reference/android/app/PendingIntent.html" title="class or interface in android.app" class="external-link">PendingIntent</a>&nbsp;pendingIntent)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeLocationUpdates(com.google.android.gms.location.LocationCallback)" class="member-name-link">removeLocationUpdates</a><wbr>(com.google.android.gms.location.LocationCallback&nbsp;locationCallback)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeLocationUpdates(com.google.android.gms.location.LocationListener)" class="member-name-link">removeLocationUpdates</a><wbr>(com.google.android.gms.location.LocationListener&nbsp;locationListener)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requestDeviceOrientationUpdates(com.google.android.gms.location.DeviceOrientationRequest,com.google.android.gms.location.DeviceOrientationListener,android.os.Looper)" class="member-name-link">requestDeviceOrientationUpdates</a><wbr>(com.google.android.gms.location.DeviceOrientationRequest&nbsp;deviceOrientationRequest,
+ com.google.android.gms.location.DeviceOrientationListener&nbsp;deviceOrientationListener,
+ <a href="https://developer.android.com/reference/android/os/Looper.html" title="class or interface in android.os" class="external-link">Looper</a>&nbsp;looper)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requestDeviceOrientationUpdates(com.google.android.gms.location.DeviceOrientationRequest,java.util.concurrent.Executor,com.google.android.gms.location.DeviceOrientationListener)" class="member-name-link">requestDeviceOrientationUpdates</a><wbr>(com.google.android.gms.location.DeviceOrientationRequest&nbsp;deviceOrientationRequest,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;executor,
+ com.google.android.gms.location.DeviceOrientationListener&nbsp;deviceOrientationListener)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requestLocationUpdates(com.google.android.gms.location.LocationRequest,android.app.PendingIntent)" class="member-name-link">requestLocationUpdates</a><wbr>(com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ <a href="https://developer.android.com/reference/android/app/PendingIntent.html" title="class or interface in android.app" class="external-link">PendingIntent</a>&nbsp;pendingIntent)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requestLocationUpdates(com.google.android.gms.location.LocationRequest,com.google.android.gms.location.LocationCallback,android.os.Looper)" class="member-name-link">requestLocationUpdates</a><wbr>(com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ com.google.android.gms.location.LocationCallback&nbsp;locationCallback,
+ <a href="https://developer.android.com/reference/android/os/Looper.html" title="class or interface in android.os" class="external-link">Looper</a>&nbsp;looper)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requestLocationUpdates(com.google.android.gms.location.LocationRequest,com.google.android.gms.location.LocationListener,android.os.Looper)" class="member-name-link">requestLocationUpdates</a><wbr>(com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ com.google.android.gms.location.LocationListener&nbsp;locationListener,
+ <a href="https://developer.android.com/reference/android/os/Looper.html" title="class or interface in android.os" class="external-link">Looper</a>&nbsp;looper)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requestLocationUpdates(com.google.android.gms.location.LocationRequest,java.util.concurrent.Executor,com.google.android.gms.location.LocationCallback)" class="member-name-link">requestLocationUpdates</a><wbr>(com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;executor,
+ com.google.android.gms.location.LocationCallback&nbsp;locationCallback)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requestLocationUpdates(com.google.android.gms.location.LocationRequest,java.util.concurrent.Executor,com.google.android.gms.location.LocationListener)" class="member-name-link">requestLocationUpdates</a><wbr>(com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;executor,
+ com.google.android.gms.location.LocationListener&nbsp;locationListener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMockLocation(android.location.Location)" class="member-name-link">setMockLocation</a><wbr>(<a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&nbsp;location)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMockMode(boolean)" class="member-name-link">setMockMode</a><wbr>(boolean&nbsp;b)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -160,16 +246,51 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="GPS_UPDATE_INTERVAL_MS">
+<h3>GPS_UPDATE_INTERVAL_MS</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-44">GPS_UPDATE_INTERVAL_MS</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#edu.cnm.deepdive.leavemealone.service.LocationRepository.GPS_UPDATE_INTERVAL_MS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
 <section class="constructor-details" id="constructor-detail">
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(edu.cnm.deepdive.leavemealone.model.dao.LocationDao)">
+<section class="detail" id="&lt;init&gt;(android.content.Context,edu.cnm.deepdive.leavemealone.model.dao.LocationDao,edu.cnm.deepdive.leavemealone.service.PermissionsRepository,edu.cnm.deepdive.leavemealone.service.PreferencesRepository)">
 <h3>LocationRepository</h3>
 <div class="member-signature"><span class="annotations">@Inject
-</span><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-18">LocationRepository</a></span><wbr><span class="parameters">(<a href="../model/dao/LocationDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">LocationDao</a>&nbsp;locationDao)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-62">LocationRepository</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/android/content/Context.html" title="class or interface in android.content" class="external-link">Context</a>&nbsp;context,
+ <a href="../model/dao/LocationDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">LocationDao</a>&nbsp;locationDao,
+ <a href="PermissionsRepository.html" title="class in edu.cnm.deepdive.leavemealone.service">PermissionsRepository</a>&nbsp;permissionsRepository,
+ <a href="PreferencesRepository.html" title="class in edu.cnm.deepdive.leavemealone.service">PreferencesRepository</a>&nbsp;preferencesRepository)</span></div>
+<div class="block">This constructor does the heavy lifting for the GPS location determination.  THere are
+ two try-catches; the forst get the intial position and the second get every subsequent
+ position.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>context</code> - </dd>
+<dd><code>locationDao</code> - </dd>
+<dd><code>permissionsRepository</code> - </dd>
+<dd><code>preferencesRepository</code> - </dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -181,63 +302,291 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="add(edu.cnm.deepdive.leavemealone.model.entity.Location)">
+<section class="detail" id="add(java.lang.Boolean)">
 <h3>add</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-24">add</a></span><wbr><span class="parameters">(<a href="../model/entity/Location.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Location</a>&nbsp;location)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-116">add</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;secure)</span></div>
+<div class="block">This method adds a location to the database with a boolean parameter of secure
+ where true indicates the location is secure and false indicates the location
+ is not secure.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>secure</code> - </dd>
+<dt>Returns:</dt>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getAll()">
 <h3>getAll</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Location.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Location</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-29">getAll</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Location.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Location</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-129">getAll</a></span>()</div>
+<div class="block">The getAll method is used to return a list of locations to the viewmodel</div>
+<dl class="notes">
+<dt>Returns:</dt>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getAllSecureOrUnsecure(boolean)">
-<h3>getAllSecureOrUnsecure</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Location.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Location</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-32">getAllSecureOrUnsecure</a></span><wbr><span class="parameters">(boolean&nbsp;secure)</span></div>
+<section class="detail" id="getLastLocation()">
+<h3>getLastLocation</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-134">getLastLocation</a></span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>getLastLocation</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getAllTracked()">
-<h3>getAllTracked</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Location.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Location</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-35">getAllTracked</a></span>()</div>
+<section class="detail" id="getLastLocation(com.google.android.gms.location.LastLocationRequest)">
+<h3>getLastLocation</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-140">getLastLocation</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LastLocationRequest&nbsp;lastLocationRequest)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>getLastLocation</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="clearAll()">
-<h3>clearAll</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-38">clearAll</a></span>()</div>
+<section class="detail" id="getCurrentLocation(int,com.google.android.gms.tasks.CancellationToken)">
+<h3>getCurrentLocation</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-147">getCurrentLocation</a></span><wbr><span class="parameters">(int&nbsp;i,
+ <a href="https://developer.android.com/reference/androidx/annotation/Nullable.html" title="class or interface in androidx.annotation" class="external-link">@Nullable</a>
+ <a href="https://developer.android.com/reference/com/google/android/gms/tasks/CancellationToken.html" title="class or interface in com.google.android.gms.tasks" class="external-link">CancellationToken</a>&nbsp;cancellationToken)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>getCurrentLocation</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="clearSecure(long)">
-<h3>clearSecure</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-41">clearSecure</a></span><wbr><span class="parameters">(long&nbsp;location_id)</span></div>
+<section class="detail" id="getCurrentLocation(com.google.android.gms.location.CurrentLocationRequest,com.google.android.gms.tasks.CancellationToken)">
+<h3>getCurrentLocation</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-154">getCurrentLocation</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.CurrentLocationRequest&nbsp;currentLocationRequest,
+ <a href="https://developer.android.com/reference/androidx/annotation/Nullable.html" title="class or interface in androidx.annotation" class="external-link">@Nullable</a>
+ <a href="https://developer.android.com/reference/com/google/android/gms/tasks/CancellationToken.html" title="class or interface in com.google.android.gms.tasks" class="external-link">CancellationToken</a>&nbsp;cancellationToken)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>getCurrentLocation</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="clearUnsecure(long)">
-<h3>clearUnsecure</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-44">clearUnsecure</a></span><wbr><span class="parameters">(long&nbsp;location_id)</span></div>
+<section class="detail" id="getLocationAvailability()">
+<h3>getLocationAvailability</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;com.google.android.gms.location.LocationAvailability&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-162">getLocationAvailability</a></span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>getLocationAvailability</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="clearAllSecures()">
-<h3>clearAllSecures</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-47">clearAllSecures</a></span>()</div>
+<section class="detail" id="requestLocationUpdates(com.google.android.gms.location.LocationRequest,java.util.concurrent.Executor,com.google.android.gms.location.LocationListener)">
+<h3>requestLocationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-168">requestLocationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;executor,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationListener&nbsp;locationListener)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>requestLocationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="clearAllUnsecures()">
-<h3>clearAllUnsecures</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-50">clearAllUnsecures</a></span>()</div>
+<section class="detail" id="requestLocationUpdates(com.google.android.gms.location.LocationRequest,com.google.android.gms.location.LocationListener,android.os.Looper)">
+<h3>requestLocationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-175">requestLocationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationListener&nbsp;locationListener,
+ <a href="https://developer.android.com/reference/androidx/annotation/Nullable.html" title="class or interface in androidx.annotation" class="external-link">@Nullable</a>
+ <a href="https://developer.android.com/reference/android/os/Looper.html" title="class or interface in android.os" class="external-link">Looper</a>&nbsp;looper)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>requestLocationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="clearAllTracked()">
-<h3>clearAllTracked</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-53">clearAllTracked</a></span>()</div>
+<section class="detail" id="requestLocationUpdates(com.google.android.gms.location.LocationRequest,com.google.android.gms.location.LocationCallback,android.os.Looper)">
+<h3>requestLocationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-182">requestLocationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationCallback&nbsp;locationCallback,
+ <a href="https://developer.android.com/reference/androidx/annotation/Nullable.html" title="class or interface in androidx.annotation" class="external-link">@Nullable</a>
+ <a href="https://developer.android.com/reference/android/os/Looper.html" title="class or interface in android.os" class="external-link">Looper</a>&nbsp;looper)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>requestLocationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="requestLocationUpdates(com.google.android.gms.location.LocationRequest,java.util.concurrent.Executor,com.google.android.gms.location.LocationCallback)">
+<h3>requestLocationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-189">requestLocationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;executor,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationCallback&nbsp;locationCallback)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>requestLocationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="requestLocationUpdates(com.google.android.gms.location.LocationRequest,android.app.PendingIntent)">
+<h3>requestLocationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-196">requestLocationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationRequest&nbsp;locationRequest,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ <a href="https://developer.android.com/reference/android/app/PendingIntent.html" title="class or interface in android.app" class="external-link">PendingIntent</a>&nbsp;pendingIntent)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>requestLocationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeLocationUpdates(com.google.android.gms.location.LocationListener)">
+<h3>removeLocationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-203">removeLocationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationListener&nbsp;locationListener)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>removeLocationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeLocationUpdates(com.google.android.gms.location.LocationCallback)">
+<h3>removeLocationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-209">removeLocationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.LocationCallback&nbsp;locationCallback)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>removeLocationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeLocationUpdates(android.app.PendingIntent)">
+<h3>removeLocationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-215">removeLocationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ <a href="https://developer.android.com/reference/android/app/PendingIntent.html" title="class or interface in android.app" class="external-link">PendingIntent</a>&nbsp;pendingIntent)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>removeLocationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="flushLocations()">
+<h3>flushLocations</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-221">flushLocations</a></span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>flushLocations</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setMockMode(boolean)">
+<h3>setMockMode</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-227">setMockMode</a></span><wbr><span class="parameters">(boolean&nbsp;b)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>setMockMode</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setMockLocation(android.location.Location)">
+<h3>setMockLocation</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-233">setMockLocation</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ <a href="https://developer.android.com/reference/android/location/Location.html" title="class or interface in android.location" class="external-link">Location</a>&nbsp;location)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>setMockLocation</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="requestDeviceOrientationUpdates(com.google.android.gms.location.DeviceOrientationRequest,java.util.concurrent.Executor,com.google.android.gms.location.DeviceOrientationListener)">
+<h3>requestDeviceOrientationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-239">requestDeviceOrientationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.DeviceOrientationRequest&nbsp;deviceOrientationRequest,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;executor,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.DeviceOrientationListener&nbsp;deviceOrientationListener)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>requestDeviceOrientationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="requestDeviceOrientationUpdates(com.google.android.gms.location.DeviceOrientationRequest,com.google.android.gms.location.DeviceOrientationListener,android.os.Looper)">
+<h3>requestDeviceOrientationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-247">requestDeviceOrientationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.DeviceOrientationRequest&nbsp;deviceOrientationRequest,
+ <a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.DeviceOrientationListener&nbsp;deviceOrientationListener,
+ <a href="https://developer.android.com/reference/androidx/annotation/Nullable.html" title="class or interface in androidx.annotation" class="external-link">@Nullable</a>
+ <a href="https://developer.android.com/reference/android/os/Looper.html" title="class or interface in android.os" class="external-link">Looper</a>&nbsp;looper)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>requestDeviceOrientationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeDeviceOrientationUpdates(com.google.android.gms.location.DeviceOrientationListener)">
+<h3>removeDeviceOrientationUpdates</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/com/google/android/gms/tasks/Task.html" title="class or interface in com.google.android.gms.tasks" class="external-link">Task</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-255">removeDeviceOrientationUpdates</a></span><wbr><span class="parameters">(<a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+ com.google.android.gms.location.DeviceOrientationListener&nbsp;deviceOrientationListener)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>removeDeviceOrientationUpdates</code>&nbsp;in interface&nbsp;<code>com.google.android.gms.location.FusedLocationProviderClient</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getApiKey()">
+<h3>getApiKey</h3>
+<div class="member-signature"><span class="annotations"><a href="https://developer.android.com/reference/androidx/annotation/NonNull.html" title="class or interface in androidx.annotation" class="external-link">@NonNull</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">com.google.android.gms.common.api.internal.ApiKey&lt;<a href="https://developer.android.com/reference/com/google/android/gms/common/api/Api.ApiOptions.NoOptions.html" title="class or interface in com.google.android.gms.common.api" class="external-link">Api.ApiOptions.NoOptions</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/LocationRepository.html#line-262">getApiKey</a></span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://developer.android.com/reference/com/google/android/gms/common/api/HasApiKey.html#getApiKey--" title="class or interface in com.google.android.gms.common.api" class="external-link">getApiKey</a></code>&nbsp;in interface&nbsp;<code><a href="https://developer.android.com/reference/com/google/android/gms/common/api/HasApiKey.html" title="class or interface in com.google.android.gms.common.api" class="external-link">HasApiKey</a>&lt;<a href="https://developer.android.com/reference/com/google/android/gms/common/api/Api.ApiOptions.NoOptions.html" title="class or interface in com.google.android.gms.common.api" class="external-link">Api.ApiOptions.NoOptions</a>&gt;</code></dd>
+</dl>
 </section>
 </li>
 </ul>

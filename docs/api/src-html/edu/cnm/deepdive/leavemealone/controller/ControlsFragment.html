@@ -13,53 +13,71 @@
 <div class="source-container">
 <pre><span class="source-line-no">001</span><span id="line-1">package edu.cnm.deepdive.leavemealone.controller;</span>
 <span class="source-line-no">002</span><span id="line-2"></span>
-<span class="source-line-no">003</span><span id="line-3">import android.os.Bundle;</span>
-<span class="source-line-no">004</span><span id="line-4">import androidx.annotation.NonNull;</span>
-<span class="source-line-no">005</span><span id="line-5">import androidx.annotation.Nullable;</span>
-<span class="source-line-no">006</span><span id="line-6">import androidx.fragment.app.Fragment;</span>
-<span class="source-line-no">007</span><span id="line-7">import android.view.LayoutInflater;</span>
-<span class="source-line-no">008</span><span id="line-8">import android.view.View;</span>
-<span class="source-line-no">009</span><span id="line-9">import android.view.ViewGroup;</span>
-<span class="source-line-no">010</span><span id="line-10">import androidx.navigation.NavController;</span>
-<span class="source-line-no">011</span><span id="line-11">import androidx.navigation.Navigation;</span>
-<span class="source-line-no">012</span><span id="line-12">import edu.cnm.deepdive.leavemealone.R;</span>
-<span class="source-line-no">013</span><span id="line-13">import edu.cnm.deepdive.leavemealone.databinding.FragmentControlsBinding;</span>
-<span class="source-line-no">014</span><span id="line-14"></span>
-<span class="source-line-no">015</span><span id="line-15">/**</span>
-<span class="source-line-no">016</span><span id="line-16"> * A simple {@link Fragment} subclass. Use the {@link ControlsFragment#newInstance} factory method</span>
-<span class="source-line-no">017</span><span id="line-17"> * to create an instance of this fragment.</span>
-<span class="source-line-no">018</span><span id="line-18"> */</span>
-<span class="source-line-no">019</span><span id="line-19">public class ControlsFragment extends Fragment {</span>
-<span class="source-line-no">020</span><span id="line-20"></span>
-<span class="source-line-no">021</span><span id="line-21">  private FragmentControlsBinding binding;</span>
-<span class="source-line-no">022</span><span id="line-22"></span>
-<span class="source-line-no">023</span><span id="line-23">  public ControlsFragment() {</span>
-<span class="source-line-no">024</span><span id="line-24">    // Required empty public constructor</span>
-<span class="source-line-no">025</span><span id="line-25">  }</span>
+<span class="source-line-no">003</span><span id="line-3">import android.location.Location;</span>
+<span class="source-line-no">004</span><span id="line-4">import android.os.Bundle;</span>
+<span class="source-line-no">005</span><span id="line-5">import android.view.LayoutInflater;</span>
+<span class="source-line-no">006</span><span id="line-6">import android.view.View;</span>
+<span class="source-line-no">007</span><span id="line-7">import android.view.ViewGroup;</span>
+<span class="source-line-no">008</span><span id="line-8">import androidx.annotation.NonNull;</span>
+<span class="source-line-no">009</span><span id="line-9">import androidx.annotation.Nullable;</span>
+<span class="source-line-no">010</span><span id="line-10">import androidx.fragment.app.Fragment;</span>
+<span class="source-line-no">011</span><span id="line-11">import androidx.navigation.NavController;</span>
+<span class="source-line-no">012</span><span id="line-12">import androidx.navigation.Navigation;</span>
+<span class="source-line-no">013</span><span id="line-13">import com.google.android.gms.location.FusedLocationProviderClient;</span>
+<span class="source-line-no">014</span><span id="line-14">import com.google.android.gms.location.LocationServices;</span>
+<span class="source-line-no">015</span><span id="line-15">import com.google.android.gms.tasks.OnSuccessListener;</span>
+<span class="source-line-no">016</span><span id="line-16">import dagger.hilt.android.AndroidEntryPoint;</span>
+<span class="source-line-no">017</span><span id="line-17">import edu.cnm.deepdive.leavemealone.databinding.FragmentControlsBinding;</span>
+<span class="source-line-no">018</span><span id="line-18">import edu.cnm.deepdive.leavemealone.model.pojo.GPSCoord;</span>
+<span class="source-line-no">019</span><span id="line-19"></span>
+<span class="source-line-no">020</span><span id="line-20">/**</span>
+<span class="source-line-no">021</span><span id="line-21"> * A simple {@link Fragment} subclass. Use the {@link ControlsFragment#newInstance} factory method</span>
+<span class="source-line-no">022</span><span id="line-22"> * to create an instance of this fragment.</span>
+<span class="source-line-no">023</span><span id="line-23"> */</span>
+<span class="source-line-no">024</span><span id="line-24">@AndroidEntryPoint</span>
+<span class="source-line-no">025</span><span id="line-25">public class ControlsFragment extends Fragment{</span>
 <span class="source-line-no">026</span><span id="line-26"></span>
-<span class="source-line-no">027</span><span id="line-27">  @Override</span>
-<span class="source-line-no">028</span><span id="line-28">  public View onCreateView(</span>
-<span class="source-line-no">029</span><span id="line-29">      LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {</span>
-<span class="source-line-no">030</span><span id="line-30">    binding = FragmentControlsBinding.inflate(inflater, container, false);</span>
-<span class="source-line-no">031</span><span id="line-31">    return binding.getRoot();</span>
-<span class="source-line-no">032</span><span id="line-32">  }</span>
-<span class="source-line-no">033</span><span id="line-33"></span>
-<span class="source-line-no">034</span><span id="line-34">  @Override</span>
-<span class="source-line-no">035</span><span id="line-35">  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {</span>
-<span class="source-line-no">036</span><span id="line-36">    super.onViewCreated(view, savedInstanceState);</span>
-<span class="source-line-no">037</span><span id="line-37">    NavController navController = Navigation</span>
-<span class="source-line-no">038</span><span id="line-38">        .findNavController(view);</span>
-<span class="source-line-no">039</span><span id="line-39">    binding.soundAlarm.setOnClickListener(</span>
-<span class="source-line-no">040</span><span id="line-40">        (v)-&gt; navController.navigate(ControlsFragmentDirections.navigateSounding()));</span>
-<span class="source-line-no">041</span><span id="line-41">    binding.armAlarm.setOnClickListener(</span>
-<span class="source-line-no">042</span><span id="line-42">        (v)-&gt; navController.navigate(ControlsFragmentDirections.navigateArm()));</span>
-<span class="source-line-no">043</span><span id="line-43">    binding.setSecure.setOnClickListener(</span>
-<span class="source-line-no">044</span><span id="line-44">        (v)-&gt; navController.navigate(ControlsFragmentDirections.navigateSecure()));</span>
-<span class="source-line-no">045</span><span id="line-45">    binding.setUnsecure.setOnClickListener(</span>
-<span class="source-line-no">046</span><span id="line-46">        (v)-&gt; navController.navigate(ControlsFragmentDirections.navigateSecure()));</span>
-<span class="source-line-no">047</span><span id="line-47"></span>
-<span class="source-line-no">048</span><span id="line-48">  }</span>
-<span class="source-line-no">049</span><span id="line-49">}</span>
+<span class="source-line-no">027</span><span id="line-27">  private FragmentControlsBinding binding;</span>
+<span class="source-line-no">028</span><span id="line-28"></span>
+<span class="source-line-no">029</span><span id="line-29">  public ControlsFragment() {</span>
+<span class="source-line-no">030</span><span id="line-30">    // Required empty public constructor</span>
+<span class="source-line-no">031</span><span id="line-31">  }</span>
+<span class="source-line-no">032</span><span id="line-32"></span>
+<span class="source-line-no">033</span><span id="line-33">  @Override</span>
+<span class="source-line-no">034</span><span id="line-34">  public View onCreateView(</span>
+<span class="source-line-no">035</span><span id="line-35">      LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {</span>
+<span class="source-line-no">036</span><span id="line-36">    binding = FragmentControlsBinding.inflate(inflater, container, false);</span>
+<span class="source-line-no">037</span><span id="line-37">    return binding.getRoot();</span>
+<span class="source-line-no">038</span><span id="line-38">  }</span>
+<span class="source-line-no">039</span><span id="line-39"></span>
+<span class="source-line-no">040</span><span id="line-40">  /**</span>
+<span class="source-line-no">041</span><span id="line-41">   * This provides the basic navigation required for the app.  From here, the alarm may be</span>
+<span class="source-line-no">042</span><span id="line-42">   * activated directly, the system may be armed and locations may be set for future reference.</span>
+<span class="source-line-no">043</span><span id="line-43">   * @param view</span>
+<span class="source-line-no">044</span><span id="line-44">   * @param savedInstanceState</span>
+<span class="source-line-no">045</span><span id="line-45">   */</span>
+<span class="source-line-no">046</span><span id="line-46">  @Override</span>
+<span class="source-line-no">047</span><span id="line-47">  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {</span>
+<span class="source-line-no">048</span><span id="line-48">    super.onViewCreated(view, savedInstanceState);</span>
+<span class="source-line-no">049</span><span id="line-49">    NavController navController = Navigation</span>
+<span class="source-line-no">050</span><span id="line-50">        .findNavController(view);</span>
+<span class="source-line-no">051</span><span id="line-51">    binding.soundAlarm.setOnClickListener(</span>
+<span class="source-line-no">052</span><span id="line-52">        (v)-&gt; navController.navigate(ControlsFragmentDirections.navigateSounding()));</span>
+<span class="source-line-no">053</span><span id="line-53">    binding.armAlarm.setOnClickListener(</span>
+<span class="source-line-no">054</span><span id="line-54">        (v)-&gt; navController.navigate(ControlsFragmentDirections.navigateArm()));</span>
+<span class="source-line-no">055</span><span id="line-55">    binding.setLocation.setOnClickListener(</span>
+<span class="source-line-no">056</span><span id="line-56">        (v)-&gt; navController.navigate(ControlsFragmentDirections.navigateSetLocation()));</span>
+<span class="source-line-no">057</span><span id="line-57">    binding.displayLocations.setOnClickListener(</span>
+<span class="source-line-no">058</span><span id="line-58">        (v)-&gt; navController.navigate(ControlsFragmentDirections.navigateDisplayLocations()));</span>
+<span class="source-line-no">059</span><span id="line-59">  }</span>
+<span class="source-line-no">060</span><span id="line-60"></span>
+<span class="source-line-no">061</span><span id="line-61">  @Override</span>
+<span class="source-line-no">062</span><span id="line-62">  public void onDestroyView() {</span>
+<span class="source-line-no">063</span><span id="line-63">    binding = null;</span>
+<span class="source-line-no">064</span><span id="line-64">    super.onDestroyView();</span>
+<span class="source-line-no">065</span><span id="line-65">  }</span>
+<span class="source-line-no">066</span><span id="line-66">}</span>
+<span class="source-line-no">067</span><span id="line-67"></span>
 
 
 

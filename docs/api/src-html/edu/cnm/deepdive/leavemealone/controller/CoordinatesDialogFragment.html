@@ -15,33 +15,49 @@
 <span class="source-line-no">002</span><span id="line-2"></span>
 <span class="source-line-no">003</span><span id="line-3">import android.app.Dialog;</span>
 <span class="source-line-no">004</span><span id="line-4">import android.os.Bundle;</span>
-<span class="source-line-no">005</span><span id="line-5">import android.view.LayoutInflater;</span>
-<span class="source-line-no">006</span><span id="line-6">import android.view.View;</span>
-<span class="source-line-no">007</span><span id="line-7">import android.view.ViewGroup;</span>
-<span class="source-line-no">008</span><span id="line-8">import androidx.annotation.NonNull;</span>
-<span class="source-line-no">009</span><span id="line-9">import androidx.annotation.Nullable;</span>
-<span class="source-line-no">010</span><span id="line-10">import androidx.appcompat.app.AlertDialog;</span>
-<span class="source-line-no">011</span><span id="line-11">import androidx.fragment.app.DialogFragment;</span>
-<span class="source-line-no">012</span><span id="line-12"></span>
-<span class="source-line-no">013</span><span id="line-13">public class CoordinatesDialogFragment extends DialogFragment {</span>
-<span class="source-line-no">014</span><span id="line-14"></span>
-<span class="source-line-no">015</span><span id="line-15">  @NonNull</span>
-<span class="source-line-no">016</span><span id="line-16">  @Override</span>
-<span class="source-line-no">017</span><span id="line-17">  public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {</span>
-<span class="source-line-no">018</span><span id="line-18">    return new AlertDialog.Builder(requireContext())</span>
-<span class="source-line-no">019</span><span id="line-19">        .setTitle("Test Dialog")</span>
-<span class="source-line-no">020</span><span id="line-20">        .setMessage("This is some text that you really should read carefully")</span>
-<span class="source-line-no">021</span><span id="line-21">        .setNeutralButton(android.R.string.ok, (dlg, which)-&gt;{})</span>
-<span class="source-line-no">022</span><span id="line-22">        .create();</span>
-<span class="source-line-no">023</span><span id="line-23">  }</span>
-<span class="source-line-no">024</span><span id="line-24"></span>
-<span class="source-line-no">025</span><span id="line-25">  @Nullable</span>
-<span class="source-line-no">026</span><span id="line-26">  @Override</span>
-<span class="source-line-no">027</span><span id="line-27">  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,</span>
-<span class="source-line-no">028</span><span id="line-28">      @Nullable Bundle savedInstanceState) {</span>
-<span class="source-line-no">029</span><span id="line-29">    return super.onCreateView(inflater, container, savedInstanceState);</span>
-<span class="source-line-no">030</span><span id="line-30">  }</span>
-<span class="source-line-no">031</span><span id="line-31">}</span>
+<span class="source-line-no">005</span><span id="line-5">import androidx.annotation.NonNull;</span>
+<span class="source-line-no">006</span><span id="line-6">import androidx.annotation.Nullable;</span>
+<span class="source-line-no">007</span><span id="line-7">import androidx.appcompat.app.AlertDialog;</span>
+<span class="source-line-no">008</span><span id="line-8">import androidx.appcompat.app.AlertDialog.Builder;</span>
+<span class="source-line-no">009</span><span id="line-9">import androidx.fragment.app.DialogFragment;</span>
+<span class="source-line-no">010</span><span id="line-10">import androidx.lifecycle.LifecycleOwner;</span>
+<span class="source-line-no">011</span><span id="line-11">import androidx.lifecycle.ViewModelProvider;</span>
+<span class="source-line-no">012</span><span id="line-12">import dagger.hilt.android.AndroidEntryPoint;</span>
+<span class="source-line-no">013</span><span id="line-13">import edu.cnm.deepdive.leavemealone.R;</span>
+<span class="source-line-no">014</span><span id="line-14">import edu.cnm.deepdive.leavemealone.viewmodel.LocationViewModel;</span>
+<span class="source-line-no">015</span><span id="line-15"></span>
+<span class="source-line-no">016</span><span id="line-16">/**</span>
+<span class="source-line-no">017</span><span id="line-17"> * This dialog allows for locations to be set with the marker for secure or unsecure</span>
+<span class="source-line-no">018</span><span id="line-18"> */</span>
+<span class="source-line-no">019</span><span id="line-19">@AndroidEntryPoint</span>
+<span class="source-line-no">020</span><span id="line-20">public class CoordinatesDialogFragment extends DialogFragment{</span>
+<span class="source-line-no">021</span><span id="line-21"></span>
+<span class="source-line-no">022</span><span id="line-22">  private LocationViewModel viewModel;</span>
+<span class="source-line-no">023</span><span id="line-23"></span>
+<span class="source-line-no">024</span><span id="line-24">  @NonNull</span>
+<span class="source-line-no">025</span><span id="line-25">  @Override</span>
+<span class="source-line-no">026</span><span id="line-26">  public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {</span>
+<span class="source-line-no">027</span><span id="line-27">    return new Builder(requireContext())</span>
+<span class="source-line-no">028</span><span id="line-28">        .setTitle(R.string.dialog_title)</span>
+<span class="source-line-no">029</span><span id="line-29">        .setMessage(R.string.dialog_message)</span>
+<span class="source-line-no">030</span><span id="line-30">        .setPositiveButton(R.string.set_secure_label, (dlg, which) -&gt; {</span>
+<span class="source-line-no">031</span><span id="line-31">          viewModel.markLocation(true);</span>
+<span class="source-line-no">032</span><span id="line-32">        })</span>
+<span class="source-line-no">033</span><span id="line-33">        .setNegativeButton(R.string.set_unsecure_label, (dlg, which) -&gt; {</span>
+<span class="source-line-no">034</span><span id="line-34">          viewModel.markLocation(false);</span>
+<span class="source-line-no">035</span><span id="line-35">        })</span>
+<span class="source-line-no">036</span><span id="line-36">        .setNeutralButton(android.R.string.cancel, (dlg, which) -&gt; {</span>
+<span class="source-line-no">037</span><span id="line-37">        })</span>
+<span class="source-line-no">038</span><span id="line-38">        .create();</span>
+<span class="source-line-no">039</span><span id="line-39">  }</span>
+<span class="source-line-no">040</span><span id="line-40"></span>
+<span class="source-line-no">041</span><span id="line-41">  @Override</span>
+<span class="source-line-no">042</span><span id="line-42">  public void onStart() {</span>
+<span class="source-line-no">043</span><span id="line-43">    super.onStart();</span>
+<span class="source-line-no">044</span><span id="line-44">    ViewModelProvider provider = new ViewModelProvider(requireActivity());</span>
+<span class="source-line-no">045</span><span id="line-45">    viewModel = provider.get(LocationViewModel.class);</span>
+<span class="source-line-no">046</span><span id="line-46">  }</span>
+<span class="source-line-no">047</span><span id="line-47">}</span>
 
 
 

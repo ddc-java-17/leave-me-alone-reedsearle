@@ -24,40 +24,22 @@
 <span class="source-line-no">011</span><span id="line-11">import java.time.Instant;</span>
 <span class="source-line-no">012</span><span id="line-12">import java.util.List;</span>
 <span class="source-line-no">013</span><span id="line-13"></span>
-<span class="source-line-no">014</span><span id="line-14">@Dao</span>
-<span class="source-line-no">015</span><span id="line-15">public interface LocationDao {</span>
-<span class="source-line-no">016</span><span id="line-16"></span>
-<span class="source-line-no">017</span><span id="line-17">  String LOCATION_QUERY = "SELECT * FROM location";</span>
-<span class="source-line-no">018</span><span id="line-18">  String LOCATIONS_QUERY_FOR_SECURE = "SELECT * FROM location WHERE secure = :secure";</span>
-<span class="source-line-no">019</span><span id="line-19">  String LOCATIONS_QUERY_FOR_TRACKING = "SELECT * FROM location WHERE alert_id != null";</span>
-<span class="source-line-no">020</span><span id="line-20">  String TRUNCATION_QUERY_ALL = "DELETE FROM location";</span>
-<span class="source-line-no">021</span><span id="line-21">  String TRUNCATION_QUERY_ALL_SECURE = "DELETE FROM location WHERE secure = true";</span>
-<span class="source-line-no">022</span><span id="line-22">  String TRUNCATION_QUERY_ALL_UNSECURE = "DELETE FROM location WHERE secure = false";</span>
-<span class="source-line-no">023</span><span id="line-23">  String TRUNCATION_QUERY_ALL_TRACKED = "DELETE FROM location WHERE alert_id != null";</span>
-<span class="source-line-no">024</span><span id="line-24">  String TRUNCATION_QUERY_ONE_SECURE = "DELETE FROM location WHERE location_id = :location_id AND secure = true";</span>
-<span class="source-line-no">025</span><span id="line-25">  String TRUNCATION_QUERY_ONE_UNSECURE = "DELETE FROM location WHERE location_id = :location_id AND secure = false";</span>
-<span class="source-line-no">026</span><span id="line-26"></span>
-<span class="source-line-no">027</span><span id="line-27">  @Insert</span>
-<span class="source-line-no">028</span><span id="line-28">  Single&lt;Long&gt; insert(Location location);</span>
-<span class="source-line-no">029</span><span id="line-29">  @Query(LOCATION_QUERY)</span>
-<span class="source-line-no">030</span><span id="line-30">  LiveData&lt;List&lt;Location&gt;&gt; getLocations();</span>
-<span class="source-line-no">031</span><span id="line-31">  @Query(LOCATIONS_QUERY_FOR_SECURE)</span>
-<span class="source-line-no">032</span><span id="line-32">  LiveData&lt;List&lt;Location&gt;&gt; getLocationsSecureOrUnsecure(boolean secure);</span>
-<span class="source-line-no">033</span><span id="line-33">  @Query(LOCATIONS_QUERY_FOR_TRACKING)</span>
-<span class="source-line-no">034</span><span id="line-34">  LiveData&lt;List&lt;Location&gt;&gt; getLocationsTracked();</span>
-<span class="source-line-no">035</span><span id="line-35">  @Query(TRUNCATION_QUERY_ALL)</span>
-<span class="source-line-no">036</span><span id="line-36">  Completable truncateLocations();</span>
-<span class="source-line-no">037</span><span id="line-37">  @Query(TRUNCATION_QUERY_ALL_SECURE)</span>
-<span class="source-line-no">038</span><span id="line-38">  Completable truncateLocationsSecure();</span>
-<span class="source-line-no">039</span><span id="line-39">  @Query(TRUNCATION_QUERY_ALL_UNSECURE)</span>
-<span class="source-line-no">040</span><span id="line-40">  Completable truncateLocationsUnsecure();</span>
-<span class="source-line-no">041</span><span id="line-41">  @Query(TRUNCATION_QUERY_ALL_TRACKED)</span>
-<span class="source-line-no">042</span><span id="line-42">  Completable truncateLocationsTracked();</span>
-<span class="source-line-no">043</span><span id="line-43">  @Query(TRUNCATION_QUERY_ONE_SECURE)</span>
-<span class="source-line-no">044</span><span id="line-44">  Completable truncateLocationSecure(long location_id);</span>
-<span class="source-line-no">045</span><span id="line-45">  @Query(TRUNCATION_QUERY_ONE_UNSECURE)</span>
-<span class="source-line-no">046</span><span id="line-46">  Completable truncateLocationUnsecure(long location_id);</span>
-<span class="source-line-no">047</span><span id="line-47">}</span>
+<span class="source-line-no">014</span><span id="line-14">/**</span>
+<span class="source-line-no">015</span><span id="line-15"> * The LocationDao implements the queries necessary to interact with the Location entity in the</span>
+<span class="source-line-no">016</span><span id="line-16"> * database</span>
+<span class="source-line-no">017</span><span id="line-17"> */</span>
+<span class="source-line-no">018</span><span id="line-18">@Dao</span>
+<span class="source-line-no">019</span><span id="line-19">public interface LocationDao {</span>
+<span class="source-line-no">020</span><span id="line-20"></span>
+<span class="source-line-no">021</span><span id="line-21">  String LOCATION_QUERY = "SELECT * FROM location";</span>
+<span class="source-line-no">022</span><span id="line-22"></span>
+<span class="source-line-no">023</span><span id="line-23">  @Insert</span>
+<span class="source-line-no">024</span><span id="line-24">  Single&lt;Long&gt; insert(Location location);</span>
+<span class="source-line-no">025</span><span id="line-25"></span>
+<span class="source-line-no">026</span><span id="line-26">  @Query(LOCATION_QUERY)</span>
+<span class="source-line-no">027</span><span id="line-27">  LiveData&lt;List&lt;Location&gt;&gt; getLocations();</span>
+<span class="source-line-no">028</span><span id="line-28"></span>
+<span class="source-line-no">029</span><span id="line-29">}</span>
 
 
 

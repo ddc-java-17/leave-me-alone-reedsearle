@@ -90,7 +90,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="annotations">@Singleton
-</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/PreferencesRepository.html#line-34">PreferencesRepository</a></span>
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/PreferencesRepository.html#line-35">PreferencesRepository</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Implements a <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link"><code>LiveData</code></a>-based repository of preferences. It does not provide any preference
  mutation methods, and is of most use when all preferences are being modified through user
@@ -117,12 +117,21 @@ loadScripts(document, 'script');</script>
 <div class="block">Utility method to allow pass-through read access to the underlying <a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link"><code>SharedPreferences</code></a>,
  by key.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../model/pojo/GPSCoord.html" title="class in edu.cnm.deepdive.leavemealone.model.pojo">GPSCoord</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCoord()" class="member-name-link">getCoord</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPassword()" class="member-name-link">getPassword</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link">SharedPreferences</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPreferences()" class="member-name-link">getPreferences</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link"><code>LiveData</code></a> of all shared preferences that have been set in application code or by
  the user in a <a href="https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat.html" title="class or interface in androidx.preference" class="external-link"><code>PreferenceFragmentCompat</code></a> subclass instance.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCoord(edu.cnm.deepdive.leavemealone.model.pojo.GPSCoord)" class="member-name-link">setCoord</a><wbr>(<a href="../model/pojo/GPSCoord.html" title="class in edu.cnm.deepdive.leavemealone.model.pojo">GPSCoord</a>&nbsp;coord)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -143,7 +152,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getPreferences()">
 <h3>getPreferences</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link">SharedPreferences</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/PreferencesRepository.html#line-55">getPreferences</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link">SharedPreferences</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/PreferencesRepository.html#line-59">getPreferences</a></span>()</div>
 <div class="block">Returns <a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link"><code>LiveData</code></a> of all shared preferences that have been set in application code or by
  the user in a <a href="https://developer.android.com/reference/androidx/preference/PreferenceFragmentCompat.html" title="class or interface in androidx.preference" class="external-link"><code>PreferenceFragmentCompat</code></a> subclass instance. A
  viewmodel should then use <a href="https://developer.android.com/reference/androidx/lifecycle/Transformations.html#map-androidx.lifecycle.LiveData-kotlin.jvm.functions.Function1-" title="class or interface in androidx.lifecycle" class="external-link"><code>Transformations.map(LiveData, Function1)</code></a>
@@ -155,7 +164,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="get(java.lang.String,T)">
 <h3 id="get(java.lang.String,java.lang.Object)">get</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/PreferencesRepository.html#line-69">get</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/PreferencesRepository.html#line-73">get</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
  T&nbsp;defaultValue)</span></div>
 <div class="block">Utility method to allow pass-through read access to the underlying <a href="https://developer.android.com/reference/android/content/SharedPreferences.html" title="class or interface in android.content" class="external-link"><code>SharedPreferences</code></a>,
  by key. The compiler will infer the type parameter <code>T</code> by examining the
@@ -169,6 +178,24 @@ loadScripts(document, 'script');</script>
 <dd><code>defaultValue</code> - </dd>
 <dt>Returns:</dt>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getPassword()">
+<h3>getPassword</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/PreferencesRepository.html#line-79">getPassword</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCoord()">
+<h3>getCoord</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../model/pojo/GPSCoord.html" title="class in edu.cnm.deepdive.leavemealone.model.pojo">GPSCoord</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/PreferencesRepository.html#line-83">getCoord</a></span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setCoord(edu.cnm.deepdive.leavemealone.model.pojo.GPSCoord)">
+<h3>setCoord</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/PreferencesRepository.html#line-87">setCoord</a></span><wbr><span class="parameters">(<a href="../model/pojo/GPSCoord.html" title="class in edu.cnm.deepdive.leavemealone.model.pojo">GPSCoord</a>&nbsp;coord)</span></div>
 </section>
 </li>
 </ul>

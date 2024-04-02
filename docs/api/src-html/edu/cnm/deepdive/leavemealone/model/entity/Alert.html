@@ -41,39 +41,74 @@
 <span class="source-line-no">028</span><span id="line-28"></span>
 <span class="source-line-no">029</span><span id="line-29">  private String photoname;</span>
 <span class="source-line-no">030</span><span id="line-30"></span>
-<span class="source-line-no">031</span><span id="line-31">  public long getId() {</span>
-<span class="source-line-no">032</span><span id="line-32">    return id;</span>
-<span class="source-line-no">033</span><span id="line-33">  }</span>
-<span class="source-line-no">034</span><span id="line-34"></span>
-<span class="source-line-no">035</span><span id="line-35">  public void setId(long id) {</span>
-<span class="source-line-no">036</span><span id="line-36">    this.id = id;</span>
+<span class="source-line-no">031</span><span id="line-31">  /**</span>
+<span class="source-line-no">032</span><span id="line-32">   * This returns the id of an individual alert</span>
+<span class="source-line-no">033</span><span id="line-33">   * @return</span>
+<span class="source-line-no">034</span><span id="line-34">   */</span>
+<span class="source-line-no">035</span><span id="line-35">  public long getId() {</span>
+<span class="source-line-no">036</span><span id="line-36">    return id;</span>
 <span class="source-line-no">037</span><span id="line-37">  }</span>
 <span class="source-line-no">038</span><span id="line-38"></span>
-<span class="source-line-no">039</span><span id="line-39">  public boolean isTriggered() {</span>
-<span class="source-line-no">040</span><span id="line-40">    return triggered;</span>
-<span class="source-line-no">041</span><span id="line-41">  }</span>
-<span class="source-line-no">042</span><span id="line-42"></span>
-<span class="source-line-no">043</span><span id="line-43">  public void setTriggered(boolean triggered) {</span>
-<span class="source-line-no">044</span><span id="line-44">    this.triggered = triggered;</span>
+<span class="source-line-no">039</span><span id="line-39">  /**</span>
+<span class="source-line-no">040</span><span id="line-40">   * THis annotates an individual alert with a unique id</span>
+<span class="source-line-no">041</span><span id="line-41">   * @param id</span>
+<span class="source-line-no">042</span><span id="line-42">   */</span>
+<span class="source-line-no">043</span><span id="line-43">  public void setId(long id) {</span>
+<span class="source-line-no">044</span><span id="line-44">    this.id = id;</span>
 <span class="source-line-no">045</span><span id="line-45">  }</span>
 <span class="source-line-no">046</span><span id="line-46"></span>
-<span class="source-line-no">047</span><span id="line-47">  @NonNull</span>
-<span class="source-line-no">048</span><span id="line-48">  public Instant getTimestamp() {</span>
-<span class="source-line-no">049</span><span id="line-49">    return timestamp;</span>
-<span class="source-line-no">050</span><span id="line-50">  }</span>
-<span class="source-line-no">051</span><span id="line-51"></span>
-<span class="source-line-no">052</span><span id="line-52">  public void setTimestamp(@NonNull Instant timestamp) {</span>
-<span class="source-line-no">053</span><span id="line-53">    this.timestamp = timestamp;</span>
+<span class="source-line-no">047</span><span id="line-47">  /**</span>
+<span class="source-line-no">048</span><span id="line-48">   * This returns a boolean value that show if a particular alert ended in being</span>
+<span class="source-line-no">049</span><span id="line-49">   * triggered by motion</span>
+<span class="source-line-no">050</span><span id="line-50">   * @return</span>
+<span class="source-line-no">051</span><span id="line-51">   */</span>
+<span class="source-line-no">052</span><span id="line-52">  public boolean isTriggered() {</span>
+<span class="source-line-no">053</span><span id="line-53">    return triggered;</span>
 <span class="source-line-no">054</span><span id="line-54">  }</span>
 <span class="source-line-no">055</span><span id="line-55"></span>
-<span class="source-line-no">056</span><span id="line-56">  public String getPhotoname() {</span>
-<span class="source-line-no">057</span><span id="line-57">    return photoname;</span>
-<span class="source-line-no">058</span><span id="line-58">  }</span>
-<span class="source-line-no">059</span><span id="line-59"></span>
-<span class="source-line-no">060</span><span id="line-60">  public void setPhotoname(String photoname) {</span>
-<span class="source-line-no">061</span><span id="line-61">    this.photoname = photoname;</span>
-<span class="source-line-no">062</span><span id="line-62">  }</span>
-<span class="source-line-no">063</span><span id="line-63">}</span>
+<span class="source-line-no">056</span><span id="line-56">  /**</span>
+<span class="source-line-no">057</span><span id="line-57">   * This annotates an individual alert with a boolean value that represents if the</span>
+<span class="source-line-no">058</span><span id="line-58">   * alert ended in being triggered by motion.</span>
+<span class="source-line-no">059</span><span id="line-59">   * @param triggered</span>
+<span class="source-line-no">060</span><span id="line-60">   */</span>
+<span class="source-line-no">061</span><span id="line-61">  public void setTriggered(boolean triggered) {</span>
+<span class="source-line-no">062</span><span id="line-62">    this.triggered = triggered;</span>
+<span class="source-line-no">063</span><span id="line-63">  }</span>
+<span class="source-line-no">064</span><span id="line-64"></span>
+<span class="source-line-no">065</span><span id="line-65">  /**</span>
+<span class="source-line-no">066</span><span id="line-66">   * This returns the timestamp of when the alert was armed = NOTE this is not the time</span>
+<span class="source-line-no">067</span><span id="line-67">   * a motion event was captured</span>
+<span class="source-line-no">068</span><span id="line-68">   * @return</span>
+<span class="source-line-no">069</span><span id="line-69">   */</span>
+<span class="source-line-no">070</span><span id="line-70">  @NonNull</span>
+<span class="source-line-no">071</span><span id="line-71">  public Instant getTimestamp() {</span>
+<span class="source-line-no">072</span><span id="line-72">    return timestamp;</span>
+<span class="source-line-no">073</span><span id="line-73">  }</span>
+<span class="source-line-no">074</span><span id="line-74"></span>
+<span class="source-line-no">075</span><span id="line-75">  /**</span>
+<span class="source-line-no">076</span><span id="line-76">   * This annotates an individual alert with the time is was armed</span>
+<span class="source-line-no">077</span><span id="line-77">   * @param timestamp</span>
+<span class="source-line-no">078</span><span id="line-78">   */</span>
+<span class="source-line-no">079</span><span id="line-79">  public void setTimestamp(@NonNull Instant timestamp) {</span>
+<span class="source-line-no">080</span><span id="line-80">    this.timestamp = timestamp;</span>
+<span class="source-line-no">081</span><span id="line-81">  }</span>
+<span class="source-line-no">082</span><span id="line-82"></span>
+<span class="source-line-no">083</span><span id="line-83">  /**</span>
+<span class="source-line-no">084</span><span id="line-84">   * This returns the filename of a photo, if one was taken</span>
+<span class="source-line-no">085</span><span id="line-85">   * @return</span>
+<span class="source-line-no">086</span><span id="line-86">   */</span>
+<span class="source-line-no">087</span><span id="line-87">  public String getPhotoname() {</span>
+<span class="source-line-no">088</span><span id="line-88">    return photoname;</span>
+<span class="source-line-no">089</span><span id="line-89">  }</span>
+<span class="source-line-no">090</span><span id="line-90"></span>
+<span class="source-line-no">091</span><span id="line-91">  /**</span>
+<span class="source-line-no">092</span><span id="line-92">   * This annotates the alert with the filename of a photo that was taken</span>
+<span class="source-line-no">093</span><span id="line-93">   * @param photoname</span>
+<span class="source-line-no">094</span><span id="line-94">   */</span>
+<span class="source-line-no">095</span><span id="line-95">  public void setPhotoname(String photoname) {</span>
+<span class="source-line-no">096</span><span id="line-96">    this.photoname = photoname;</span>
+<span class="source-line-no">097</span><span id="line-97">  }</span>
+<span class="source-line-no">098</span><span id="line-98">}</span>
 
 
 

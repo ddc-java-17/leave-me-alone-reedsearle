@@ -38,7 +38,7 @@ loadScripts(document, 'script');</script>
 <p>Summary:</p>
 <ul>
 <li>Nested</li>
-<li>Field</li>
+<li><a href="#field-summary">Field</a></li>
 <li><a href="#constructor-summary">Constr</a></li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
@@ -46,7 +46,7 @@ loadScripts(document, 'script');</script>
 <li>
 <p>Detail:</p>
 <ul>
-<li>Field</li>
+<li><a href="#field-detail">Field</a></li>
 <li><a href="#constructor-detail">Constr</a></li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -58,13 +58,13 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -89,11 +89,33 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-11">AlertRepository</a></span>
+<div class="type-signature"><span class="annotations">@Singleton
+</span><span class="modifiers">public class </span><span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-18">AlertRepository</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#INITIAL_DELAY" class="member-name-link">INITIAL_DELAY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#ONE_SECOND_PERIOD" class="member-name-link">ONE_SECOND_PERIOD</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#START_VALUE" class="member-name-link">START_VALUE</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -102,8 +124,11 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(edu.cnm.deepdive.leavemealone.model.dao.AlertDao)" class="member-name-link">AlertRepository</a><wbr>(<a href="../model/dao/AlertDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">AlertDao</a>&nbsp;alertDao)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(edu.cnm.deepdive.leavemealone.model.dao.AlertDao,edu.cnm.deepdive.leavemealone.service.PreferencesRepository)" class="member-name-link">AlertRepository</a><wbr>(<a href="../model/dao/AlertDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">AlertDao</a>&nbsp;alertDao,
+ <a href="PreferencesRepository.html" title="class in edu.cnm.deepdive.leavemealone.service">PreferencesRepository</a>&nbsp;repository)</code></div>
+<div class="col-last even-row-color">
+<div class="block">This repository links the view models to the countdown timer and the password checker</div>
+</div>
 </div>
 </section>
 </li>
@@ -118,24 +143,18 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#add(edu.cnm.deepdive.leavemealone.model.entity.Alert)" class="member-name-link">add</a><wbr>(<a href="../model/entity/Alert.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Alert</a>&nbsp;alert)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearAll()" class="member-name-link">clearAll</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearAllTriggered()" class="member-name-link">clearAllTriggered</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearOneTriggered(long)" class="member-name-link">clearOneTriggered</a><wbr>(long&nbsp;alert_id)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Alert.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Alert</a>&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAll()" class="member-name-link">getAll</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Alert.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Alert</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllTriggeredOrNotTriggered(boolean)" class="member-name-link">getAllTriggeredOrNotTriggered</a><wbr>(boolean&nbsp;triggered)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkPassword(java.lang.String)" class="member-name-link">checkPassword</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;enteredPassword)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">This method does the actual work of checking the password against the correct password stored
+ in the Preferences Repository</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Observable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Observable</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCountdownTimer(int)" class="member-name-link">getCountdownTimer</a><wbr>(int&nbsp;countdownDelay)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">The getCountdownTimer method receives countdownDelay from the AlertViewModel and returns
+ both the countdown and a completion event to signal the countdown has ended</div>
+</div>
 </div>
 </div>
 </div>
@@ -148,15 +167,73 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="START_VALUE">
+<h3>START_VALUE</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-21">START_VALUE</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#edu.cnm.deepdive.leavemealone.service.AlertRepository.START_VALUE">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="INITIAL_DELAY">
+<h3>INITIAL_DELAY</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-22">INITIAL_DELAY</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#edu.cnm.deepdive.leavemealone.service.AlertRepository.INITIAL_DELAY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="ONE_SECOND_PERIOD">
+<h3>ONE_SECOND_PERIOD</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-23">ONE_SECOND_PERIOD</a></span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#edu.cnm.deepdive.leavemealone.service.AlertRepository.ONE_SECOND_PERIOD">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
 <section class="constructor-details" id="constructor-detail">
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(edu.cnm.deepdive.leavemealone.model.dao.AlertDao)">
+<section class="detail" id="&lt;init&gt;(edu.cnm.deepdive.leavemealone.model.dao.AlertDao,edu.cnm.deepdive.leavemealone.service.PreferencesRepository)">
 <h3>AlertRepository</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-16">AlertRepository</a></span><wbr><span class="parameters">(<a href="../model/dao/AlertDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">AlertDao</a>&nbsp;alertDao)</span></div>
+<div class="member-signature"><span class="annotations">@Inject
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-32">AlertRepository</a></span><wbr><span class="parameters">(<a href="../model/dao/AlertDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">AlertDao</a>&nbsp;alertDao,
+ <a href="PreferencesRepository.html" title="class in edu.cnm.deepdive.leavemealone.service">PreferencesRepository</a>&nbsp;repository)</span></div>
+<div class="block">This repository links the view models to the countdown timer and the password checker</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>alertDao</code> - </dd>
+<dd><code>repository</code> - </dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -168,39 +245,29 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="add(edu.cnm.deepdive.leavemealone.model.entity.Alert)">
-<h3>add</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Single</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-20">add</a></span><wbr><span class="parameters">(<a href="../model/entity/Alert.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Alert</a>&nbsp;alert)</span></div>
+<section class="detail" id="getCountdownTimer(int)">
+<h3>getCountdownTimer</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Observable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Observable</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-44">getCountdownTimer</a></span><wbr><span class="parameters">(int&nbsp;countdownDelay)</span></div>
+<div class="block">The getCountdownTimer method receives countdownDelay from the AlertViewModel and returns
+ both the countdown and a completion event to signal the countdown has ended</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>countdownDelay</code> - </dd>
+<dt>Returns:</dt>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="getAll()">
-<h3>getAll</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Alert.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Alert</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-26">getAll</a></span>()</div>
-</section>
-</li>
-<li>
-<section class="detail" id="getAllTriggeredOrNotTriggered(boolean)">
-<h3>getAllTriggeredOrNotTriggered</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://developer.android.com/reference/androidx/lifecycle/LiveData.html" title="class or interface in androidx.lifecycle" class="external-link">LiveData</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../model/entity/Alert.html" title="class in edu.cnm.deepdive.leavemealone.model.entity">Alert</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-30">getAllTriggeredOrNotTriggered</a></span><wbr><span class="parameters">(boolean&nbsp;triggered)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="clearAll()">
-<h3>clearAll</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-34">clearAll</a></span>()</div>
-</section>
-</li>
-<li>
-<section class="detail" id="clearOneTriggered(long)">
-<h3>clearOneTriggered</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-38">clearOneTriggered</a></span><wbr><span class="parameters">(long&nbsp;alert_id)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="clearAllTriggered()">
-<h3>clearAllTriggered</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html" title="class or interface in io.reactivex.rxjava3.core" class="external-link">Completable</a></span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-42">clearAllTriggered</a></span>()</div>
+<section class="detail" id="checkPassword(java.lang.String)">
+<h3>checkPassword</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../../src-html/edu/cnm/deepdive/leavemealone/service/AlertRepository.html#line-56">checkPassword</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;enteredPassword)</span></div>
+<div class="block">This method does the actual work of checking the password against the correct password stored
+ in the Preferences Repository</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>enteredPassword</code> - </dd>
+<dt>Returns:</dt>
+</dl>
 </section>
 </li>
 </ul>

@@ -59,28 +59,35 @@ loadScripts(document, 'script');</script>
 <h2 title="edu.cnm.*">edu.cnm.*</h2>
 <ul class="block-list">
 <li>
-<div class="caption"><span>edu.cnm.deepdive.leavemealone.model.dao.<a href="edu/cnm/deepdive/leavemealone/model/dao/AlertDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">AlertDao</a></span></div>
+<div class="caption"><span>edu.cnm.deepdive.leavemealone.controller.<a href="edu/cnm/deepdive/leavemealone/controller/AlarmSoundingFragment.html" title="class in edu.cnm.deepdive.leavemealone.controller">AlarmSoundingFragment</a></span></div>
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Constant Field</div>
 <div class="table-header col-last">Value</div>
-<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.AlertDao.ALERT_QUERY">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/AlertDao.html#ALERT_QUERY">ALERT_QUERY</a></code></div>
-<div class="col-last even-row-color"><code>"SELECT * FROM alert"</code></div>
-<div class="col-first odd-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.AlertDao.ALERT_QUERY_FOR_TRIGGERED_OR_NOT_TRIGGERED">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/AlertDao.html#ALERT_QUERY_FOR_TRIGGERED_OR_NOT_TRIGGERED">ALERT_QUERY_FOR_TRIGGERED_OR_NOT_TRIGGERED</a></code></div>
-<div class="col-last odd-row-color"><code>"SELECT * FROM alert WHERE triggered = :triggered"</code></div>
-<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.AlertDao.TRUNCATION_QUERY_ALL">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/AlertDao.html#TRUNCATION_QUERY_ALL">TRUNCATION_QUERY_ALL</a></code></div>
-<div class="col-last even-row-color"><code>"DELETE FROM alert"</code></div>
-<div class="col-first odd-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.AlertDao.TRUNCATION_QUERY_ALL_TRIGGERED">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/AlertDao.html#TRUNCATION_QUERY_ALL_TRIGGERED">TRUNCATION_QUERY_ALL_TRIGGERED</a></code></div>
-<div class="col-last odd-row-color"><code>"DELETE FROM alert WHERE triggered = true"</code></div>
-<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.AlertDao.TRUNCATION_QUERY_ONE_TRIGGERED">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/AlertDao.html#TRUNCATION_QUERY_ONE_TRIGGERED">TRUNCATION_QUERY_ONE_TRIGGERED</a></code></div>
-<div class="col-last even-row-color"><code>"DELETE FROM alert WHERE alert_id = :alert_id"</code></div>
+<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.controller.AlarmSoundingFragment.PASSWORD_DIGIT_LENGTH">public&nbsp;static&nbsp;final&nbsp;int</code></div>
+<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/controller/AlarmSoundingFragment.html#PASSWORD_DIGIT_LENGTH">PASSWORD_DIGIT_LENGTH</a></code></div>
+<div class="col-last even-row-color"><code>4</code></div>
+<div class="col-first odd-row-color"><code id="edu.cnm.deepdive.leavemealone.controller.AlarmSoundingFragment.RESET_CODE_LENGTH">public&nbsp;static&nbsp;final&nbsp;int</code></div>
+<div class="col-second odd-row-color"><code><a href="edu/cnm/deepdive/leavemealone/controller/AlarmSoundingFragment.html#RESET_CODE_LENGTH">RESET_CODE_LENGTH</a></code></div>
+<div class="col-last odd-row-color"><code>0</code></div>
 </div>
 </li>
+<li>
+<div class="caption"><span>edu.cnm.deepdive.leavemealone.controller.<a href="edu/cnm/deepdive/leavemealone/controller/AlarmWarningFragment.html" title="class in edu.cnm.deepdive.leavemealone.controller">AlarmWarningFragment</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Constant Field</div>
+<div class="table-header col-last">Value</div>
+<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.controller.AlarmWarningFragment.PASSWORD_DIGIT_LENGTH">public&nbsp;static&nbsp;final&nbsp;int</code></div>
+<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/controller/AlarmWarningFragment.html#PASSWORD_DIGIT_LENGTH">PASSWORD_DIGIT_LENGTH</a></code></div>
+<div class="col-last even-row-color"><code>4</code></div>
+<div class="col-first odd-row-color"><code id="edu.cnm.deepdive.leavemealone.controller.AlarmWarningFragment.RESET_CODE_LENGTH">public&nbsp;static&nbsp;final&nbsp;int</code></div>
+<div class="col-second odd-row-color"><code><a href="edu/cnm/deepdive/leavemealone/controller/AlarmWarningFragment.html#RESET_CODE_LENGTH">RESET_CODE_LENGTH</a></code></div>
+<div class="col-last odd-row-color"><code>0</code></div>
+</div>
+</li>
+</ul>
+<ul class="block-list">
 <li>
 <div class="caption"><span>edu.cnm.deepdive.leavemealone.model.dao.<a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html" title="interface in edu.cnm.deepdive.leavemealone.model.dao">LocationDao</a></span></div>
 <div class="summary-table three-column-summary">
@@ -90,34 +97,27 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.LocationDao.LOCATION_QUERY">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html#LOCATION_QUERY">LOCATION_QUERY</a></code></div>
 <div class="col-last even-row-color"><code>"SELECT * FROM location"</code></div>
-<div class="col-first odd-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.LocationDao.LOCATIONS_QUERY_FOR_SECURE">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html#LOCATIONS_QUERY_FOR_SECURE">LOCATIONS_QUERY_FOR_SECURE</a></code></div>
-<div class="col-last odd-row-color"><code>"SELECT * FROM location WHERE secure = :secure"</code></div>
-<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.LocationDao.LOCATIONS_QUERY_FOR_TRACKING">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html#LOCATIONS_QUERY_FOR_TRACKING">LOCATIONS_QUERY_FOR_TRACKING</a></code></div>
-<div class="col-last even-row-color"><code>"SELECT * FROM location WHERE alert_id != null"</code></div>
-<div class="col-first odd-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.LocationDao.TRUNCATION_QUERY_ALL">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html#TRUNCATION_QUERY_ALL">TRUNCATION_QUERY_ALL</a></code></div>
-<div class="col-last odd-row-color"><code>"DELETE FROM location"</code></div>
-<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.LocationDao.TRUNCATION_QUERY_ALL_SECURE">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html#TRUNCATION_QUERY_ALL_SECURE">TRUNCATION_QUERY_ALL_SECURE</a></code></div>
-<div class="col-last even-row-color"><code>"DELETE FROM location WHERE secure = true"</code></div>
-<div class="col-first odd-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.LocationDao.TRUNCATION_QUERY_ALL_TRACKED">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html#TRUNCATION_QUERY_ALL_TRACKED">TRUNCATION_QUERY_ALL_TRACKED</a></code></div>
-<div class="col-last odd-row-color"><code>"DELETE FROM location WHERE alert_id != null"</code></div>
-<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.LocationDao.TRUNCATION_QUERY_ALL_UNSECURE">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html#TRUNCATION_QUERY_ALL_UNSECURE">TRUNCATION_QUERY_ALL_UNSECURE</a></code></div>
-<div class="col-last even-row-color"><code>"DELETE FROM location WHERE secure = false"</code></div>
-<div class="col-first odd-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.LocationDao.TRUNCATION_QUERY_ONE_SECURE">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html#TRUNCATION_QUERY_ONE_SECURE">TRUNCATION_QUERY_ONE_SECURE</a></code></div>
-<div class="col-last odd-row-color"><code>"DELETE FROM location WHERE location_id = :location_id AND secure = true"</code></div>
-<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.model.dao.LocationDao.TRUNCATION_QUERY_ONE_UNSECURE">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/model/dao/LocationDao.html#TRUNCATION_QUERY_ONE_UNSECURE">TRUNCATION_QUERY_ONE_UNSECURE</a></code></div>
-<div class="col-last even-row-color"><code>"DELETE FROM location WHERE location_id = :location_id AND secure = false"</code></div>
 </div>
 </li>
 </ul>
 <ul class="block-list">
+<li>
+<div class="caption"><span>edu.cnm.deepdive.leavemealone.service.<a href="edu/cnm/deepdive/leavemealone/service/AlertRepository.html" title="class in edu.cnm.deepdive.leavemealone.service">AlertRepository</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Constant Field</div>
+<div class="table-header col-last">Value</div>
+<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.service.AlertRepository.INITIAL_DELAY">public&nbsp;static&nbsp;final&nbsp;int</code></div>
+<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/service/AlertRepository.html#INITIAL_DELAY">INITIAL_DELAY</a></code></div>
+<div class="col-last even-row-color"><code>0</code></div>
+<div class="col-first odd-row-color"><code id="edu.cnm.deepdive.leavemealone.service.AlertRepository.ONE_SECOND_PERIOD">public&nbsp;static&nbsp;final&nbsp;int</code></div>
+<div class="col-second odd-row-color"><code><a href="edu/cnm/deepdive/leavemealone/service/AlertRepository.html#ONE_SECOND_PERIOD">ONE_SECOND_PERIOD</a></code></div>
+<div class="col-last odd-row-color"><code>1</code></div>
+<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.service.AlertRepository.START_VALUE">public&nbsp;static&nbsp;final&nbsp;int</code></div>
+<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/service/AlertRepository.html#START_VALUE">START_VALUE</a></code></div>
+<div class="col-last even-row-color"><code>0</code></div>
+</div>
+</li>
 <li>
 <div class="caption"><span>edu.cnm.deepdive.leavemealone.service.<a href="edu/cnm/deepdive/leavemealone/service/LeaveMeAloneDatabase.html" title="class in edu.cnm.deepdive.leavemealone.service">LeaveMeAloneDatabase</a></span></div>
 <div class="summary-table three-column-summary">
@@ -127,6 +127,17 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.service.LeaveMeAloneDatabase.NAME">public&nbsp;static&nbsp;final&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/service/LeaveMeAloneDatabase.html#NAME">NAME</a></code></div>
 <div class="col-last even-row-color"><code>"locations"</code></div>
+</div>
+</li>
+<li>
+<div class="caption"><span>edu.cnm.deepdive.leavemealone.service.<a href="edu/cnm/deepdive/leavemealone/service/LocationRepository.html" title="class in edu.cnm.deepdive.leavemealone.service">LocationRepository</a></span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Constant Field</div>
+<div class="table-header col-last">Value</div>
+<div class="col-first even-row-color"><code id="edu.cnm.deepdive.leavemealone.service.LocationRepository.GPS_UPDATE_INTERVAL_MS">public&nbsp;static&nbsp;final&nbsp;int</code></div>
+<div class="col-second even-row-color"><code><a href="edu/cnm/deepdive/leavemealone/service/LocationRepository.html#GPS_UPDATE_INTERVAL_MS">GPS_UPDATE_INTERVAL_MS</a></code></div>
+<div class="col-last even-row-color"><code>1000</code></div>
 </div>
 </li>
 </ul>
