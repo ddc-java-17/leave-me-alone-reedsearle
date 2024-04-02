@@ -5,6 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.preference.PreferenceFragmentCompat;
 import edu.cnm.deepdive.leavemealone.R;
 
+/**
+ * this instantiates the settings fragment
+ */
 public class SettingsFragment extends PreferenceFragmentCompat {
 
   @Override

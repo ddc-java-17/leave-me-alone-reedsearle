@@ -25,6 +25,11 @@ public class LeaveMeAloneDatabaseModule {
     // Package-private constructor to avoid automatic HTML documentation generation.
   }
 
+  /**
+   * This creates the local database
+   * @param context
+   * @return
+   */
   @Provides
   @Singleton
   LeaveMeAloneDatabase provideLocalDatabase(@ApplicationContext Context context) {
@@ -34,18 +39,27 @@ public class LeaveMeAloneDatabaseModule {
         .build();
   }
 
+  /**
+   * THis provides the alert dao to the repositories
+   * @param database
+   * @return
+   */
   @Provides
   @Singleton
   AlertDao provideAlertDao(LeaveMeAloneDatabase database) {
     return database.getAlertDao();
   }
 
+  /**
+   * This provides the location dao to the repositories
+   * @param database
+   * @return
+   */
   @Provides
   @Singleton
   public LocationDao providesLocationDao(LeaveMeAloneDatabase database) {
     return database.getLocationDao();
   }
 
-  // TODO Add additional methods so satisfy dependencies on other DAO interface implementations.
 
 }

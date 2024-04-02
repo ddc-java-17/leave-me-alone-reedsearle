@@ -44,6 +44,15 @@ public class AlarmWarningFragment extends Fragment {
     return binding.getRoot();
   }
 
+  /**
+   *  If this fragment has been inflated, Motion was detected and the countdown timer is
+   *  started.  The time remaining is displayed.  If the time expires, the fragment navigates
+   *  to the alarm sounding fragment
+   *  The text listener is used to determine if a password of proper length has been entered.
+   *  if so, the password is sent down to be checked
+   * @param view
+   * @param savedInstanceState
+   */
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);

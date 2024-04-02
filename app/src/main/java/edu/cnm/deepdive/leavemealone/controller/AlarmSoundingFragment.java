@@ -40,6 +40,12 @@ public class AlarmSoundingFragment extends Fragment {
     return binding.getRoot();
   }
 
+  /**
+   *    * The text listener is used to determine if a password of proper length has been entered.
+   *    * if so, the password is sent down to be checked
+   * @param view
+   * @param savedInstanceState
+   */
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);

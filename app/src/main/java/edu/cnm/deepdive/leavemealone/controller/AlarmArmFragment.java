@@ -25,8 +25,8 @@ import edu.cnm.deepdive.leavemealone.viewmodel.MotionViewModel;
 @AndroidEntryPoint
 public class AlarmArmFragment extends Fragment {
 
-  public static final int PASSWORD_DIGIT_LENGTH = 4;
-  public static final int RESET_CODE_LENGTH = 0;
+  private static final int PASSWORD_DIGIT_LENGTH = 4;
+  private static final int RESET_CODE_LENGTH = 0;
   private FragmentAlarmArmBinding binding;
   private MotionViewModel motionViewModel;
   private AlertViewModel alertViewModel;
@@ -44,6 +44,13 @@ public class AlarmArmFragment extends Fragment {
     return binding.getRoot();
   }
 
+  /**
+   * When the view is created, The motion viewmodel is tasked with reporting motion events.
+   * The text listener is used to determine if a password of proper length has been entered.
+   * if so, the password is sent down to be checked
+   * @param view
+   * @param savedInstanceState
+   */
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);

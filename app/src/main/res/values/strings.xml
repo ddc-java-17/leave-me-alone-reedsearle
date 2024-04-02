@@ -69,7 +69,8 @@
   <string name="secure_header_label">Secure?</string>
   <string name="coordinate_format">%1$9.4f</string>
   <string name="countdown_key">countdown</string>
-
+  <string name="dialog_message">Press SECURE if location is safe, press UNSECURE otherwise.  Press CANCEL to exit</string>
+  <string name="dialog_title">Set Locations</string>
 
 
 </resources>

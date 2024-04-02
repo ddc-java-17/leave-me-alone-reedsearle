@@ -50,8 +50,6 @@ public abstract class LeaveMeAloneDatabase extends RoomDatabase {
   public abstract AlertDao getAlertDao();
   public abstract LocationDao getLocationDao();
 
-  // TODO Declare abstract accessors (aka getters) for other DAOs used in this project.
-
   /**
    * Defines converters for otherwise unsupported types (initially, just {@link Instant}) to one of
    * those supported by Room/SQLite.
@@ -97,9 +95,6 @@ public abstract class LeaveMeAloneDatabase extends RoomDatabase {
     @Override
     public void onCreate(@NonNull SupportSQLiteDatabase db) {
       super.onCreate(db);
-      // TODO Obtain DAO instances from database, and use them to perform any required preloads, e.g.
-      //  LocalDatabase database = LocalDatabase.getInstance();
-      //  etc.
     }
 
   }

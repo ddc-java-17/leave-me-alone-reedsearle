@@ -14,6 +14,11 @@ import edu.cnm.deepdive.leavemealone.adapter.LocationsAdapter;
 import edu.cnm.deepdive.leavemealone.databinding.FragmentLocationsBinding;
 import edu.cnm.deepdive.leavemealone.viewmodel.LocationViewModel;
 
+/**
+ * This fragment is used to display all previously set locations.
+ * it uses the location view model to get data from the database and an adapter
+ * to display the information in a recycler view
+ */
 @AndroidEntryPoint
 public class LocationsFragment extends Fragment {
 
@@ -37,6 +42,11 @@ public class LocationsFragment extends Fragment {
     return binding.getRoot();
   }
 
+  /**
+   * This get the data and inserts it into the adapter
+   * @param view
+   * @param savedInstanceState
+   */
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);

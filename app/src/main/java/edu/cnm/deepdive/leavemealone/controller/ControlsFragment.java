@@ -37,6 +37,12 @@ public class ControlsFragment extends Fragment{
     return binding.getRoot();
   }
 
+  /**
+   * This provides the basic navigation required for the app.  From here, the alarm may be
+   * activated directly, the system may be armed and locations may be set for future reference.
+   * @param view
+   * @param savedInstanceState
+   */
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
