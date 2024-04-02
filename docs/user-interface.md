@@ -12,6 +12,10 @@ wireframe:
 
 ## Navigation
 
-Describe (at least) the top-level navigation scheme that will be employed in the app (e.g., navigation drawer, bottom navigation, tabbed navigation).
+Navigation is accomplished in three ways:
+
+ - User navigation is button-based.  All navigation option for the user involve buttons with the exception of when the app is armed.
+ - Once the app is armed, the only navigation option is to correctly enter the disarm code.
+ - Automatic navigation is accomplished by motion (Arm to Warning), or timer (Warning to Alarm).
 
 {% include wireframe.md %}
