@@ -1,11 +1,11 @@
--- Generated 2024-04-01 21:29:33-0600 for database version 1
+-- Generated 2024-04-02 11:17:54-0600 for database version 1
 
 CREATE TABLE IF NOT EXISTS `alert`
 (
     `alert_id`  INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     `triggered` INTEGER                           NOT NULL,
     `timestamp` INTEGER                           NOT NULL,
-    `photoname` TEXT
+    `photoName` TEXT
 );
 
 CREATE INDEX IF NOT EXISTS `index_alert_triggered` ON `alert` (`triggered`);

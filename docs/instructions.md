@@ -51,13 +51,19 @@ This screen will display all of your saved locations as well as locations where 
 
 ### Arm
 
+disarm code = 1234
+
 At this screen, the device is sensing any movement.  The only choices are to enter the disarm code to return to the main screen or to let movement activate the warning screen.  Please note, when you pick up your phone to enter the disarm code, you are highly likely to end up in the warning screen.
 
 ### Warning
 
+disarm code = 1234
+
 On this screen, you will see a countdown timer (settable in the Settings screen), and hear the warning sound.  This is the time alloted to enter the disarm code.  If the code is not entered correctly by the time the timer expires, the alarm will sound and will transfer to the alarm sounding screen.
 
 ### Alarm 
+
+disarm code = 1234
 
 By the time you reach this screen, the alarm is sounding.  You still have the option of entering the disarm code to silence the alarm and return to the main screen.
 

@@ -4,10 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import java.net.URI;
 import java.time.Instant;
-import java.util.LinkedList;
-import java.util.List;
 
 @Entity(
     tableName = "alert",
@@ -26,7 +23,7 @@ public class Alert {
   @NonNull
   private Instant timestamp = Instant.now();
 
-  private String photoname;
+  private String photoName;
 
   /**
    * This returns the id of an individual alert
@@ -84,15 +81,15 @@ public class Alert {
    * This returns the filename of a photo, if one was taken
    * @return
    */
-  public String getPhotoname() {
-    return photoname;
+  public String getPhotoName() {
+    return photoName;
   }
 
   /**
    * This annotates the alert with the filename of a photo that was taken
-   * @param photoname
+   * @param photoName
    */
-  public void setPhotoname(String photoname) {
-    this.photoname = photoname;
+  public void setPhotoName(String photoName) {
+    this.photoName = photoName;
   }
 }

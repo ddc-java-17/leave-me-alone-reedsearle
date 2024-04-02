@@ -22,7 +22,7 @@ This app currently includes the basic functionality.  Navigation to all screen i
  - No alarm or warning sound.  The alarm is supposed to have two distinct sounds; one to warn you motion has been detected and to enter your disarm code, and the other to alert you the phone is being stolen.  Neither was implemented in this release.
  - No alarm functionality.  Other than the alarm screen, no other functionality exists yet for this state.  In this state, the device was supposed to sound an audible alarm, take a photo or a quick video, save a location with the unsecure annotation, and begin GPS tracking.  Further, this information was supposed to be transmitted to a pre-determined email which is also not implemented.
  - The disarm code is a hard-coded default, as is the code length.  The code should be determined by the user.  The code length, used for the text watcher to determine if a correct length code has been entered, should be based on the code chosen by the user.
- - 
+ - Back button is still active.  For this app to behave appropriately, the back button must be disabled.  No one should be able to stop the alarm fron sounding simply by pressing the back button.
 
 ## Test environments used
 {: menu="Environments" }

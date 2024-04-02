@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-03-20T02:31:11.233Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="G_t-fP7wkPKqUAyi96TF" version="24.0.4" type="device">
+<mxfile host="Electron" modified="2024-04-02T17:08:36.328Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="djBnIcrryZ5gMrgFh2uh" version="24.1.0" type="device">
   <diagram name="Page-1" id="htAdSNcWlhiPEnMqPCJC">
     <mxGraphModel dx="884" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -7,10 +7,10 @@
         <mxCell id="QO3o60luh7Fnf20lb6pL-1" value="Alert" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="100" y="80" width="210" height="190" as="geometry" />
         </mxCell>
-        <mxCell id="QO3o60luh7Fnf20lb6pL-12" value="- triggered: Boolean {read-only}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="QO3o60luh7Fnf20lb6pL-1" vertex="1">
+        <mxCell id="QO3o60luh7Fnf20lb6pL-12" value="- triggered: boolean {read-only}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="QO3o60luh7Fnf20lb6pL-1" vertex="1">
           <mxGeometry y="26" width="210" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="QO3o60luh7Fnf20lb6pL-13" value="- photo: URI {read-only}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="QO3o60luh7Fnf20lb6pL-1" vertex="1">
+        <mxCell id="QO3o60luh7Fnf20lb6pL-13" value="- photoName: String{read-only}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="QO3o60luh7Fnf20lb6pL-1" vertex="1">
           <mxGeometry y="52" width="210" height="26" as="geometry" />
         </mxCell>
         <mxCell id="QO3o60luh7Fnf20lb6pL-2" value="- timeOn: Time {read-only}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="QO3o60luh7Fnf20lb6pL-1" vertex="1">
