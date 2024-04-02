@@ -50,7 +50,15 @@ public class LocationRepository implements FusedLocationProviderClient {
   private GPSCoord coord;
   private final LiveData<Boolean> locationPermissionGranted;
 
-
+  /**
+   * This constructor does the heavy lifting for the GPS location determination.  THere are
+   * two try-catches; the forst get the intial position and the second get every subsequent
+   * position.
+   * @param context
+   * @param locationDao
+   * @param permissionsRepository
+   * @param preferencesRepository
+   */
   @Inject
   public LocationRepository(@ApplicationContext Context context,
       LocationDao locationDao,
@@ -98,6 +106,13 @@ public class LocationRepository implements FusedLocationProviderClient {
     });
   }
 
+  /**
+   * This method adds a location to the database with a boolean parameter of secure
+   * where true indicates the location is secure and false indicates the location
+   * is not secure.
+   * @param secure
+   * @return
+   */
   public Single<Long> add(Boolean secure) {
     Location location = new Location();
     location.setSecure(secure);
@@ -107,6 +122,10 @@ public class LocationRepository implements FusedLocationProviderClient {
         .subscribeOn(Schedulers.io());
   }
 
+  /**
+   * The getAll method is used to return a list of locations to the viewmodel
+   * @return
+   */
   public LiveData<List<Location>> getAll() {
     return locationDao.getLocations();
   }

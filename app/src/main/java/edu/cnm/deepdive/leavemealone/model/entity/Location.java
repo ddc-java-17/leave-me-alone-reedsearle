@@ -30,34 +30,67 @@ public class Location {
     @Embedded
     private GPSCoord gpsCoord;
 
+    /**
+     * Returns the id of a particular location
+     * @return
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * This annotates an individual location with an id
+     * @param id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * This returns the alert_id of a particular location
+     * @return
+     */
     public long getAlertId() {
         return alertId;
     }
 
+    /**
+     * This annotates an individual location with its associated alert_id
+     * @param alertId
+     */
     public void setAlertId(long alertId) {
         this.alertId = alertId;
     }
 
+    /**
+     * This returns the secure status of a location
+     * @return
+     */
     public boolean isSecure() {
         return secure;
     }
 
+    /**
+     * This annotates a location with a boolena secure status
+     * @param secure
+     */
     public void setSecure(boolean secure) {
         this.secure = secure;
     }
 
+    /**
+     * This returns the GPS coordinates of a location
+     *
+     * @return
+     */
     public GPSCoord getGpsCoord() {
         return gpsCoord;
     }
 
+    /**
+     * This annotates a location with a set of GPS coordinates
+     * @param gpsCoord
+     */
     public void setGpsCoord(GPSCoord gpsCoord) {
         this.gpsCoord = gpsCoord;
     }
